@@ -1,0 +1,10 @@
+\select@language {ngerman}
+\beamer@endinputifotherversion {3.10pt}
+\select@language {ngerman}
+\beamer@sectionintoc {1}{Organisatorisches}{3}{0}{1}
+\beamer@subsectionintoc {1}{1}{Vorstellung}{3}{0}{1}
+\beamer@subsectionintoc {1}{2}{\IeC {\"U}bungsschein}{7}{0}{1}
+\beamer@sectionintoc {2}{Versionsverwaltungen}{12}{0}{2}
+\beamer@sectionintoc {3}{Lastenheft}{16}{0}{3}
+\beamer@subsectionintoc {3}{1}{Gliederungsschema}{16}{0}{3}
+\beamer@sectionintoc {4}{Ende}{18}{0}{4}
