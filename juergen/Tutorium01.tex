@@ -42,7 +42,7 @@
 % the presentation starts here
 
 \title[Short title]{Tutorium 01: Projektplanung }
-\subtitle{Softwaretechnik im SS 2011, Gruppe 2}
+\subtitle{Softwaretechnik im SS 2011, Tutorien 4 + X + Y}
 \author{Jürgen Walter}
 
 \institute{Chair for Software Design and Quality}
@@ -57,14 +57,6 @@
 \begin{frame}
 \titlepage
 \end{frame}
-
-%table of contents
-\frame{
-\frametitle{Was machen wir heute?}
-\tableofcontents
-}
-
-
 
 \section{Organisatorisches}
 
@@ -84,61 +76,86 @@
 \end{itemize}
 }
 
+%table of contents
+\frame{
+\frametitle{Was machen wir heute?}
+\tableofcontents
+}
+
 \subsection{Übungsschein}
 \frame{
 \frametitle{Übungsschein}
-\begin{block}{Der Übungschein ist \dots}
+\begin{block}{Der Übungsschein \dots}
 \begin{itemize}
 \pause
-\item Vorraussetzung zur Klausur
+\item ist keine Vorraussetzung zur Klausur, aber Vorraussetzung für Modul!
 \pause
-\item 6 Übungsblätter
+\item hat 6 Übungsblätter mit  insgesammt 150 Punkten
 \pause
-\item 150 Punkte insgesammt 
-\pause
-\item mit 50 Prozent aus Übungsblättern und Programmmieraufgaben bestanden 
+\item ist mit 50 Prozent aus Übungsblättern und Programmmieraufgaben bestanden 
 \end{itemize}
 \end{block}
 }
 
-\section{Zum Aufwärmen ...}
+
+\section{Altes Übungsblatt und Wiederholungen}
+
+\subsection{Zum Aufwärmen ...}
 \frame {
-\frametitle{wahr falsch}
+\frametitle{Zeigt mal was ihr könnt, wahr oder falsch?}
 \begin{itemize}
+	\color<2-5>[rgb]{0,1,0}
 	\item In der Planungsphase wird die softwaretechnische Realisierbarkeit eines Produktes untersucht
+	\color[rgb]{0,0,0}
 	\pause
+	\color<3-5>[rgb]{1,0,0}
 	\item Ein Pflichtenheft beschreibt die Eigenschaften, die das Produkt aus der Sicht des Kunden erfüllen soll
+	\color[rgb]{0,0,0}
 	\pause
+	\color<4-5>[rgb]{0,1,0}
 	\item In einem UML-Anwendungsfalldiagramm werden typische Interaktionen des Benutzers mit dem System modelliert
+	\color[rgb]{0,0,0}
 \end{itemize}
 }
 
-\section{Versionsverwaltungen}
+
+\subsection{Werkzeuge}
 
 \frame{
-\frametitle{Subversion}
+\frametitle{Versionsverwaltungen}
+
+\begin{block}{Subversion}
 \begin{itemize}
-\pause
 \item von der Vorlesung unterstützte Versionsverwaltung
+\item Windows: Tortoise SVN
+\item Linux: Shell oder Tortoise SVN
+\item Mac: Shell
 \end{itemize}
-}
-
-\frame{
-\frametitle{Git}
-\begin{itemize}
+\end{block}
 \pause
+
+\begin{block}{Git}
+\begin{itemize}
 \item Werkzeug des Tutors ;-)
 \end{itemize}
+\end{block}
+}
+
+\frame{
+\frametitle{Checkstyle}
+\begin{alertblock}{Das geht besser \dots}
+\begin{itemize}
+\item Keiner von euch ist ohne Checkstyle Fehler
+\end{itemize}
+\end{alertblock}
 }
 
 
 
-\section{Lastenheft}
-
-\subsection{Gliederungsschema}
+\subsection{Lastenheft}
 
 \frame{
-\frametitle{Gliederungsschema}
+\frametitle{Lastenheft}
 \begin{itemize}
 \item enthält die Hauptanforderungen an das Produkt (user requirements)
 \item formuliert mit natürlicher Sprache, evtl. Diagramme
@@ -147,16 +164,18 @@
 }
 
 \frame{
-\frametitle{Gliederungsschema}
+\frametitle{Lastenheft}
 \begin{block}{Gliederungsschema Lastenheft}
 \begin{itemize}
 \item1.Zielbestimmung
 \item2.Produkteinsatz
-\item3.Produktfunktionen
+\item3.Funktionale Anforderungen
 \item4.Produktdaten
-\item5.Produktleistungen
+\item5.Nichtfunktionale Anforderungen
 \item6.Qualitätsanforderungen
-\item7.Ergänzungen (weitere nichtfunktionale Eigenschaften).
+\item   a)Szenarien
+\item   b)Anwendungsfälle
+\item7.Systemmodelle
 \item8.Glossar (Begriffslexikon zur Beschreibung des Produktes)
 \end{itemize}
 \end{block}
@@ -167,14 +186,37 @@
 \section{Ende}
 
 \frame{
-\frametitle{Nächstes Übungsblatt}
+\frametitle{Tipps zum nächsten Übungsblatt}
+
+\begin{block}{Aufgabe 1}
+\begin{itemize}
+\item Bla bla
+\item Bla bla
+\end{itemize}
+\end{block}
+
+\begin{block}{Aufgabe 2}
+\begin{itemize}
+\item Bla bla
+\item Bla bla
+\end{itemize}
+\end{block}
+
+\begin{block}{Aufgabe 3}
+\begin{itemize}
+\item Bla bla
+\item Bla bla
+\end{itemize}
+\end{block}
+
+
 }
 
 
 \frame{
-\frametitle{Ende}
+\frametitle{Bis zum nächsten Mal}
 \begin{center}
-\includegraphics[width=0.4\textwidth]{pics/chuckNorris}
+\includegraphics[width=1\textwidth]{pics/time_management}
 \end{center}
 
 }
