@@ -100,6 +100,53 @@
 
 \section{Altes Übungsblatt und Wiederholungen}
 
+\subsection{Altes Übungsblatt}
+\frame {
+\frametitle{Altes Übungsblatt}
+\begin{block}{Aufgabe 1: Mailingliste}
+\begin{itemize}
+\item ...
+\end{itemize}
+\end{block}
+
+
+\begin{block}{Aufgabe 2: Lastenheft}
+\begin{enumerate}
+\item Zielbestimmung
+\item Produkteinsatz
+\item Funktionale Anforderungen
+\item Produktdaten
+\item Nichtfunktionale Anforderungen
+\item Systemmodelle
+\begin{itemize}
+	\item Szenarien
+	\item Anwendungsfälle
+\end{itemize}
+\item Glossar (Begriffslexikon zur Beschreibung des Produktes)
+\end{enumerate}
+\end{block}
+}
+
+\frame {
+\begin{block}{Aufgabe 3 Durchführbarkeitsuntersuchung} 
+\begin{itemize}
+\item ...
+\end{itemize}
+
+\end{block}
+\begin{block}{Aufgabe 4 Hans Olo}
+\begin{itemize}
+\item \textbf{Benutzt Checkstyle!}
+\end{itemize}
+\end{block}
+
+\begin{block}{Aufgabe 5 Vorbereitung der Programmieraufgabe}
+\begin{itemize}
+\item ...
+\end{itemize}
+\end{block}
+}
+
 \subsection{Zum Aufwärmen ...}
 \frame {
 \frametitle{Zeigt mal was ihr könnt, wahr oder falsch?}
@@ -141,6 +188,33 @@
 \end{block}
 }
 
+\frame {
+\frametitle{Klausuraufgabe 2009}
+\begin{block}{Aufgabe}
+Erklären Sie die beiden Begriffe „Striktes Ausbuchen“ und „Optimistisches Ausbuchen“ im Kontext einer Konfigurationsverwaltung. Nennen Sie jeweils einen Vor- sowie einen Nachteil. (4P)
+\end{block}
+
+Striktes Ausbuchen
+\visible <2-> {
+\begin{itemize}
+\item Nur eine Ausbuchung gleichzeitig ist erlaubt 
+\item Ausbucher hat exklusives Änderungsrecht 
+\item Vorteil: kein Verschmelzungsaufwand beim Zurückschreiben 
+\item Nachteil: immer nur einer kann eine Version ändern
+\end{itemize}
+}
+Optimistisches Ausbuchen 
+\visible<3-> {
+\begin{itemize}
+\item Mehrere Ausbuchungen gleichzeitig erlaubt 
+\item Mehrere Entwickler Arbeiten an der gleichen Programmversion 
+\item Vorteil: Mehrere Entwickler können eine Version ändern 
+\item Nachteil: Aufwand beim Zusammenführen der Versionen (der Schnellere gewinnt)
+\end{itemize}
+}
+}
+
+
 \frame{
 \frametitle{Checkstyle}
 \begin{alertblock}{Das geht besser \dots}
@@ -164,24 +238,35 @@
 }
 
 \frame{
-\frametitle{Lastenheft}
-\begin{block}{Gliederungsschema Lastenheft}
-\begin{itemize}
-\item1.Zielbestimmung
-\item2.Produkteinsatz
-\item3.Funktionale Anforderungen
-\item4.Produktdaten
-\item5.Nichtfunktionale Anforderungen
-\item6.Qualitätsanforderungen
-\item   a)Szenarien
-\item   b)Anwendungsfälle
-\item7.Systemmodelle
-\item8.Glossar (Begriffslexikon zur Beschreibung des Produktes)
-\end{itemize}
-\end{block}
+\frametitle{Klassendiagramm}
+Hier könnte man dann etwas allgemeines zu Klassendiagrammen sagen
+
+Ist Aufgabe 1 vom Übungsblatt 2
 }
 
+\frame {
+\frametitle{Klassendiagramm Aufgabe}
+\begin{block} {Szenario}  
+In einer Formel 1-Saison gibt es 12 Teams. Die Saison hat 19 Rennen und an jedem Rennen nehmen
+die Teams mit jeweils 2 Fahrzeugen teil. Während der Saison können Teams ausscheiden und von
+nachrückenden Teams ersetzt werden. Es kann aber niemals in dieser Saison weniger als eins oder
+mehr als 12 Teams geben. Zu den öffentlichen Eigenschaften eines Fahrzeugs gehört der Team-
+Name, der Name des Chassis, die Motorbezeichnung sowie Startnummer und der Fahrer. Die Startnummer
+ist eindeutig. Die geheimen Eigenschaften eines Fahrzeugs sind die Größe des Tanks und
+die Dicke der Bodenplatte. In dieser Saison gibt es verschiedene Motoren, die von den zwölf Teams
+in ihren beiden Fahrzeugen verbaut sind.
+\end{block}
 
+Verwenden Sie die aus der Vorlesung bekannten Vorgehensweisen zur Objektmodellierung und erstellen Sie
+ein Klassendiagramm. Modellieren Sie dabei Klassen, Attribute, Assoziationen und Multiplizitäten.
+
+}
+
+\frame{
+\frametitle{Musterlösung}
+\includegraphics[scale=0.5]{pics/Klassendiagramm.png}
+
+}
 
 \section{Ende}
 
