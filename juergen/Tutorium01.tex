@@ -1,57 +1,13 @@
-%% LaTeX-Beamer template for KIT design
-%% by Erik Burger, Christian Hammer
-%% title picture by Klaus Krogmann
-%%
-%% version 2.0
-%%
-%% mostly compatible to KIT corporate design v2.0
-%% http://intranet.kit.edu/gestaltungsrichtlinien.php
-%%
-%% Problems, bugs and comments to
-%% burger@kit.edu
-
-\documentclass[18pt]{beamer}
-\usetheme{kit}
-
-%% TITLE PICTURE
-
-% if a custom picture is to be used on the title page, copy it into the 'logos'
-% directory, in the line below, replace 'mypicture' with the 
-% filename (without extension) and uncomment the following line
-% (picture proportions: 63 : 20, *.eps format if you use latex+dvips+ps2pdf,
-% *.jpg/*.png/*.pdf if you use pdflatex)
-
-%\titleimage{mypicture}
-
-%% TITLE LOGO
-
-% for a custom logo on the front page, copy your file into the 'logos'
-% directory, insert the filename in the line below and uncomment it
-
-%\titlelogo{mylogo}
-
-% (*.eps format if you use latex+dvips+ps2pdf,
-% *.jpg/*.png/*.pdf if you use pdflatex)
-
-%% BIBTEX ICON/KEY
-
-% if you want to see BibTeX keys in the references view instead of the symbol,
-% uncomment the following line
-% \usebibitemtemplate{\insertbiblabel}
-
-% the presentation starts here
+\input{header.tex}
 
 \title[Short title]{Tutorium 01: Projektplanung }
-\subtitle{Softwaretechnik im SS 2011, Tutorien 4 + X + Y}
+\subtitle{Softwaretechnik im SS 2011, Tutorien 4 + X + 17}
 \author{Jürgen Walter}
+\date{3. Mai 2011}  			%%%%%%%%%%%%%%%	DATUM, anpassen!
 
 \institute{Chair for Software Design and Quality}
 
 \begin{document}
-
-% change the following line to "ngerman" for German style date and logos
-% change the following line to "english" for English style date and logos
-\selectlanguage{ngerman}
 
 %title page
 \begin{frame}
@@ -90,7 +46,7 @@
 \pause
 \item ist keine Vorraussetzung zur Klausur, aber Vorraussetzung für Modul!
 \pause
-\item hat 6 Übungsblätter mit  insgesammt 150 Punkten
+\item hat 6 Übungsblätter mit  insgesamt 150 Punkten
 \pause
 \item ist mit 50 Prozent aus Übungsblättern und Programmmieraufgaben bestanden 
 \end{itemize}
@@ -130,7 +86,8 @@
 \frame {
 \begin{block}{Aufgabe 3 Durchführbarkeitsuntersuchung} 
 \begin{itemize}
-\item ...
+\item jeden der 6 Aspekte ansprechen
+\item “Probleme durch ... treten nicht auf da ...” ist auch eine gute Antwort
 \end{itemize}
 
 \end{block}
@@ -151,23 +108,23 @@
 \frame {
 \frametitle{Wahr oder falsch?}
 \begin{itemize}
-	\color<2-7>[rgb]{0,1,0}
+	\color<2->[rgb]{0,1,0}
 	\item In der Planungsphase wird die softwaretechnische Realisierbarkeit eines Produktes untersucht
 	\color[rgb]{0,0,0}
 	\pause
-	\color<3-7>[rgb]{1,0,0}
+	\color<3->[rgb]{1,0,0}
 	\item Ein Pflichtenheft beschreibt die Eigenschaften, die das Produkt aus der Sicht des Kunden erfüllen soll
 	\color[rgb]{0,0,0}
 	\pause
-	\color<4-7>[rgb]{0,1,0}
+	\color<4->[rgb]{0,1,0}
 	\item In einem UML-Anwendungsfalldiagramm werden typische Interaktionen des Benutzers mit dem System modelliert
 	\color[rgb]{0,0,0}
 	\pause
-	\color<5-7>[rgb]{1,0,0}
+	\color<5->[rgb]{1,0,0}
 	\item Das Lastenheft ist eine Verfeinerung des Pflichtenheftes
 	\color[rgb]{0,0,0}
 	\pause
-	\color<6-7>[rgb]{1,0,0}
+	\color<6->[rgb]{1,0,0}
 	\item Im Pflichtenheft steht beschrieben, wie etwas zu implementieren ist. Es werden z.B. Algorithmen und Datenstrukturen beschrieben
 	\color[rgb]{0,0,0}
 \end{itemize}
@@ -183,15 +140,35 @@
 \begin{itemize}
 \item von der Vorlesung unterstützte Versionsverwaltung
 \item Windows: Tortoise SVN
-\item Linux: Shell oder Tortoise SVN
+\item Linux: Shell oder RabbitVCS
 \item Mac: Shell
 \end{itemize}
 \end{block}
-\pause
+}
+
+\frame{
+\frametitle{Versionsverwaltungen\dots}
 
 \begin{block}{Git}
 \begin{itemize}
 \item Werkzeug des Tutors ;-)
+\item dezentrales VCS: jeder Benutzer hat lokal ein vollständiges Repository
+\item hat mehr Funktionen als SVN, aber auch mehr Möglichkeiten sich selbst in den Fuß zu schießen\dots
+\item Verschmelzen verschiedener Zweige und Versionen ist hier eher Normalfall als Ausnahme
+\end{itemize}
+\end{block}
+}
+
+\frame{
+\frametitle{Versionsverwaltungen\dots}
+
+\begin{block}{weitere}
+\begin{itemize}
+\item Es gibt noch viele weitere frei verfügbare dezentrale VCS
+\item diese unterscheiden sich wenig voneinander
+\item Mercuarial / Hg, neben Git vermutlich das verbreitetste DVCS
+\item Bazaar / bzr
+\item Darcs
 \end{itemize}
 \end{block}
 }
@@ -230,9 +207,17 @@ Optimistisches Ausbuchen
 \item Keiner von euch ist ohne Checkstyle Fehler
 \end{itemize}
 \end{alertblock}
+
+\pause
+\begin{block}{private Konstruktoren und utility classes}
+\begin{itemize}
+\item ist alles in einer Klasse \texttt{static}, dann sollte man diese Klasse vermutlich nicht instanziieren
+\item durch einen privaten Konstruktor verhindert man das versehentliche Instanziieren:\\
+\texttt{ private MyClass() \{\} }
+
+\end{itemize}
+\end{block}
 }
-
-
 
 \subsection{Lastenheft}
 
