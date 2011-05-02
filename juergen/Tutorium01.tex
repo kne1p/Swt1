@@ -1,9 +1,9 @@
 \input{header.tex}
 
-\title[Short title]{Tutorium 01: Projektplanung }
-\subtitle{Softwaretechnik im SS 2011, Tutorien 4 + X + 17}
+\title[Tutorium01]{Tutorium 01: Werkzeuge + UML }
+\subtitle{Softwaretechnik im SS 2011, Tutorien 4 + 11 + 17}
 \author{Jürgen Walter}
-\date{3. Mai 2011}  			%%%%%%%%%%%%%%%	DATUM, anpassen!
+\date{\today}
 
 \institute{Chair for Software Design and Quality}
 
@@ -38,10 +38,10 @@
 \tableofcontents
 }
 
-\subsection{Übungsschein}
+\subsection{Organisatorisches}
 \frame{
-\frametitle{Übungsschein}
-\begin{block}{Der Übungsschein \dots}
+\frametitle{Organisatorisches}
+\begin{block}{Übungsschein \dots}
 \begin{itemize}
 \pause
 \item ist keine Vorraussetzung zur Klausur, aber Vorraussetzung für Modul!
@@ -49,12 +49,20 @@
 \item hat 6 Übungsblätter mit  insgesamt 150 Punkten
 \pause
 \item ist mit 50 Prozent aus Übungsblättern und Programmmieraufgaben bestanden 
+\pause
 \end{itemize}
 \end{block}
+
+\begin{block}{Tutorium \dots}
+\begin{itemize}
+\item findet alle 2 Wochen statt
+\end{itemize}
+\end{block}
+
 }
 
 
-\section{Altes Übungsblatt und Wiederholungen}
+\section{Altes Übungsblatt}
 
 \subsection{Altes Übungsblatt}
 \frame {
@@ -87,7 +95,7 @@
 \begin{block}{Aufgabe 3 Durchführbarkeitsuntersuchung} 
 \begin{itemize}
 \item jeden der 6 Aspekte ansprechen
-\item “Probleme durch ... treten nicht auf da ...” ist auch eine gute Antwort
+\item “Probleme durch ... treten nicht auf, \textbf{da ...}” ist auch eine gute Antwort
 \end{itemize}
 
 \end{block}
@@ -99,7 +107,7 @@
 
 \begin{block}{Aufgabe 5 Vorbereitung der Programmieraufgabe}
 \begin{itemize}
-\item ...
+\item hat jeder das Projekt runter geladen?
 \end{itemize}
 \end{block}
 }
@@ -130,8 +138,23 @@
 \end{itemize}
 }
 
+\subsection{Pflichtenheft}
 
-\subsection{Werkzeuge}
+\frame{
+\frametitle{Pflichtenheft}
+\begin{itemize}
+\item Das Pflichtenheft ist eine Verfeinerung des Lastenheftes\pause
+\item Das Pflichtenheft beschreibt nicht, wie, sondern nur \textbf{was} zu implementieren ist. \pause
+\\ $\Rightarrow$ es werden weder Algorithmen noch Datenstrukturen festgelegt \pause
+\item das Pflichtenheft definiert das Projekt so vollständig und exakt, \\
+dass Entwickler das System implementieren können, \\
+ohne nachfragen oder raten zu müssen, \textbf{was} zu implementieren ist.
+\end{itemize}
+}
+
+
+\section{Werkzeuge}
+\subsection{Versionsverwaltungen}
 
 \frame{
 \frametitle{Versionsverwaltungen}
@@ -157,24 +180,18 @@
 \item Verschmelzen verschiedener Zweige und Versionen ist hier eher Normalfall als Ausnahme
 \end{itemize}
 \end{block}
-}
-
-\frame{
-\frametitle{Versionsverwaltungen\dots}
 
 \begin{block}{weitere}
 \begin{itemize}
 \item Es gibt noch viele weitere frei verfügbare dezentrale VCS
-\item diese unterscheiden sich wenig voneinander
-\item Mercuarial / Hg, neben Git vermutlich das verbreitetste DVCS
-\item Bazaar / bzr
-\item Darcs
+\item z.B. Mercurial (Hg)
 \end{itemize}
 \end{block}
+
 }
 
 \frame {
-\frametitle{Klausuraufgabe 2009}
+\frametitle{Klausur 2009}
 \begin{block}{Aufgabe}
 Erklären Sie die beiden Begriffe „Striktes Ausbuchen“ und „Optimistisches Ausbuchen“ im Kontext einer Konfigurationsverwaltung. Nennen Sie jeweils einen Vor- sowie einen Nachteil. (4P)
 \end{block}
@@ -199,18 +216,20 @@ Optimistisches Ausbuchen
 }
 }
 
+\subsection{Checkstyle}
 
 \frame{
 \frametitle{Checkstyle}
 \begin{alertblock}{Das geht besser \dots}
 \begin{itemize}
-\item Keiner von euch ist ohne Checkstyle Fehler
+\item Fast keiner von euch ist ohne Checkstyle Fehler
 \end{itemize}
 \end{alertblock}
 
 \pause
 \begin{block}{private Konstruktoren und utility classes}
 \begin{itemize}
+\item Fehlermeldung: \\“utility classes should not have a public or default constructor”
 \item ist alles in einer Klasse \texttt{static}, dann sollte man diese Klasse vermutlich nicht instanziieren
 \item durch einen privaten Konstruktor verhindert man das versehentliche Instanziieren:\\
 \texttt{ private MyClass() \{\} }
@@ -250,26 +269,39 @@ Optimistisches Ausbuchen
 \end{center}
 }
 
-\subsection{Lastenheft}
-
-\frame{
-\frametitle{Lastenheft}
-\begin{itemize}
-\item enthält die Hauptanforderungen an das Produkt (user requirements)
-\item formuliert mit natürlicher Sprache, evtl. Diagramme
-\item dient der Kommunikation mit dem Kunden und der Projektplanung
-\end{itemize}
-}
+\section{UML}
 
 \subsection{Klassendiagramm}
+
+\frame{
+\frametitle{UML}
+\begin{block}{Klassendiagramm}
+\begin{itemize}
+\item Was ist das?
+\end{itemize}
+\end{block}
+\begin{block}{Aktivitätsdiagramm}
+\begin{itemize}
+\item Was ist das?
+\end{itemize}
+\end{block}
+}
+
+
 \frame{
 \frametitle{Klassendiagramm: Erläuterung am Beispiel}
 \includegraphics[scale=0.5]{pics/Klassendiagramm-1.png}
 }
+\frame{
+\frametitle{Klassendiagramm: Komposition und Aggregation}
+\includegraphics[scale=0.5]{pics/01_Komposition_Aggregation.png}
+}
+
+
 
 \frame {
-\frametitle{Klassendiagramm Aufgabe}
-\begin{block} {Szenario}  
+\frametitle{Aufgabe Klassendiagramm}
+\begin{exampleblock} {Szenario}  
 In einer Formel 1-Saison gibt es 12 Teams. Die Saison hat 19 Rennen und an jedem Rennen nehmen
 die Teams mit jeweils 2 Fahrzeugen teil. Während der Saison können Teams ausscheiden und von
 nachrückenden Teams ersetzt werden. Es kann aber niemals in dieser Saison weniger als eins oder
@@ -278,7 +310,7 @@ Name, der Name des Chassis, die Motorbezeichnung sowie Startnummer und der Fahre
 ist eindeutig. Die geheimen Eigenschaften eines Fahrzeugs sind die Größe des Tanks und
 die Dicke der Bodenplatte. In dieser Saison gibt es verschiedene Motoren, die von den zwölf Teams
 in ihren beiden Fahrzeugen verbaut sind.
-\end{block}
+\end{exampleblock}
 
 Verwenden Sie die aus der Vorlesung bekannten Vorgehensweisen zur Objektmodellierung und erstellen Sie
 ein Klassendiagramm. Modellieren Sie dabei Klassen, Attribute, Assoziationen und Multiplizitäten.
@@ -287,14 +319,13 @@ ein Klassendiagramm. Modellieren Sie dabei Klassen, Attribute, Assoziationen und
 
 \frame{
 \frametitle{Musterlösung}
-\includegraphics[scale=0.5]{pics/Klassendiagramm.png}
-
+\includegraphics[scale=0.4]{pics/Klassendiagramm.png}
 }
 
 \subsection{Aktivitätsdiagramm}
 
 \frame{
-\frametitle {Aktivitätsdiagramm Allgemein} 
+\frametitle {Aktivitätsdiagramm} 
 \begin{itemize}
 	\item Ein Aktivitätsdiagramm beschreibt einen Ablauf
 	\item Besteht aus \textbf{Aktions-, Objekt-} und \textbf{Kontrollflussknoten} sowie \textbf{Objekt-} und 											\textbf{Kontrollflüssen}
@@ -311,11 +342,16 @@ ein Klassendiagramm. Modellieren Sie dabei Klassen, Attribute, Assoziationen und
 }
 
 \frame {
-\frametitle{Beispiel}
+\begin{exampleblock}{Beispiel Aktivitätsdiagramm}
+\begin{center}
 \includegraphics[scale=0.22]{pics/beispiel.png}
+\end{center}
+\end{exampleblock}
+
 }
 \frame{
-\frametitle{Aufgabe Aktivitätsdiagramm (9P)}
+%\frametitle{Klausur 2010 Aktivitätsdiagramm (9P)}
+\begin{exampleblock}{Klausur 2010 Aktivitätsdiagramm (9P)}
 \small {
 Nach dem Start beginnt die erste Runde. 
 In dieser und in jeder folgenden Runde
@@ -337,6 +373,7 @@ Ende der Boxengasse erreicht hat, beschleunigt er den Rennwagen auf Renntempo un
 fährt die Runde zu Ende. Anschließend geht der Fahrer auf die nächste Runde oder das Rennen ist
 beendet.
 }
+\end{exampleblock}
 }
 
 \frame{
@@ -344,33 +381,10 @@ beendet.
 \includegraphics[scale=0.5]{pics/diagramm.png}
 \end{center}
 }
-\subsection{Pflichtenheft}
-
-\frame{
-\frametitle{Pflichtenheft}
-\begin{itemize}
-\item Das Pflichtenheft ist eine Verfeinerung des Lastenheftes\pause
-\item Das Pflichtenheft beschreibt nicht, wie, sondern nur \textbf{was} zu implementieren ist. \pause
-\\ $\Rightarrow$ es werden weder Algorithmen noch Datenstrukturen festgelegt \pause
-\item das Pflichtenheft definiert das Projekt so vollständig und exakt, \\
-dass Entwickler das System implementieren können, \\
-ohne nachfragen oder raten zu müssen, \textbf{was} zu implementieren ist.
-\end{itemize}
-}
-
-%%%%%%%%%%%%%%%%%% kommt erst noch?
-%\frame{
-%\frametitle{Pflichtenheft}
-%\begin{block}{Gliederungsschema Pflichtenheft}
-%\begin{itemize}
-%\item\dots
-%\end{itemize}
-%\end{block}
-%}
-
-
 
 \section{Ende}
+
+\subsection{Tipps zum nächsten Übungsblatt}
 
 \frame{
 \frametitle{Tipps zum nächsten Übungsblatt}
@@ -385,20 +399,24 @@ ohne nachfragen oder raten zu müssen, \textbf{was} zu implementieren ist.
 \begin{block}{Aufgabe 2 - Aktivitätsdiagramm}
 \begin{itemize} \pause
 \item ihr dürft die Aufgabe auf zwei Diagramme verteilen \pause
-%\item Bla bla
+\item \url{http://de.wikipedia.org/wiki/Floyd-Steinberg-Algorithmus}
 \end{itemize}
 \end{block}
 
+}
+
+
+\frame{
+\frametitle{Tipps zum nächsten Übungsblatt}
 \begin{block}{Aufgabe 3 - Programmieren}
 \begin{itemize}
-\item args4j kann euch sehr viel Arbeit ersparen, versucht die Bedienung anhand von Configuration.java zu verstehen \pause
-\item achtet darauf ob ihr Ganzzahldivision verwendet: \\ \pause
+\item args4j kann euch sehr viel Arbeit ersparen, versucht die Bedienung anhand von Configuration.java zu verstehen 
+\item achtet darauf ob ihr Ganzzahldivision verwendet: 
+\\ \pause
 \texttt{int o; \dots; int p = (o + 128 ) / 256 * 255 \\
 		// liefert hier 0 oder 255: wieso?}
 \end{itemize}
 \end{block}
-
-
 }
 
 
