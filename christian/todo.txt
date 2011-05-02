@@ -1,4 +1,0 @@
-screens zu tortoisesvn
-checkstyle fehler übersicht zeigen
-eclipse tool tips demontrieren
-svn log zeigen

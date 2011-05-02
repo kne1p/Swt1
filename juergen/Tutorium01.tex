@@ -229,11 +229,51 @@ Optimistisches Ausbuchen
 \pause
 \begin{block}{private Konstruktoren und utility classes}
 \begin{itemize}
-\item Fehlermeldung: \\“utility classes should not have a public or default constructor”
-\item ist alles in einer Klasse \texttt{static}, dann sollte man diese Klasse vermutlich nicht instanziieren
+\item Fehlermeldung: \\“utility classes should not have a public or default constructor” \pause
+\item ist alles in einer Klasse \texttt{static}, dann sollte man diese Klasse vermutlich nicht instanziieren \pause
 \item durch einen privaten Konstruktor verhindert man das versehentliche Instanziieren:\\
-\texttt{ private MyClass() \{\} }
+\texttt{ private MyClass() \{\} } \pause
+\item eine solche “utility class” sollte als \texttt{final} markiert werden: \\
+\texttt{ public final class MyClass \{ }
+\end{itemize}
+\end{block}
+}
 
+\frame{
+\frametitle{Checkstyle - }
+\begin{block}{weitere Fehler}
+\begin{itemize}
+\item Fehlermeldung: \\“X sollte auf derselben/ der nächsten Zeile stehen” \pause
+\\ in Eclipse mit Autoformat beheben: \texttt{Ctrl + Shift + F} \pause
+\item Fehlermeldung: “Javadoc unvollständig” \pause
+\\ vor jeder Klasse und jeder Methode ohne Kommentar \texttt{/**} schreiben und  \texttt{Enter} drücken \pause
+\item Fehlermeldung: “Importe einzeln angeben” \pause
+\\ in Eclipse Importe vervollständigen: \texttt{ Ctrl + Shift + O }
+\end{itemize}
+\end{block}
+}
+
+\subsection{Eclipse}
+\frame{
+\frametitle{Eclipse Tipps }
+\begin{block}{einfaches Umbenennen}
+\begin{itemize}
+\item es gibt eine einfache Möglichkeit, ein beliebiges Element eines Java Programms in Eclipse umzubenennen \pause
+\item dazu markiert man das gewünschte Element und drückt \texttt{ Alt + Shift + R } bzw. wählt “Refactor”$>$”Rename” \pause
+\end{itemize}
+\end{block}
+
+\begin{block}{SVN in Eclipse}
+\begin{itemize}
+\item sobald in Eclipse ein SVN Plugin installiert ist, könnt ihr darauf über “Rechtsklick, Team” zugreifen \pause
+\item dort findet ihr “Commit”, “Update”, “Show History” und mehr
+\end{itemize}
+\end{block}
+
+\begin{block}{Local History}
+\begin{itemize}
+\item Eclipse merkt sich alle Änderungen an Dateien, unabhängig von SVN \pause
+\item gelöschte Datien findet man z.B. über “Rechtsklick auf Projekt”, “Restore from Local History”
 \end{itemize}
 \end{block}
 }
