@@ -1,9 +1,9 @@
 \input{header.tex}
 
-\title[Short title]{Tutorium 01: Projektplanung }
-\subtitle{Softwaretechnik im SS 2011, Tutorien 4 + X + 17}
+\title[Short title]{Tutorium 01: Werkzeuge + UML }
+\subtitle{Softwaretechnik im SS 2011, Tutorien 4 + 11 + 17}
 \author{Jürgen Walter}
-\date{3. Mai 2011}  			%%%%%%%%%%%%%%%	DATUM, anpassen!
+\date{\today}
 
 \institute{Chair for Software Design and Quality}
 
@@ -54,7 +54,7 @@
 }
 
 
-\section{Altes Übungsblatt und Wiederholungen}
+\section{Altes Übungsblatt}
 
 \subsection{Altes Übungsblatt}
 \frame {
@@ -130,7 +130,22 @@
 \end{itemize}
 }
 
+\subsection{Pflichtenheft}
 
+\frame{
+\frametitle{Pflichtenheft}
+\begin{itemize}
+\item Das Pflichtenheft ist eine Verfeinerung des Lastenheftes\pause
+\item Das Pflichtenheft beschreibt nicht, wie, sondern nur \textbf{was} zu implementieren ist. \pause
+\\ $\Rightarrow$ es werden weder Algorithmen noch Datenstrukturen festgelegt \pause
+\item das Pflichtenheft definiert das Projekt so vollständig und exakt, \\
+dass Entwickler das System implementieren können, \\
+ohne nachfragen oder raten zu müssen, \textbf{was} zu implementieren ist.
+\end{itemize}
+}
+
+
+\section{Werkzeuge}
 \subsection{Werkzeuge}
 
 \frame{
@@ -157,20 +172,14 @@
 \item Verschmelzen verschiedener Zweige und Versionen ist hier eher Normalfall als Ausnahme
 \end{itemize}
 \end{block}
-}
-
-\frame{
-\frametitle{Versionsverwaltungen\dots}
 
 \begin{block}{weitere}
 \begin{itemize}
 \item Es gibt noch viele weitere frei verfügbare dezentrale VCS
-\item diese unterscheiden sich wenig voneinander
-\item Mercuarial / Hg, neben Git vermutlich das verbreitetste DVCS
-\item Bazaar / bzr
-\item Darcs
+\item z.B. Mercurial (Hg)
 \end{itemize}
 \end{block}
+
 }
 
 \frame {
@@ -204,13 +213,14 @@ Optimistisches Ausbuchen
 \frametitle{Checkstyle}
 \begin{alertblock}{Das geht besser \dots}
 \begin{itemize}
-\item Keiner von euch ist ohne Checkstyle Fehler
+\item Fast keiner von euch ist ohne Checkstyle Fehler
 \end{itemize}
 \end{alertblock}
 
 \pause
 \begin{block}{private Konstruktoren und utility classes}
 \begin{itemize}
+\item Fehlermeldung: \\“utility classes should not have a public or default constructor”
 \item ist alles in einer Klasse \texttt{static}, dann sollte man diese Klasse vermutlich nicht instanziieren
 \item durch einen privaten Konstruktor verhindert man das versehentliche Instanziieren:\\
 \texttt{ private MyClass() \{\} }
@@ -250,18 +260,20 @@ Optimistisches Ausbuchen
 \end{center}
 }
 
-\subsection{Lastenheft}
+\section{UML}
 
+\subsection{UML Klassendiagramm}
 \frame{
-\frametitle{Lastenheft}
+\frametitle{UML}
+\begin{block}{Heute: Klassendiagramme}
 \begin{itemize}
-\item enthält die Hauptanforderungen an das Produkt (user requirements)
-\item formuliert mit natürlicher Sprache, evtl. Diagramme
-\item dient der Kommunikation mit dem Kunden und der Projektplanung
+\item Was ist das?
 \end{itemize}
+\end{block}
+
 }
 
-\subsection{Klassendiagramm}
+
 \frame{
 \frametitle{Klassendiagramm: Erläuterung am Beispiel}
 \includegraphics[scale=0.5]{pics/Klassendiagramm-1.png}
@@ -342,33 +354,10 @@ beendet.
 \frame{
 \includegraphics[scale=0.5]{pics/diagramm.png}
 }
-\subsection{Pflichtenheft}
-
-\frame{
-\frametitle{Pflichtenheft}
-\begin{itemize}
-\item Das Pflichtenheft ist eine Verfeinerung des Lastenheftes\pause
-\item Das Pflichtenheft beschreibt nicht, wie, sondern nur \textbf{was} zu implementieren ist. \pause
-\\ $\Rightarrow$ es werden weder Algorithmen noch Datenstrukturen festgelegt \pause
-\item das Pflichtenheft definiert das Projekt so vollständig und exakt, \\
-dass Entwickler das System implementieren können, \\
-ohne nachfragen oder raten zu müssen, \textbf{was} zu implementieren ist.
-\end{itemize}
-}
-
-%%%%%%%%%%%%%%%%%% kommt erst noch?
-%\frame{
-%\frametitle{Pflichtenheft}
-%\begin{block}{Gliederungsschema Pflichtenheft}
-%\begin{itemize}
-%\item\dots
-%\end{itemize}
-%\end{block}
-%}
-
-
 
 \section{Ende}
+
+\subsection{Tipps zum nächsten Übungsblatt}
 
 \frame{
 \frametitle{Tipps zum nächsten Übungsblatt}
@@ -383,20 +372,24 @@ ohne nachfragen oder raten zu müssen, \textbf{was} zu implementieren ist.
 \begin{block}{Aufgabe 2 - Aktivitätsdiagramm}
 \begin{itemize} \pause
 \item ihr dürft die Aufgabe auf zwei Diagramme verteilen \pause
-%\item Bla bla
+\item \url{http://de.wikipedia.org/wiki/Floyd-Steinberg-Algorithmus}
 \end{itemize}
 \end{block}
 
+}
+
+
+\frame{
+\frametitle{Tipps zum nächsten Übungsblatt}
 \begin{block}{Aufgabe 3 - Programmieren}
 \begin{itemize}
-\item args4j kann euch sehr viel Arbeit ersparen, versucht die Bedienung anhand von Configuration.java zu verstehen \pause
-\item achtet darauf ob ihr Ganzzahldivision verwendet: \\ \pause
+\item args4j kann euch sehr viel Arbeit ersparen, versucht die Bedienung anhand von Configuration.java zu verstehen 
+\item achtet darauf ob ihr Ganzzahldivision verwendet: 
+\\ \pause
 \texttt{int o; \dots; int p = (o + 128 ) / 256 * 255 \\
 		// liefert hier 0 oder 255: wieso?}
 \end{itemize}
 \end{block}
-
-
 }
 
 
