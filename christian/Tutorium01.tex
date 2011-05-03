@@ -1,7 +1,7 @@
 \input{header.tex}
 \input{author.tex}
 
-\title[Short title]{Tutorium 01: Projektplanung }
+\title[Tutorium 01]{Tutorium 01: Projektplanung }
 \date{5. Mai 2011}
 
 \institute{Chair for Software Design and Quality}
@@ -37,5 +37,443 @@
 \item \dots
 \end{itemize}
 }
+
+\subsection{Organisatorisches}
+\frame{
+\frametitle{Organisatorisches}
+\begin{block}{Übungsschein \dots}
+\begin{itemize}
+\pause
+\item ist keine Vorraussetzung zur Klausur, aber Vorraussetzung für Modul!
+\pause
+\item hat 6 Übungsblätter mit  insgesamt 150 Punkten
+\pause
+\item ist mit 50 Prozent aus Übungsblättern und Programmmieraufgaben bestanden 
+\pause
+\end{itemize}
+\end{block}
+
+\begin{block}{Tutorium \dots}
+\begin{itemize}
+\item findet alle 2 Wochen statt
+\end{itemize}
+\end{block}
+
+}
+
+
+\section{Altes Übungsblatt}
+
+\subsection{Altes Übungsblatt}
+\frame {
+\frametitle{Altes Übungsblatt}
+\begin{block}{Aufgabe 1: Mailingliste}
+\begin{itemize}
+\item ...
+\end{itemize}
+\end{block}
+
+
+\begin{block}{Aufgabe 2: Lastenheft}
+\begin{enumerate}
+\item Zielbestimmung
+\item Produkteinsatz
+\item Funktionale Anforderungen
+\item Produktdaten
+\item Nichtfunktionale Anforderungen
+\item Systemmodelle
+\begin{itemize}
+	\item Szenarien
+	\item Anwendungsfälle
+\end{itemize}
+\item Glossar (Begriffslexikon zur Beschreibung des Produktes)
+\end{enumerate}
+\end{block}
+}
+
+\frame {
+\begin{block}{Aufgabe 3 Durchführbarkeitsuntersuchung} 
+\begin{itemize}
+\item jeden der 6 Aspekte ansprechen
+\item “Probleme durch ... treten nicht auf, \textbf{da ...}” ist auch eine gute Antwort
+\end{itemize}
+
+\end{block}
+\begin{block}{Aufgabe 4 Hans Olo}
+\begin{itemize}
+\item \textbf{Benutzt Checkstyle!}
+\end{itemize}
+\end{block}
+
+\begin{block}{Aufgabe 5 Vorbereitung der Programmieraufgabe}
+\begin{itemize}
+\item hat jeder das Projekt runter geladen?
+\end{itemize}
+\end{block}
+}
+
+\subsection{Zum Aufwärmen ...}
+\frame {
+\frametitle{Wahr oder falsch?}
+\begin{itemize}
+	\color<2->[rgb]{0,1,0}
+	\item In der Planungsphase wird die softwaretechnische Realisierbarkeit eines Produktes untersucht
+	\color[rgb]{0,0,0}
+	\pause
+	\color<3->[rgb]{1,0,0}
+	\item Ein Pflichtenheft beschreibt die Eigenschaften, die das Produkt aus der Sicht des Kunden erfüllen soll
+	\color[rgb]{0,0,0}
+	\pause
+	\color<4->[rgb]{0,1,0}
+	\item In einem UML-Anwendungsfalldiagramm werden typische Interaktionen des Benutzers mit dem System modelliert
+	\color[rgb]{0,0,0}
+	\pause
+	\color<5->[rgb]{1,0,0}
+	\item Das Lastenheft ist eine Verfeinerung des Pflichtenheftes
+	\color[rgb]{0,0,0}
+	\pause
+	\color<6->[rgb]{1,0,0}
+	\item Im Pflichtenheft steht beschrieben, wie etwas zu implementieren ist. Es werden z.B. Algorithmen und Datenstrukturen beschrieben
+	\color[rgb]{0,0,0}
+\end{itemize}
+}
+
+\subsection{Pflichtenheft}
+
+\frame{
+\frametitle{Pflichtenheft}
+\begin{itemize}
+\item Das Pflichtenheft ist eine Verfeinerung des Lastenheftes\pause
+\item Das Pflichtenheft beschreibt nicht, wie, sondern nur \textbf{was} zu implementieren ist. \pause
+\\ $\Rightarrow$ es werden weder Algorithmen noch Datenstrukturen festgelegt \pause
+\item das Pflichtenheft definiert das Projekt so vollständig und exakt, \\
+dass Entwickler das System implementieren können, \\
+ohne nachfragen oder raten zu müssen, \textbf{was} zu implementieren ist.
+\end{itemize}
+}
+
+
+\section{Werkzeuge}
+\subsection{Versionsverwaltungen}
+
+\frame{
+\frametitle{Versionsverwaltungen}
+
+\begin{block}{Subversion}
+\begin{itemize}
+\item von der Vorlesung unterstützte Versionsverwaltung
+\item Windows: Tortoise SVN
+\item Linux: Shell oder RabbitVCS
+\item Mac: Shell
+\end{itemize}
+\end{block}
+}
+
+\frame{
+\frametitle{Versionsverwaltungen\dots}
+
+\begin{block}{Git}
+\begin{itemize}
+\item Werkzeug des Tutors ;-)
+\item dezentrales VCS: jeder Benutzer hat lokal ein vollständiges Repository
+\item hat mehr Funktionen als SVN, aber auch mehr Möglichkeiten sich selbst in den Fuß zu schießen\dots
+\item Verschmelzen verschiedener Zweige und Versionen ist hier eher Normalfall als Ausnahme
+\end{itemize}
+\end{block}
+
+\begin{block}{weitere}
+\begin{itemize}
+\item Es gibt noch viele weitere frei verfügbare dezentrale VCS
+\item z.B. Mercurial (Hg)
+\end{itemize}
+\end{block}
+
+}
+
+\frame {
+\frametitle{Klausur 2009}
+\begin{block}{Aufgabe}
+Erklären Sie die beiden Begriffe „Striktes Ausbuchen“ und „Optimistisches Ausbuchen“ im Kontext einer Konfigurationsverwaltung. Nennen Sie jeweils einen Vor- sowie einen Nachteil. (4P)
+\end{block}
+
+Striktes Ausbuchen
+\visible <2-> {
+\begin{itemize}
+\item Nur eine Ausbuchung gleichzeitig ist erlaubt 
+\item Ausbucher hat exklusives Änderungsrecht 
+\item Vorteil: kein Verschmelzungsaufwand beim Zurückschreiben 
+\item Nachteil: immer nur einer kann eine Version ändern
+\end{itemize}
+}
+Optimistisches Ausbuchen 
+\visible<3-> {
+\begin{itemize}
+\item Mehrere Ausbuchungen gleichzeitig erlaubt 
+\item Mehrere Entwickler Arbeiten an der gleichen Programmversion 
+\item Vorteil: Mehrere Entwickler können eine Version ändern 
+\item Nachteil: Aufwand beim Zusammenführen der Versionen (der Schnellere gewinnt)
+\end{itemize}
+}
+}
+
+\subsection{Checkstyle}
+
+\frame{
+\frametitle{Checkstyle}
+\begin{alertblock}{Das geht besser \dots}
+\begin{itemize}
+\item Fast keiner von euch ist ohne Checkstyle Fehler
+\end{itemize}
+\end{alertblock}
+
+\pause
+\begin{block}{private Konstruktoren und utility classes}
+\begin{itemize}
+\item Fehlermeldung: \\“utility classes should not have a public or default constructor” \pause
+\item ist alles in einer Klasse \texttt{static}, dann sollte man diese Klasse vermutlich nicht instanziieren \pause
+\item durch einen privaten Konstruktor verhindert man das versehentliche Instanziieren:\\
+\texttt{ private MyClass() \{\} } \pause
+\item eine solche “utility class” sollte als \texttt{final} markiert werden: \\
+\texttt{ public final class MyClass \{ }
+\end{itemize}
+\end{block}
+}
+
+\frame{
+\frametitle{Checkstyle - }
+\begin{block}{weitere Fehler}
+\begin{itemize}
+\item Fehlermeldung: \\“X sollte auf derselben/ der nächsten Zeile stehen” \pause
+\\ in Eclipse mit Autoformat beheben: \texttt{Ctrl + Shift + F} \pause
+\item Fehlermeldung: “Javadoc unvollständig” \pause
+\\ vor jeder Klasse und jeder Methode ohne Kommentar \texttt{/**} schreiben und  \texttt{Enter} drücken \pause
+\item Fehlermeldung: “Importe einzeln angeben” \pause
+\\ in Eclipse Importe vervollständigen: \texttt{ Ctrl + Shift + O }
+\end{itemize}
+\end{block}
+}
+
+\subsection{Eclipse}
+\frame{
+\frametitle{Eclipse Tipps }
+\begin{block}{einfaches Umbenennen}
+\begin{itemize}
+\item es gibt eine einfache Möglichkeit, ein beliebiges Element eines Java Programms in Eclipse umzubenennen \pause
+\item dazu markiert man das gewünschte Element und drückt \texttt{ Alt + Shift + R } bzw. wählt “Refactor”$>$”Rename” \pause
+\end{itemize}
+\end{block}
+
+\begin{block}{SVN in Eclipse}
+\begin{itemize}
+\item sobald in Eclipse ein SVN Plugin installiert ist, könnt ihr darauf über “Rechtsklick, Team” zugreifen \pause
+\item dort findet ihr “Commit”, “Update”, “Show History” und mehr
+\end{itemize}
+\end{block}
+
+\begin{block}{Local History}
+\begin{itemize}
+\item Eclipse merkt sich alle Änderungen an Dateien, unabhängig von SVN \pause
+\item gelöschte Datien findet man z.B. über “Rechtsklick auf Projekt”, “Restore from Local History”
+\end{itemize}
+\end{block}
+}
+
+\frame{
+\frametitle{Checkstyle in Eclipse}
+
+\begin{block}{Ergebnisse anzeigen}
+\begin{itemize}
+\item sobald Checkstyle richtig konfiguriert wurde, gibt es einige hilfreiche Übersichten
+\item \texttt{Window > Show View > Other > Checkstyle}
+\item hier gibt es \texttt{Checkstyle violations}, \texttt{Checkstyle violations chart} und \texttt{Duplication Code}
+\end{itemize}
+\end{block}
+}
+
+\frame{
+\frametitle{Eclipse - mehr Fehler anzeigen}
+\begin{center}
+\includegraphics[width=1\textwidth]{pics/01_checkstyle1}
+\end{center}
+}
+\frame{
+\frametitle{Eclipse - mehr Fehler anzeigen}
+\begin{center}
+\includegraphics[width=0.5\textwidth]{pics/01_checkstyle2}
+\end{center}
+}
+\frame{
+\frametitle{Eclipse - mehr Fehler anzeigen}
+\begin{center}
+\includegraphics[width=0.5\textwidth]{pics/01_checkstyle3}
+\end{center}
+}
+
+\section{UML}
+
+\subsection{Klassendiagramm}
+
+\frame{
+\frametitle{UML}
+\begin{block}{Klassendiagramm}
+\begin{itemize}
+\item Was ist das?
+\end{itemize}
+\end{block}
+\begin{block}{Aktivitätsdiagramm}
+\begin{itemize}
+\item Was ist das?
+\end{itemize}
+\end{block}
+}
+
+
+\frame{
+\frametitle{Klassendiagramm: Erläuterung am Beispiel}
+\includegraphics[scale=0.5]{pics/01_Klassendiagramm-1.png}
+}
+\frame{
+\frametitle{Klassendiagramm: Komposition und Aggregation}
+
+\begin{center}
+\includegraphics[scale=0.75]{pics/01_Komposition_Aggregation.png}
+\end{center}
+}
+
+
+
+\frame {
+\frametitle{Aufgabe Klassendiagramm}
+\begin{exampleblock} {Szenario}  
+In einer Formel 1-Saison gibt es 12 Teams. Die Saison hat 19 Rennen und an jedem Rennen nehmen
+die Teams mit jeweils 2 Fahrzeugen teil. Während der Saison können Teams ausscheiden und von
+nachrückenden Teams ersetzt werden. Es kann aber niemals in dieser Saison weniger als eins oder
+mehr als 12 Teams geben. Zu den öffentlichen Eigenschaften eines Fahrzeugs gehört der Team-
+Name, der Name des Chassis, die Motorbezeichnung sowie Startnummer und der Fahrer. Die Startnummer
+ist eindeutig. Die geheimen Eigenschaften eines Fahrzeugs sind die Größe des Tanks und
+die Dicke der Bodenplatte. In dieser Saison gibt es verschiedene Motoren, die von den zwölf Teams
+in ihren beiden Fahrzeugen verbaut sind.
+\end{exampleblock}
+
+Verwenden Sie die aus der Vorlesung bekannten Vorgehensweisen zur Objektmodellierung und erstellen Sie
+ein Klassendiagramm. Modellieren Sie dabei Klassen, Attribute, Assoziationen und Multiplizitäten.
+
+}
+
+\frame{
+\frametitle{Musterlösung}
+
+\begin{center}
+\includegraphics[scale=0.5]{pics/01_Klassendiagramm.png}
+\end{center}
+}
+
+\subsection{Aktivitätsdiagramm}
+
+\frame{
+\frametitle {Aktivitätsdiagramm} 
+\begin{itemize}
+	\item Ein Aktivitätsdiagramm beschreibt einen Ablauf
+	\item Besteht aus \textbf{Aktions-, Objekt-} und \textbf{Kontrollflussknoten} sowie \textbf{Objekt-} und 											\textbf{Kontrollflüssen}
+	\item Elemente eines Aktivitätsdiagramms
+	\begin{itemize}
+		\item Aktionen
+		\item Knoten (Startknoten, Endknoten, Ablaufende)
+		\item Entscheidungen (durch Raute dargestellt)
+		\item Zusammenführung
+		\item Aufteilung des Kontrollflusses
+		\item Synchronisation
+	\end{itemize}
+\end{itemize}
+}
+
+\frame {
+\begin{exampleblock}{Beispiel Aktivitätsdiagramm}
+\begin{center}
+\includegraphics[scale=0.22]{pics/01_beispiel.png}
+\end{center}
+\end{exampleblock}
+
+}
+\frame{
+%\frametitle{Klausur 2010 Aktivitätsdiagramm (9P)}
+\begin{exampleblock}{Klausur 2010 Aktivitätsdiagramm (9P)}
+\small {
+Nach dem Start beginnt die erste Runde. 
+In dieser und in jeder folgenden Runde
+kann sich der Fahrer entscheiden, ob er an
+die Box kommen oder die Runde fahren
+möchte. Nach der letzten Runde ist das
+Rennen unmittelbar beendet. Der Boxenstopp
+beginnt damit, dass der Fahrer den
+Rennwagen auf die in der Boxengasse
+erlaubte Höchstgeschwindigkeit abbremst.
+Anschließend parkt er seinen Rennwagen in der Box. Sobald der Rennwagen steht, wird
+er von einem Mitarbeiter der Boxencrew angehoben. Danach werden von vier weiteren
+Mitarbeitern der Boxencrew gleichzeitig die Räder gewechselt, wobei sich jeder Mitarbeiter
+um jeweils ein Rad kümmert. Neben dem Radwechsel wird der Rennwagen frisch
+betankt, was ebenfalls ein dedizierter Mitarbeiter erledigt. Sobald alle vier Räder gewechselt
+sind, kann der Rennwagen abgelassen werden. Der Fahrer fährt los, sobald der
+Rennwagen abgelassen und der Tankvorgang beendet wurde. Sobald der Fahrer das
+Ende der Boxengasse erreicht hat, beschleunigt er den Rennwagen auf Renntempo und
+fährt die Runde zu Ende. Anschließend geht der Fahrer auf die nächste Runde oder das Rennen ist
+beendet.
+}
+\end{exampleblock}
+}
+
+\frame{
+\begin{center}
+\includegraphics[scale=0.5]{pics/01_diagramm.png}
+\end{center}
+}
+
+\section{Ende}
+
+\subsection{Tipps zum nächsten Übungsblatt}
+
+\frame{
+\frametitle{Tipps zum nächsten Übungsblatt}
+
+\begin{block}{Aufgabe 1 - Klassendiagramm}
+\begin{itemize}
+\item denkt an Attribute, Multiplizitäten, Restriktionen, Assoziationsnamen sowie Rollen \pause
+\item merkt euch den Unterschied zwischen Komposition und Aggregation!
+\end{itemize}
+\end{block}
+
+\begin{block}{Aufgabe 2 - Aktivitätsdiagramm}
+\begin{itemize} \pause
+\item ihr dürft die Aufgabe auf zwei Diagramme verteilen \pause
+\item \url{http://de.wikipedia.org/wiki/Floyd-Steinberg-Algorithmus}
+\end{itemize}
+\end{block}
+
+}
+
+
+\frame{
+\frametitle{Tipps zum nächsten Übungsblatt}
+\begin{block}{Aufgabe 3 - Programmieren}
+\begin{itemize}
+\item args4j kann euch sehr viel Arbeit ersparen, versucht die Bedienung anhand von Configuration.java zu verstehen 
+\item achtet darauf ob ihr Ganzzahldivision verwendet: 
+\\ \pause
+\texttt{int o; \dots; int p = (o + 128 ) / 256 * 255 \\
+		// liefert hier 0 oder 255: wieso?}
+\end{itemize}
+\end{block}
+}
+
+
+\frame{
+\frametitle{Bis zum nächsten Mal}
+\begin{center}
+\includegraphics[width=1\textwidth]{pics/01_time_management}
+\end{center}
+
+}
+
+
 
 \end{document}
