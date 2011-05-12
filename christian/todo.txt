@@ -1,0 +1,29 @@
+rückblick, tipps aus der korrektur
+
+eclipse: svn plugin installieren?
+
+zu uml diagrammen:
+-am besten immer von hand, in der klausur auch keine software verfügbar
+
+Jürgen
+-richtige und falsche diagramme
+
+ÜB3
+* UML-Sequenzdiagramm
+* recht sicher nochmal Klassendiagramm
+* Integration des in ÜB2 programmierten Floyd-Steinberg in JMJRST; dazu 
+  gibt es (einigermaßen detaillierte) Hinweise, wie und wo
+
+Bewertungen
+-fleißig sternchen vergeben, das hebt die Arbeitsleistung der Tutoren ;)
+
+programmieraufgabe ub2:
+-args4j
+-randfälle beachten (rumpf für alle pixel durchführen, bei fehleranwendung grenzen beachten)
+
+Christian:
+Programmieraufgabe ÜB3 ausprobieren, Probleme beschreiben
+
+Daniel:
+übernimmt klausur zustandsdiagramm
+-kann noch erweitert werden, hierarchisches zustandsdiagramm mit direktem übergang von innen nach außen, + zwei beispiel eingabesequenzen
