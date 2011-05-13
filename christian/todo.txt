@@ -21,9 +21,23 @@ programmieraufgabe ub2:
 -args4j
 -randfälle beachten (rumpf für alle pixel durchführen, bei fehleranwendung grenzen beachten)
 
-Christian:
-Programmieraufgabe ÜB3 ausprobieren, Probleme beschreiben
 
 Daniel:
 übernimmt klausur zustandsdiagramm
 -kann noch erweitert werden, hierarchisches zustandsdiagramm mit direktem übergang von innen nach außen, + zwei beispiel eingabesequenzen
+
+
+Christian:
+Programmieraufgabe ÜB3 ausprobieren, Probleme beschreiben
+
+Hinweise für ÜB3
+-args4j wird nicht mehr benötigt
+-soll der FSDither Algorithmus für verschiedene Farbanzahlen angepasst werden?
+-soll die Option für die Farbzahl also überhaupt eine Auswirkung auf das Programm haben?
+-für das Options-Layout hilft vielleicht der Hinweis auf das null-Layout
+-ich finde dass die Studenten hier sehr viel Code verstehen und sehr wenig schreiben müssen, daher werden sehr viele sehr ähnliche Lösungen herauskommen
+
+Tipp für Folien:
+Eclipse: vorkommen von Variablen, methoden anzeigen: References>Working Set ( Ctrl+Shift+G), oder einfach markieren und dann an der Seitenleiste
+Problem: OptionsEdit verwendet null-Layout, d.h. alle Elemente müssen Pixelgenau positioniert werden!
+OptionsEdit: setBounds(x,y,width,height) (0,0) ist links oben, einfach "einreihen", abstände beachten
