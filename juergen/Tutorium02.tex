@@ -1,0 +1,331 @@
+\input{header.tex}
+
+\title[Tutorium01]{Tutorium 02: UML in Aktion}
+\subtitle{Softwaretechnik im SS 2011, Tutorien 4 + 11 + 17}
+\author{Jürgen Walter}
+\date{\today}
+
+\institute{Chair for Software Design and Quality}
+
+\begin{document}
+
+%title page
+\begin{frame}
+\titlepage
+\end{frame}
+
+%table of contents
+\frame{
+\frametitle{Was machen wir heute?}
+\tableofcontents
+}
+
+\section{Altes Übungsblatt}
+
+\subsection{Altes Übungsblatt}
+\frame {
+\frametitle{Altes Übungsblatt}
+\begin{block}{Aufgabe 1: Mailingliste}
+\begin{itemize}
+\item ...
+\end{itemize}
+\end{block}
+
+
+\begin{block}{Aufgabe 2: Lastenheft}
+\begin{enumerate}
+\item Zielbestimmung
+\item Produkteinsatz
+\item Funktionale Anforderungen
+\item Produktdaten
+\item Nichtfunktionale Anforderungen
+\item Systemmodelle
+\begin{itemize}
+	\item Szenarien
+	\item Anwendungsfälle
+\end{itemize}
+\item Glossar (Begriffslexikon zur Beschreibung des Produktes)
+\end{enumerate}
+\end{block}
+}
+
+\frame {
+\begin{block}{Aufgabe 3 Durchführbarkeitsuntersuchung} 
+\begin{itemize}
+\item jeden der 6 Aspekte ansprechen
+\item “Probleme durch ... treten nicht auf, \textbf{da ...}” ist auch eine gute Antwort
+\end{itemize}
+
+\end{block}
+\begin{block}{Aufgabe 4 Hans Olo}
+\begin{itemize}
+\item \textbf{Benutzt Checkstyle!}
+\end{itemize}
+\end{block}
+
+\begin{block}{Aufgabe 5 Vorbereitung der Programmieraufgabe}
+\begin{itemize}
+\item hat jeder das Projekt runter geladen?
+\end{itemize}
+\end{block}
+}
+
+\subsection{Zum Aufwärmen ...}
+\frame {
+\frametitle{Wahr oder falsch?}
+\begin{itemize}
+	\color<2->[rgb]{0,1,0}
+	\item In der Planungsphase wird die softwaretechnische Realisierbarkeit eines Produktes untersucht
+	\color[rgb]{0,0,0}
+	\pause
+	\color<3->[rgb]{1,0,0}
+	\item Ein Pflichtenheft beschreibt die Eigenschaften, die das Produkt aus der Sicht des Kunden erfüllen soll
+	\color[rgb]{0,0,0}
+	\pause
+	\color<4->[rgb]{0,1,0}
+	\item In einem UML-Anwendungsfalldiagramm werden typische Interaktionen des Benutzers mit dem System modelliert
+	\color[rgb]{0,0,0}
+	\pause
+	\color<5->[rgb]{1,0,0}
+	\item Das Lastenheft ist eine Verfeinerung des Pflichtenheftes
+	\color[rgb]{0,0,0}
+	\pause
+	\color<6->[rgb]{1,0,0}
+	\item Im Pflichtenheft steht beschrieben, wie etwas zu implementieren ist. Es werden z.B. Algorithmen und Datenstrukturen beschrieben
+	\color[rgb]{0,0,0}
+\end{itemize}
+}
+
+\subsection{Pflichtenheft}
+
+\frame{
+\frametitle{Pflichtenheft}
+\begin{itemize}
+\item Das Pflichtenheft ist eine Verfeinerung des Lastenheftes\pause
+\item Das Pflichtenheft beschreibt nicht, wie, sondern nur \textbf{was} zu implementieren ist. \pause
+\\ $\Rightarrow$ es werden weder Algorithmen noch Datenstrukturen festgelegt \pause
+\item das Pflichtenheft definiert das Projekt so vollständig und exakt, \\
+dass Entwickler das System implementieren können, \\
+ohne nachfragen oder raten zu müssen, \textbf{was} zu implementieren ist.
+\end{itemize}
+}
+
+
+\section{Werkzeuge}
+\subsection{Versionsverwaltungen}
+
+\frame{
+\frametitle{Versionsverwaltungen}
+
+\begin{block}{Subversion}
+\begin{itemize}
+\item von der Vorlesung unterstützte Versionsverwaltung
+\item Windows: Tortoise SVN
+\item Linux: Shell oder RabbitVCS
+\item Mac: Shell
+\end{itemize}
+\end{block}
+}
+
+\frame {
+\frametitle{Klausur 2009}
+\begin{block}{Aufgabe}
+Erklären Sie die beiden Begriffe „Striktes Ausbuchen“ und „Optimistisches Ausbuchen“ im Kontext einer Konfigurationsverwaltung. Nennen Sie jeweils einen Vor- sowie einen Nachteil. (4P)
+\end{block}
+
+Striktes Ausbuchen
+\visible <2-> {
+\begin{itemize}
+\item Nur eine Ausbuchung gleichzeitig ist erlaubt 
+\item Ausbucher hat exklusives Änderungsrecht 
+\item Vorteil: kein Verschmelzungsaufwand beim Zurückschreiben 
+\item Nachteil: immer nur einer kann eine Version ändern
+\end{itemize}
+}
+Optimistisches Ausbuchen 
+\visible<3-> {
+\begin{itemize}
+\item Mehrere Ausbuchungen gleichzeitig erlaubt 
+\item Mehrere Entwickler Arbeiten an der gleichen Programmversion 
+\item Vorteil: Mehrere Entwickler können eine Version ändern 
+\item Nachteil: Aufwand beim Zusammenführen der Versionen (der Schnellere gewinnt)
+\end{itemize}
+}
+}
+
+\subsection{Checkstyle}
+
+\frame{
+\frametitle{Checkstyle}
+\begin{alertblock}{Das geht besser \dots}
+\begin{itemize}
+\item Fast keiner von euch ist ohne Checkstyle Fehler
+\end{itemize}
+\end{alertblock}
+
+\pause
+\begin{block}{private Konstruktoren und utility classes}
+\begin{itemize}
+\item Fehlermeldung: \\“utility classes should not have a public or default constructor” \pause
+\item ist alles in einer Klasse \texttt{static}, dann sollte man diese Klasse vermutlich nicht instanziieren \pause
+\item durch einen privaten Konstruktor verhindert man das versehentliche Instanziieren:\\
+\texttt{ private MyClass() \{\} } \pause
+\item eine solche “utility class” sollte als \texttt{final} markiert werden: \\
+\texttt{ public final class MyClass \{ }
+\end{itemize}
+\end{block}
+}
+
+\frame{
+\frametitle{Checkstyle - }
+\begin{block}{weitere Fehler}
+\begin{itemize}
+\item Fehlermeldung: \\“X sollte auf derselben/ der nächsten Zeile stehen” \pause
+\\ in Eclipse mit Autoformat beheben: \texttt{Ctrl + Shift + F} \pause
+\item Fehlermeldung: “Javadoc unvollständig” \pause
+\\ vor jeder Klasse und jeder Methode ohne Kommentar \texttt{/**} schreiben und  \texttt{Enter} drücken \pause
+\item Fehlermeldung: “Importe einzeln angeben” \pause
+\\ in Eclipse Importe vervollständigen: \texttt{ Ctrl + Shift + O }
+\end{itemize}
+\end{block}
+}
+
+\subsection{Eclipse}
+\frame{
+\frametitle{Eclipse Tipps }
+\begin{block}{einfaches Umbenennen}
+\begin{itemize}
+\item es gibt eine einfache Möglichkeit, ein beliebiges Element eines Java Programms in Eclipse umzubenennen \pause
+\item dazu markiert man das gewünschte Element und drückt \texttt{ Alt + Shift + R } bzw. wählt “Refactor”$>$”Rename” \pause
+\end{itemize}
+\end{block}
+
+\begin{block}{SVN in Eclipse}
+\begin{itemize}
+\item sobald in Eclipse ein SVN Plugin installiert ist, könnt ihr darauf über “Rechtsklick, Team” zugreifen \pause
+\item dort findet ihr “Commit”, “Update”, “Show History” und mehr
+\end{itemize}
+\end{block}
+
+\begin{block}{Local History}
+\begin{itemize}
+\item Eclipse merkt sich alle Änderungen an Dateien, unabhängig von SVN \pause
+\item gelöschte Datien findet man z.B. über “Rechtsklick auf Projekt”, “Restore from Local History”
+\end{itemize}
+\end{block}
+}
+
+\frame{
+\frametitle{Checkstyle in Eclipse}
+
+\begin{block}{Ergebnisse anzeigen}
+\begin{itemize}
+\item sobald Checkstyle richtig konfiguriert wurde, gibt es einige hilfreiche Übersichten
+\item \texttt{Window > Show View > Other > Checkstyle}
+\item hier gibt es \texttt{Checkstyle violations}, \texttt{Checkstyle violations chart} und \texttt{Duplication Code}
+\end{itemize}
+\end{block}
+}
+
+\frame{
+\frametitle{Eclipse - mehr Fehler anzeigen}
+\begin{center}
+\includegraphics[width=1\textwidth]{pics/checkstyle1}
+\end{center}
+}
+\frame{
+\frametitle{Eclipse - mehr Fehler anzeigen}
+\begin{center}
+\includegraphics[width=0.5\textwidth]{pics/checkstyle2}
+\end{center}
+}
+\frame{
+\frametitle{Eclipse - mehr Fehler anzeigen}
+\begin{center}
+\includegraphics[width=0.5\textwidth]{pics/checkstyle3}
+\end{center}
+}
+
+\section{UML}
+
+\subsection{Aktivitätsdiagramm}
+
+\frame{
+\frametitle {Aktivitätsdiagramm} 
+\begin{itemize}
+	\item Ein Aktivitätsdiagramm beschreibt einen Ablauf
+	\item Besteht aus \textbf{Aktions-, Objekt-} und \textbf{Kontrollflussknoten} sowie \textbf{Objekt-} und 											\textbf{Kontrollflüssen}
+	\item Elemente eines Aktivitätsdiagramms
+	\begin{itemize}
+		\item Aktionen
+		\item Knoten (Startknoten, Endknoten, Ablaufende)
+		\item Entscheidungen (durch Raute dargestellt)
+		\item Zusammenführung
+		\item Aufteilung des Kontrollflusses
+		\item Synchronisation
+	\end{itemize}
+\end{itemize}
+}
+
+\frame {
+\begin{exampleblock}{Beispiel Aktivitätsdiagramm}
+\begin{center}
+\includegraphics[scale=0.22]{pics/beispiel.png}
+\end{center}
+\end{exampleblock}
+}
+
+\frame{
+\begin{center}
+\includegraphics[scale=0.5]{pics/diagramm.png}
+\end{center}
+}
+
+\section{Ende}
+
+\subsection{Tipps zum nächsten Übungsblatt}
+
+\frame{
+\frametitle{Tipps zum nächsten Übungsblatt}
+
+\begin{block}{Aufgabe 1 - Klassendiagramm}
+\begin{itemize}
+\item denkt an Attribute, Multiplizitäten, Restriktionen, Assoziationsnamen sowie Rollen \pause
+\item merkt euch den Unterschied zwischen Komposition und Aggregation!
+\end{itemize}
+\end{block}
+
+\begin{block}{Aufgabe 2 - Aktivitätsdiagramm}
+\begin{itemize} \pause
+\item ihr dürft die Aufgabe auf zwei Diagramme verteilen \pause
+\item \url{http://de.wikipedia.org/wiki/Floyd-Steinberg-Algorithmus}
+\end{itemize}
+\end{block}
+
+}
+
+
+\frame{
+\frametitle{Tipps zum nächsten Übungsblatt}
+\begin{block}{Aufgabe 3 - Programmieren}
+\begin{itemize}
+\item args4j kann euch sehr viel Arbeit ersparen, versucht die Bedienung anhand von Configuration.java zu verstehen 
+\item achtet darauf ob ihr Ganzzahldivision verwendet: 
+\\ \pause
+\texttt{int o; \dots; int p = (o + 128 ) / 256 * 255 \\
+		// liefert hier 0 oder 255: wieso?}
+\end{itemize}
+\end{block}
+}
+
+
+\frame{
+\frametitle{Bis zum nächsten Mal}
+\begin{center}
+\includegraphics[width=1\textwidth]{pics/time_management}
+\end{center}
+
+}
+
+
+\end{document}
