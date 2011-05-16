@@ -119,80 +119,47 @@ ohne nachfragen oder raten zu müssen, \textbf{was} zu implementieren ist.
 \subsection{Versionsverwaltungen}
 
 \frame{
-\frametitle{Versionsverwaltungen}
+\frametitle{Subversion in Eclipsen}
 
-\begin{block}{Subversion}
+\begin{block}{Subversion in Eclipse}
 \begin{itemize}
-\item von der Vorlesung unterstützte Versionsverwaltung
-\item Windows: Tortoise SVN
-\item Linux: Shell oder RabbitVCS
-\item Mac: Shell
 \end{itemize}
 \end{block}
 }
 
-\frame {
-\frametitle{Klausur 2009}
-\begin{block}{Aufgabe}
-Erklären Sie die beiden Begriffe „Striktes Ausbuchen“ und „Optimistisches Ausbuchen“ im Kontext einer Konfigurationsverwaltung. Nennen Sie jeweils einen Vor- sowie einen Nachteil. (4P)
-\end{block}
-
-Striktes Ausbuchen
-\visible <2-> {
-\begin{itemize}
-\item Nur eine Ausbuchung gleichzeitig ist erlaubt 
-\item Ausbucher hat exklusives Änderungsrecht 
-\item Vorteil: kein Verschmelzungsaufwand beim Zurückschreiben 
-\item Nachteil: immer nur einer kann eine Version ändern
-\end{itemize}
-}
-Optimistisches Ausbuchen 
-\visible<3-> {
-\begin{itemize}
-\item Mehrere Ausbuchungen gleichzeitig erlaubt 
-\item Mehrere Entwickler Arbeiten an der gleichen Programmversion 
-\item Vorteil: Mehrere Entwickler können eine Version ändern 
-\item Nachteil: Aufwand beim Zusammenführen der Versionen (der Schnellere gewinnt)
-\end{itemize}
-}
-}
-
-\subsection{Checkstyle}
+\subsection{Swing}
 
 \frame{
-\frametitle{Checkstyle}
-\begin{alertblock}{Das geht besser \dots}
+\frametitle{Swing Tipps}
+\begin{block}{Layouts}
 \begin{itemize}
-\item Fast keiner von euch ist ohne Checkstyle Fehler
-\end{itemize}
-\end{alertblock}
-
-\pause
-\begin{block}{private Konstruktoren und utility classes}
-\begin{itemize}
-\item Fehlermeldung: \\“utility classes should not have a public or default constructor” \pause
-\item ist alles in einer Klasse \texttt{static}, dann sollte man diese Klasse vermutlich nicht instanziieren \pause
-\item durch einen privaten Konstruktor verhindert man das versehentliche Instanziieren:\\
-\texttt{ private MyClass() \{\} } \pause
-\item eine solche “utility class” sollte als \texttt{final} markiert werden: \\
-\texttt{ public final class MyClass \{ }
+\item um Swing Komponenten anzuordnen verwendet man Layouts \pause
+\item es gibt sehr viele Varianten: \url{http://download.oracle.com/javase/tutorial/uiswing/layout/visual.html}  \pause
+\item für ÜB3 habt ihr freie Wahl, daher bieten sich \texttt{FlowLayout} (default) oder ein vertikales \texttt{BoxLayout} an \pause
+\item für bessere Strukturierung: gruppiert mehrere Komponenten mit einem JPanel \pause
+\item JPanels kann man eigene Layouts zuweisen
 \end{itemize}
 \end{block}
 }
 
-\frame{
-\frametitle{Checkstyle - }
-\begin{block}{weitere Fehler}
+\begin{frame}[fragile]
+\frametitle{Swing Tipps}
+\begin{block}{Bilder anzeigen}
 \begin{itemize}
-\item Fehlermeldung: \\“X sollte auf derselben/ der nächsten Zeile stehen” \pause
-\\ in Eclipse mit Autoformat beheben: \texttt{Ctrl + Shift + F} \pause
-\item Fehlermeldung: “Javadoc unvollständig” \pause
-\\ vor jeder Klasse und jeder Methode ohne Kommentar \texttt{/**} schreiben und  \texttt{Enter} drücken \pause
-\item Fehlermeldung: “Importe einzeln angeben” \pause
-\\ in Eclipse Importe vervollständigen: \texttt{ Ctrl + Shift + O }
+\item grundsätzlich kann man auf jede Swing Komponente malen \pause
+\item am einfachsten: \url{http://download.oracle.com/javase/tutorial/uiswing/components/icon.html}  \pause
 \end{itemize}
 \end{block}
-}
+%\vspace{1cm}
+\begin{block}{Beispiel}
+\begin{lstlisting}
+	JFrame f  = new JFrame();
+	f.add(new JLabel(new ImageIcon(image)));
+	f.pack();
+	f.setVisible(true);
+\end{lstlisting}
+\end{block}
+\end{frame}
 
 \subsection{Eclipse}
 \frame{
@@ -208,47 +175,10 @@ Optimistisches Ausbuchen
 \begin{itemize}
 \item sobald in Eclipse ein SVN Plugin installiert ist, könnt ihr darauf über “Rechtsklick, Team” zugreifen \pause
 \item dort findet ihr “Commit”, “Update”, “Show History” und mehr
+
+\item Anleitung zur Installation??
 \end{itemize}
 \end{block}
-
-\begin{block}{Local History}
-\begin{itemize}
-\item Eclipse merkt sich alle Änderungen an Dateien, unabhängig von SVN \pause
-\item gelöschte Datien findet man z.B. über “Rechtsklick auf Projekt”, “Restore from Local History”
-\end{itemize}
-\end{block}
-}
-
-\frame{
-\frametitle{Checkstyle in Eclipse}
-
-\begin{block}{Ergebnisse anzeigen}
-\begin{itemize}
-\item sobald Checkstyle richtig konfiguriert wurde, gibt es einige hilfreiche Übersichten
-\item \texttt{Window > Show View > Other > Checkstyle}
-\item hier gibt es \texttt{Checkstyle violations}, \texttt{Checkstyle violations chart} und \texttt{Duplication Code}
-\end{itemize}
-\end{block}
-}
-
-\frame{
-\frametitle{Eclipse - mehr Fehler anzeigen}
-\begin{center}
-\includegraphics[width=1\textwidth]{pics/checkstyle1}
-\end{center}
-}
-\frame{
-\frametitle{Eclipse - mehr Fehler anzeigen}
-\begin{center}
-\includegraphics[width=0.5\textwidth]{pics/checkstyle2}
-\end{center}
-}
-\frame{
-\frametitle{Eclipse - mehr Fehler anzeigen}
-\begin{center}
-\includegraphics[width=0.5\textwidth]{pics/checkstyle3}
-\end{center}
-}
 
 \section{UML}
 
@@ -292,7 +222,7 @@ Optimistisches Ausbuchen
 \frame{
 \frametitle{Tipps zum nächsten Übungsblatt}
 
-\begin{block}{Aufgabe 1 - Klassendiagramm}
+\begin{block}{Aufgabe 1 - Sequenzdiagramm}
 \begin{itemize}
 \item denkt an Attribute, Multiplizitäten, Restriktionen, Assoziationsnamen sowie Rollen \pause
 \item merkt euch den Unterschied zwischen Komposition und Aggregation!
