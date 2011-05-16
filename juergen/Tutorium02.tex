@@ -61,7 +61,7 @@
 	\color[rgb]{0,0,0}
 	\pause
 	\color<3->[rgb]{0,1,0}
-	\item UML-Anwendungsfalldiagramme werden während der Planungsphase ver-wendet, um das von außen sichtbare Verhalten des Systems darzustellen.
+	\item UML-Anwendungsfalldiagramme werden während der Planungsphase verwendet, um das von außen sichtbare Verhalten des Systems darzustellen.
 	\color[rgb]{0,0,0}
 	
 	\pause
@@ -70,7 +70,7 @@
 	\color[rgb]{0,0,0}
 	\pause
 	\color<5->[rgb]{1,0,0}
-	\item Bei der Definition von Vererbungsrelationen gilt folgender Leitsatz: Mache eine Klasse A erst dann zu einer 				Unterklasse einer Klasse B, wenn gezeigt werden kann, dass jede Instanz von B auch als eine Instanz von A gesehen werden 	kann.
+	\item Grundsatz der Vererbung: Mache eine Klasse A erst dann zu einer Unterklasse einer Klasse B, wenn 			sicher ist, dass jede Instanz von B auch als Instanz von A gesehen werden kann.
 	\color[rgb]{0,0,0}
 	\pause
 	\color<6->[rgb]{0,1,0}
@@ -150,7 +150,14 @@
 \end{itemize}
 \end{block}
 }
-
+%
+%\frame {
+%\begin{exampleblock}{Beispiel Zustandsdiagramm}
+%\begin{center}
+%\includegraphics[scale=0.52]{pics/zustandsdiagramm.png}
+%\end{center}
+%\end{exampleblock}
+%}
 \section{UML}
 
 \subsection{Zustandsdiagramm}
@@ -183,7 +190,7 @@ Wandeln Sie den rechts abgebildeten UML-Zustandsautomaten durch Zusammenlegen de
 und $A_C$ zu einem neuen Zustand A in einen äquivalenten hierarchischen Zustandsautomaten um. (3 P)
 
 Hinweis: Beachten Sie, dass die gleiche Eingabefolge in Ihrem transformierten Automaten zu einem
-äquivalenten Zustand führt, wie im Originalautomaten (z. B.: Start $->$ 1, 2, 3, 1 $->$ C).
+äquivalenten Zustand führt, wie im Originalautomaten (z. B.: Start $\rightarrow$ 1, 2, 3, 1 $\rightarrow$ C).
 \begin{center}
 \includegraphics[scale=0.5]{pics/ZustandsdiagrammAufgabe.png}
 \end{center}
@@ -199,6 +206,28 @@ Hinweis: Beachten Sie, dass die gleiche Eingabefolge in Ihrem transformierten Au
 \subsection{Sequenzdiagramm}
 \frame {
 \frametitle {Sequenzdiagramm}
+\begin{block}{Sequenzdiagramm - Wie verschicke ich Nachrichten?}
+\begin{center}
+\includegraphics[width=0.5\textwidth]{pics/SequenzDiagramm1}
+\end{center}
+\end{block}
+
+}
+
+\frame {
+\frametitle {Aufgabe Sequenzdiagramm 2010 (5P)}
+\small {
+Ein Passagierjet p meldet seinen momentanen Kurs $k_p$ an den Kontrollturm. Der Kontrollturm beauftragt den nächsten freien Fluglotsen f zu berechnen, ob irgendwelche Flugobjekte ausweichen müssen. Der Fluglotse kommt zu dem Ergebnis, dass keine Kol-lisionsgefahr besteht und alle Flugobjekte ihren Kurs beibehalten können. Folglich antwortet er mit einem leeren Feld von Kursen. Anschließend meldet ein Helikopter h sei-nen Kurs $k_h$ an den Kontrollturm. Wieder ist der nächste verfügbare Fluglotse der Flug-lotse f. Dieser berechnet unter Berücksichtigung von $k_h$, ob nun Flugobjekte ausweichen müssen. Diesmal besteht eine Kollisionsgefahr zwischen dem Passagierjet und dem Helikopter. Deswegen antwortet der Fluglotse mit zwei Ausweichkursen $k’_p$ und $k’_h$ für den Passagierjet bzw. den Helikopter. Der Kontrollturm weist daraufhin den Passagierjet und den Helikopter an ihre Kurse auf den jeweiligen Ausweichkurs zu ändern.
+\\
+Hinweis: Modellieren Sie die Kurse nicht als Objekte mit Lebenslinie. Wenn Sie Kurse als Parameter/Rückgabewert benötigen, verwenden Sie die vorgegebenen Bezeichner aus dem Szenario. Zeichnen Sie zu jedem Methodenaufruf auch die Rückantwort ein
+}
+}
+
+\frame {
+\frametitle {Musterlösung} 
+\begin{center}
+\includegraphics[scale=0.5]{pics/MSequenzdiagrammAufgabe.png}
+\end{center}
 
 
 }
@@ -212,7 +241,9 @@ Hinweis: Beachten Sie, dass die gleiche Eingabefolge in Ihrem transformierten Au
 
 \begin{block}{Aufgabe 1 - Sequenzdiagramm}
 \begin{itemize}
-\item denkt an Lebenslinien, synchrone vs. asynchrone Nachrichten, Steuerungsfokus
+\item denkt an Lebenslinien, synchrone vs. asynchrone Nachrichten, Steuerungsfokus \pause
+\item laut Folien sind Fokus und Antworten egal, können aber in Klausur gefordert sein \pause
+\item zeichnet sie also am Besten immer ein
 \end{itemize}
 \end{block}
 
