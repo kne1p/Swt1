@@ -111,6 +111,7 @@
 \begin{block}{Beispiel}
 \begin{lstlisting}
 	JFrame f = new JFrame();
+	f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	f.add(new JLabel(new ImageIcon(image)));
 	f.setSize(200,200);
 	f.setVisible(true);
@@ -123,11 +124,13 @@
 \begin{block}{Beispiel}
 \begin{lstlisting}
 	JFrame f  = new JFrame();
+	f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	f.setLayout(new FlowLayout());
 	f.setSize(220,325);
+
 	for (int i=0; i<20; i++) {
-		f.add(new JLabel("Text"));
-		f.add(new JButton("Button"));
+	  	f.add(new JLabel("Text"));
+	  	f.add(new JButton("Button"));
 	}
 	f.setVisible(true);
 \end{lstlisting}
@@ -165,7 +168,7 @@
 \includegraphics[scale=0.5]{pics/zustandsuebergang.png}
 \end{center}
 \item Zustandsübergang findet nur statt, wenn zu diesem Zeitpunkt die Bedingung erfüllt ist
-\item $\epsilon$ -Übergang
+\item $\epsilon$ -Übergang erlaubt
 \item Aktionen
 \end{itemize}
 }
@@ -309,7 +312,7 @@ Hinweis: Modellieren Sie die Kurse nicht als Objekte mit Lebenslinie. Wenn Sie K
 \frame{
 \frametitle{Bis zum nächsten Mal}
 \begin{center}
-\includegraphics[width=1\textwidth]{pics/time_management}
+\includegraphics[height=200pt]{pics/02_zeitmaschine}
 \end{center}
 
 }
