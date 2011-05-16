@@ -83,20 +83,6 @@
 \end{itemize}
 }
 
-\subsection{Pflichtenheft}
-
-\frame{
-\frametitle{Pflichtenheft}
-\begin{itemize}
-\item Das Pflichtenheft ist eine Verfeinerung des Lastenheftes\pause
-\item Das Pflichtenheft beschreibt nicht, wie, sondern nur \textbf{was} zu implementieren ist. \pause
-\\ $\Rightarrow$ es werden weder Algorithmen noch Datenstrukturen festgelegt \pause
-\item das Pflichtenheft definiert das Projekt so vollständig und exakt, \\
-dass Entwickler das System implementieren können, \\
-ohne nachfragen oder raten zu müssen, \textbf{was} zu implementieren ist.
-\end{itemize}
-}
-
 \subsection{Swing}
 
 \frame{
@@ -111,7 +97,6 @@ ohne nachfragen oder raten zu müssen, \textbf{was} zu implementieren ist.
 \end{itemize}
 \end{block}
 }
-
 \begin{frame}[fragile]
 \frametitle{Swing Tipps}
 \begin{block}{Bilder anzeigen}
@@ -120,14 +105,29 @@ ohne nachfragen oder raten zu müssen, \textbf{was} zu implementieren ist.
 \item am einfachsten: \url{http://download.oracle.com/javase/tutorial/uiswing/components/icon.html}  \pause
 \end{itemize}
 \end{block}
-%\vspace{1cm}
+
 \begin{block}{Beispiel}
 \begin{lstlisting}
 	JFrame f  = new JFrame();
 	f.add(new JLabel(new ImageIcon(image)));
-	f.pack();
+	f.setSize(200,200);
 	f.setVisible(true);
 \end{lstlisting}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Swing Tipps}
+\begin{block}{Beispiel}
+\begin{lstlisting}
+			JFrame f  = new JFrame();
+			f.setLayout(new FlowLayout());
+			f.setSize(220,325);
+			for (int i=0; i<20; i++) {
+				f.add(new JLabel("Text"));
+				f.add(new JButton("Button"));
+			}
+			f.setVisible(true);\end{lstlisting}
 \end{block}
 \end{frame}
 
