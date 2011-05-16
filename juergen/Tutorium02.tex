@@ -46,8 +46,8 @@
 \frame{
 \begin{block}{Aufgabe 3 Floyd-Steinberg-Algorithmus} 
 \begin{itemize}
-\item Checkstyle: " Utility classes should not have a public or default constructor"
-\item Lösung: private Klassenname(){ };
+\item Checkstyle: “Utility classes should not have a public or default constructor” \pause
+\item Lösung: \lstinline[language=Java]"private Klassenname() \{\}"
 \end{itemize}
 \end{block}
 }
@@ -91,9 +91,10 @@
 \begin{itemize}
 \item um Swing Komponenten anzuordnen verwendet man Layouts \pause
 \item es gibt sehr viele Varianten: \url{http://download.oracle.com/javase/tutorial/uiswing/layout/visual.html}  \pause
-\item für ÜB3 habt ihr freie Wahl, daher bieten sich \texttt{FlowLayout} (default) oder ein vertikales \texttt{BoxLayout} an \pause
-\item für bessere Strukturierung: gruppiert mehrere Komponenten mit einem JPanel \pause
-\item JPanels kann man eigene Layouts zuweisen
+\item für ÜB3 habt ihr freie Wahl, daher bieten sich \texttt{FlowLayout} oder ein vertikales \texttt{BoxLayout} an \pause
+\item für bessere Strukturierung: gruppiert mehrere Komponenten mit einem JPanel  \pause
+\item jeder Swing Container kann sein eigenes Layout haben \pause
+\item default: JFrame - \texttt{BorderLayout}, JPanel -  \texttt{FlowLayout})
 \end{itemize}
 \end{block}
 }
@@ -102,13 +103,14 @@
 \begin{block}{Bilder anzeigen}
 \begin{itemize}
 \item grundsätzlich kann man auf jede Swing Komponente malen \pause
-\item am einfachsten: \url{http://download.oracle.com/javase/tutorial/uiswing/components/icon.html}  \pause
+\item am einfachsten: \texttt{Icon} setzen \\
+\url{http://download.oracle.com/javase/tutorial/uiswing/components/icon.html}  \pause
 \end{itemize}
 \end{block}
 
 \begin{block}{Beispiel}
 \begin{lstlisting}
-	JFrame f  = new JFrame();
+	JFrame f = new JFrame();
 	f.add(new JLabel(new ImageIcon(image)));
 	f.setSize(200,200);
 	f.setVisible(true);
@@ -127,37 +129,20 @@
 				f.add(new JLabel("Text"));
 				f.add(new JButton("Button"));
 			}
-			f.setVisible(true);\end{lstlisting}
+			f.setVisible(true);
+\end{lstlisting}
 \end{block}
 \end{frame}
 
-\subsection{Eclipse}
-\frame{
-\frametitle{Eclipse Tipps }
-\begin{block}{einfaches Umbenennen}
-\begin{itemize}
-\item es gibt eine einfache Möglichkeit, ein beliebiges Element eines Java Programms in Eclipse umzubenennen \pause
-\item dazu markiert man das gewünschte Element und drückt \texttt{ Alt + Shift + R } bzw. wählt “Refactor”$>$”Rename” \pause
-\end{itemize}
-\end{block}
 
-\begin{block}{SVN in Eclipse}
-\begin{itemize}
-\item sobald in Eclipse ein SVN Plugin installiert ist, könnt ihr darauf über “Rechtsklick, Team” zugreifen \pause
-\item dort findet ihr “Commit”, “Update”, “Show History” und mehr
-
-\item ??Anleitung zur Installation??
-\end{itemize}
-\end{block}
+\frame {
+\begin{exampleblock}{Beispiel Zustandsdiagramm}
+\begin{center}
+\includegraphics[scale=0.6]{pics/zustandsdiagramm.png}
+\end{center}
+\end{exampleblock}
 }
-%
-%\frame {
-%\begin{exampleblock}{Beispiel Zustandsdiagramm}
-%\begin{center}
-%\includegraphics[scale=0.52]{pics/zustandsdiagramm.png}
-%\end{center}
-%\end{exampleblock}
-%}
+
 \section{UML}
 
 \subsection{Zustandsdiagramm}
@@ -199,7 +184,7 @@ Hinweis: Beachten Sie, dass die gleiche Eingabefolge in Ihrem transformierten Au
 \frame {
 \frametitle {Musterlösung} 
 \begin{center}
-\includegraphics[scale=0.5]{pics/MZustandsdiagrammAufgabe.png}
+\includegraphics[scale=0.6]{pics/MZustandsdiagrammAufgabe.png}
 \end{center}
 }
 
@@ -208,7 +193,7 @@ Hinweis: Beachten Sie, dass die gleiche Eingabefolge in Ihrem transformierten Au
 \frametitle {Sequenzdiagramm}
 \begin{block}{Sequenzdiagramm - Wie verschicke ich Nachrichten?}
 \begin{center}
-\includegraphics[width=0.5\textwidth]{pics/SequenzDiagramm1}
+\includegraphics[width=0.6\textwidth]{pics/SequenzDiagramm1}
 \end{center}
 \end{block}
 
@@ -249,7 +234,7 @@ Hinweis: Modellieren Sie die Kurse nicht als Objekte mit Lebenslinie. Wenn Sie K
 
 \begin{block}{Aufgabe 2 - Zustandsdiagramm}
 \begin{itemize} \pause
-\item gebt stets das “Gedächtnis”' des Diagramms mit an \pause
+\item gebt stets das “Gedächtnis”' des Diagramms mit an
 \end{itemize}
 \end{block}
 
@@ -264,7 +249,10 @@ Hinweis: Modellieren Sie die Kurse nicht als Objekte mit Lebenslinie. Wenn Sie K
 \item denkt an
 \texttt{int p = (o + 128 ) / 256 * 255 }
 \\ hier müsst ihr ansetzen um von 256 möglichen Ergebnissen auf $2^i$ mögliche Ergebnisse zu reduzieren \pause
-\item für das GUI gibt es unzählige Tutorials u.a. bei Oracle
+\item für das GUI gibt es unzählige Tutorials u.a. bei Oracle:
+\\ \url{http://download.oracle.com/javase/tutorial/uiswing/components/index.html}
+\\ \url{http://download.oracle.com/javase/tutorial/uiswing/components/componentlist.html}
+\\ \url{http://download.oracle.com/javase/tutorial/uiswing/layout/visual.html}
 \end{itemize}
 \end{block}
 }
