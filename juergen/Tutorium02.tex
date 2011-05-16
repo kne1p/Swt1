@@ -97,19 +97,6 @@ ohne nachfragen oder raten zu müssen, \textbf{was} zu implementieren ist.
 \end{itemize}
 }
 
-
-\section{Werkzeuge}
-\subsection{Versionsverwaltungen}
-
-\frame{
-\frametitle{Subversion in Eclipsen}
-
-\begin{block}{Subversion in Eclipse}
-\begin{itemize}
-\end{itemize}
-\end{block}
-}
-
 \subsection{Swing}
 
 \frame{
@@ -159,9 +146,10 @@ ohne nachfragen oder raten zu müssen, \textbf{was} zu implementieren ist.
 \item sobald in Eclipse ein SVN Plugin installiert ist, könnt ihr darauf über “Rechtsklick, Team” zugreifen \pause
 \item dort findet ihr “Commit”, “Update”, “Show History” und mehr
 
-\item Anleitung zur Installation??
+\item ??Anleitung zur Installation??
 \end{itemize}
 \end{block}
+}
 
 \section{UML}
 
@@ -212,6 +200,7 @@ Hinweis: Beachten Sie, dass die gleiche Eingabefolge in Ihrem transformierten Au
 \frame {
 \frametitle {Sequenzdiagramm}
 
+
 }
 
 \section{Ende}
@@ -223,15 +212,13 @@ Hinweis: Beachten Sie, dass die gleiche Eingabefolge in Ihrem transformierten Au
 
 \begin{block}{Aufgabe 1 - Sequenzdiagramm}
 \begin{itemize}
-\item denkt an Attribute, Multiplizitäten, Restriktionen, Assoziationsnamen sowie Rollen \pause
-\item merkt euch den Unterschied zwischen Komposition und Aggregation!
+\item denkt an Lebenslinien, synchrone vs. asynchrone Nachrichten, Steuerungsfokus
 \end{itemize}
 \end{block}
 
-\begin{block}{Aufgabe 2 - Aktivitätsdiagramm}
+\begin{block}{Aufgabe 2 - Zustandsdiagramm}
 \begin{itemize} \pause
-\item ihr dürft die Aufgabe auf zwei Diagramme verteilen \pause
-\item \url{http://de.wikipedia.org/wiki/Floyd-Steinberg-Algorithmus}
+\item gebt stets das “Gedächtnis”' des Diagramms mit an \pause
 \end{itemize}
 \end{block}
 
@@ -242,11 +229,11 @@ Hinweis: Beachten Sie, dass die gleiche Eingabefolge in Ihrem transformierten Au
 \frametitle{Tipps zum nächsten Übungsblatt}
 \begin{block}{Aufgabe 3 - Programmieren}
 \begin{itemize}
-\item args4j kann euch sehr viel Arbeit ersparen, versucht die Bedienung anhand von Configuration.java zu verstehen 
-\item achtet darauf ob ihr Ganzzahldivision verwendet: 
-\\ \pause
-\texttt{int o; \dots; int p = (o + 128 ) / 256 * 255 \\
-		// liefert hier 0 oder 255: wieso?}
+\item besteht aus den Teilaufgaben “GUI” und Floyd-Steinberg für 3,6,..,24-Bit RGB \pause
+\item denkt an
+\texttt{int p = (o + 128 ) / 256 * 255 }
+\\ hier müsst ihr ansetzen um von 256 möglichen Ergebnissen auf $2^i$ mögliche Ergebnisse zu reduzieren \pause
+\item für das GUI gibt es unzählige Tutorials u.a. bei Oracle
 \end{itemize}
 \end{block}
 }

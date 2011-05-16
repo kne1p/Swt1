@@ -6,3 +6,4 @@
 *.toc
 *.out
 *.gz
+/test/test.synctex.gz(busy)
