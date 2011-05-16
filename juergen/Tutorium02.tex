@@ -59,24 +59,25 @@
 	\color<2->[rgb]{1,0,0}
 	\item Das einzige Ziel der Softwaretechnik ist, die Kosten der Erstellung von Software möglichst weitgehend zu senken.
 	\color[rgb]{0,0,0}
-	\color<2->[rgb]{0,1,0}
+	\pause
+	\color<3->[rgb]{0,1,0}
 	\item UML-Anwendungsfalldiagramme werden während der Planungsphase ver-wendet, um das von außen sichtbare Verhalten des Systems darzustellen.
 	\color[rgb]{0,0,0}
 	
 	\pause
-	\color<3->[rgb]{0,1,0}
+	\color<4->[rgb]{0,1,0}
 	\item Komposition ist eine strengere Aggregation, bei der die Teile keine Daseinsberechtigung ohne das Ganze haben.
 	\color[rgb]{0,0,0}
 	\pause
-	\color<4->[rgb]{1,0,0}
+	\color<5->[rgb]{1,0,0}
 	\item Bei der Definition von Vererbungsrelationen gilt folgender Leitsatz: Mache eine Klasse A erst dann zu einer 				Unterklasse einer Klasse B, wenn gezeigt werden kann, dass jede Instanz von B auch als eine Instanz von A gesehen werden 	kann.
 	\color[rgb]{0,0,0}
 	\pause
-	\color<5->[rgb]{0,1,0}
+	\color<6->[rgb]{0,1,0}
 	\item Kontravariante Eingabe-Parameter erfüllen das Substitutionsprinzip.
 	\color[rgb]{0,0,0}
 	\pause
-	\color<6->[rgb]{0,1,0}
+	\color<7->[rgb]{0,1,0}
 	\item Ein Pflichtenheft spezifiziert die Anforderungen an eine Software in eindeutiger Weise, so dass sie implementiert werden können
 	\color[rgb]{0,0,0}
 \end{itemize}
@@ -234,37 +235,53 @@ Optimistisches Ausbuchen
 
 \section{UML}
 
-\subsection{Aktivitätsdiagramm}
+\subsection{Zustandsdiagramm}
 
 \frame{
-\frametitle {Aktivitätsdiagramm} 
+\frametitle {Zustandsdiagramm} 
 \begin{itemize}
-	\item Ein Aktivitätsdiagramm beschreibt einen Ablauf
-	\item Besteht aus \textbf{Aktions-, Objekt-} und \textbf{Kontrollflussknoten} sowie \textbf{Objekt-} und 											\textbf{Kontrollflüssen}
-	\item Elemente eines Aktivitätsdiagramms
-	\begin{itemize}
-		\item Aktionen
-		\item Knoten (Startknoten, Endknoten, Ablaufende)
-		\item Entscheidungen (durch Raute dargestellt)
-		\item Zusammenführung
-		\item Aufteilung des Kontrollflusses
-		\item Synchronisation
-	\end{itemize}
+ \item Beschreibt mögliche Zustände eines Objekts sowie mögliche Zustandsübergänge
+ \item Zustandsübergang (Transition) wird durch ein Ereignis ausgelöst
+ \begin{center}
+\includegraphics[scale=0.5]{pics/zustandsuebergang.png}
+\end{center}
+\item Zustandsübergang findet nur statt, wenn zu diesem Zeitpunkt die Bedingung erfüllt ist
+\item $\epsilon$ -Übergang
+\item Aktionen
 \end{itemize}
 }
 
 \frame {
-\begin{exampleblock}{Beispiel Aktivitätsdiagramm}
+\begin{exampleblock}{Beispiel Zustandsdiagramm}
 \begin{center}
-\includegraphics[scale=0.22]{pics/beispiel.png}
+\includegraphics[scale=0.52]{pics/zustandsdiagramm.png}
 \end{center}
 \end{exampleblock}
 }
 
 \frame{
+\frametitle {Zustandsdiagramm Aufgabe Klausur 2010 (3P)}
+Wandeln Sie den rechts abgebildeten UML-Zustandsautomaten durch Zusammenlegen der Zustände $A_B$ 
+und $A_C$ zu einem neuen Zustand A in einen äquivalenten hierarchischen Zustandsautomaten um. (3 P)
+
+Hinweis: Beachten Sie, dass die gleiche Eingabefolge in Ihrem transformierten Automaten zu einem
+äquivalenten Zustand führt, wie im Originalautomaten (z. B.: Start $->$ 1, 2, 3, 1 $->$ C).
 \begin{center}
-\includegraphics[scale=0.5]{pics/diagramm.png}
+\includegraphics[scale=0.5]{pics/ZustandsdiagrammAufgabe.png}
 \end{center}
+}
+
+\frame {
+\frametitle {Musterlösung} 
+\begin{center}
+\includegraphics[scale=0.5]{pics/MZustandsdiagrammAufgabe.png}
+\end{center}
+}
+
+\subsection{Sequenzdiagramm}
+\frame {
+\frametitle {Sequenzdiagramm}
+
 }
 
 \section{Ende}
