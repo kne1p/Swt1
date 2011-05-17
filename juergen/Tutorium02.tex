@@ -83,6 +83,8 @@
 \end{itemize}
 }
 
+
+\section{Swing und Eclipse}
 \subsection{Swing}
 
 \frame{
@@ -163,13 +165,12 @@
 \frametitle {Zustandsdiagramm} 
 \begin{itemize}
  \item Beschreibt mögliche Zustände eines Objekts sowie mögliche Zustandsübergänge
- \item Zustandsübergang (Transition) wird durch ein Ereignis ausgelöst
+ \item Der Zustandsübergang (Transition) wird durch ein Ereignis ausgelöst
  \begin{center}
 \includegraphics[scale=0.5]{pics/zustandsuebergang.png}
 \end{center}
-\item Zustandsübergang findet nur statt, wenn zu diesem Zeitpunkt die Bedingung erfüllt ist
-\item $\epsilon$ -Übergang erlaubt
-\item Aktionen
+\item Zustandsübergang findet nur statt, wenn die Bedingung zu diesem Zeitpunkt erfüllt ist
+\item $\epsilon$ -Übergänge sind erlaubt
 \end{itemize}
 }
 
@@ -177,6 +178,14 @@
 \begin{exampleblock}{Beispiel Zustandsdiagramm}
 \begin{center}
 \includegraphics[scale=0.6]{pics/zustandsdiagramm.png}
+\end{center}
+\end{exampleblock}
+}
+
+\frame {
+\begin{exampleblock}{Beispiel Zustandsdiagramm mit Gedächtnis}
+\begin{center}
+\includegraphics[scale=0.6]{pics/ZustandsDiagrammGedaechtnis.png}
 \end{center}
 \end{exampleblock}
 }
