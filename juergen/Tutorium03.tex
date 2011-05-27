@@ -1,0 +1,314 @@
+\input{header.tex}
+
+\title[Tutorium03]{Tutorium 03: UML in Aktion}
+\subtitle{Softwaretechnik im SS 2011, Tutorien 4 + 11 + 17}
+\author{Jürgen Walter}
+\date{\today}
+
+\institute{Chair for Software Design and Quality}
+
+\begin{document}
+
+%title page
+\begin{frame}
+\titlepage
+\end{frame}
+
+%table of contents
+\frame{
+\frametitle{Was machen wir heute?}
+\tableofcontents
+}
+
+\section{Altes Übungsblatt}
+
+\subsection{Altes Übungsblatt}
+\frame {
+\frametitle{Altes Übungsblatt}
+\begin{block}{Aufgabe 1: Sequenzdiagramm}
+\begin{itemize}
+\item ...
+\end{itemize}
+\end{block}
+
+
+\begin{block}{Aufgabe 2: Zustandsdiagramm}
+\begin{itemize}
+\item ...
+\end{itemize}
+\end{block}
+}
+
+\frame{
+\begin{block}{Aufgabe 3 Floyd-Steinberg-Algorithmus} 
+\begin{itemize}
+\item Checkstyle: “Utility classes should not have a public or default constructor” \pause
+\item Lösung: \lstinline[language=Java]"private Klassenname() \{\}"
+\end{itemize}
+\end{block}
+}
+
+\subsection{Zum Aufwärmen ...}
+\frame {
+\frametitle{Wahr oder falsch?}
+\begin{itemize}
+	\color<2->[rgb]{1,0,0}
+	\item Implementierungsvererbung ist die Voraussetzung für Signaturvererbung 
+	\color[rgb]{0,0,0}
+	\pause
+	\color<3->[rgb]{0,1,0}
+	\item Ein Modul ist eine Menge von Programmelementen, die nach dem Geheimnisprinzip gemeinsam entworfen und geändert werden.
+	\color[rgb]{0,0,0}
+	
+	\pause
+	\color<4->[rgb]{1,0,0}
+	\item Wenn eine Benutzthierarchie nur transitive Zyklen aufweist, heißt sie Benutztrelation
+	\color[rgb]{0,0,0}
+	\pause
+	\color<5->[rgb]{1,0,0}
+	\item Software ist leichter zu ändern als ein physisches Produkt vergleichbarer Komplexität.
+	\color[rgb]{0,0,0}
+	\pause
+	\color<6->[rgb]{1,0,0}
+	\item In Java muss eine abstrakte Klasse, die eine Schnittstelle implementiert, alle in der Schnittstelle vorgegebenen Methoden implementieren
+	\color[rgb]{0,0,0}
+
+\end{itemize}
+}
+
+\subsection{Swing}
+
+\frame{
+\frametitle{Swing Tipps}
+\begin{block}{Layouts}
+\begin{itemize}
+\item um Swing Komponenten anzuordnen verwendet man Layouts \pause
+\item es gibt sehr viele Varianten: \url{http://download.oracle.com/javase/tutorial/uiswing/layout/visual.html}  \pause
+\item für ÜB3 habt ihr freie Wahl, daher bieten sich \texttt{FlowLayout} oder ein vertikales \texttt{BoxLayout} an \pause
+\item für bessere Strukturierung: gruppiert mehrere Komponenten mit einem JPanel  \pause
+\item jeder Swing Container kann sein eigenes Layout haben \pause
+\item default: JFrame - \texttt{BorderLayout}, JPanel -  \texttt{FlowLayout})
+\end{itemize}
+\end{block}
+}
+\begin{frame}[fragile]
+\frametitle{Swing Tipps}
+\begin{block}{Bilder anzeigen}
+\begin{itemize}
+\item grundsätzlich kann man auf jede Swing Komponente malen \pause
+\item am einfachsten: \texttt{Icon} setzen \\
+\url{http://download.oracle.com/javase/tutorial/uiswing/components/icon.html}  \pause
+\end{itemize}
+\end{block}
+
+\begin{block}{Beispiel}
+\begin{lstlisting}
+	JFrame f = new JFrame();
+	f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	f.add(new JLabel(new ImageIcon(image)));
+	f.setSize(200,200);
+	f.setVisible(true);
+\end{lstlisting}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Swing Tipps}
+\begin{block}{Beispiel}
+\begin{lstlisting}
+	JFrame f  = new JFrame();
+	f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	f.setLayout(new FlowLayout());
+	f.setSize(220,325);
+
+	for (int i=0; i<20; i++) {
+	  	f.add(new JLabel("Text"));
+	  	f.add(new JButton("Button"));
+	}
+	f.setVisible(true);
+\end{lstlisting}
+\end{block}
+\end{frame}
+
+\subsection{Eclipse}
+\frame {
+\frametitle{Parameter in Eclipse übergeben}
+\begin{exampleblock}{Parameter übergeben I}
+\begin{center}
+\includegraphics[scale=0.6]{pics/ParameterPassing1.jpg}
+\end{center}
+\end{exampleblock}
+}
+
+\frame {
+\frametitle{Parameter in Eclipse übergeben}
+\begin{exampleblock}{Parameter übergeben II}
+\begin{center}
+\includegraphics[scale=0.36]{pics/ParameterPassing2.jpg}
+\end{center}
+\end{exampleblock}
+}
+
+\section{UML}
+\subsection{Zustandsdiagramm}
+
+\frame{
+\frametitle {Zustandsdiagramm} 
+\begin{itemize}
+ \item Beschreibt mögliche Zustände eines Objekts sowie mögliche Zustandsübergänge
+ \item Zustandsübergang (Transition) wird durch ein Ereignis ausgelöst
+ \begin{center}
+\includegraphics[scale=0.5]{pics/zustandsuebergang.png}
+\end{center}
+\item Zustandsübergang findet nur statt, wenn zu diesem Zeitpunkt die Bedingung erfüllt ist
+\item $\epsilon$ -Übergang erlaubt
+\item Aktionen
+\end{itemize}
+}
+
+\frame {
+\begin{exampleblock}{Beispiel Zustandsdiagramm}
+\begin{center}
+\includegraphics[scale=0.6]{pics/zustandsdiagramm.png}
+\end{center}
+\end{exampleblock}
+}
+
+
+\frame{
+\frametitle {Zustandsdiagramm Aufgabe Klausur 2010 (3P)}
+Wandeln Sie den rechts abgebildeten UML-Zustandsautomaten durch Zusammenlegen der Zustände $A_B$ 
+und $A_C$ zu einem neuen Zustand A in einen äquivalenten hierarchischen Zustandsautomaten um. (3 P)
+
+Hinweis: Beachten Sie, dass die gleiche Eingabefolge in Ihrem transformierten Automaten zu einem
+äquivalenten Zustand führt, wie im Originalautomaten (z. B.: Start $\rightarrow$ 1, 2, 3, 1 $\rightarrow$ C).
+\begin{center}
+\includegraphics[scale=0.5]{pics/ZustandsdiagrammAufgabe.png}
+\end{center}
+}
+
+\frame {
+\frametitle {Musterlösung} 
+\begin{center}
+\includegraphics[scale=0.6]{pics/MZustandsdiagrammAufgabe.png}
+\end{center}
+}
+
+\subsection{Sequenzdiagramm}
+
+\frame {
+\frametitle {Sequenzdiagramm Allgemein}
+\begin{itemize}
+\item Darstellung eines möglichen Ablauf eines Anwendungsfalls
+\item Konzentration auf zeitlichen Verlauf von Nachrichten
+\item Zeit verläuft von unten nach oben
+\item Lebenslinien durch gestrichelte Linien
+\item Nachrichten durch waagerechte Pfeile \\
+$\Rightarrow$ Unterscheide synchrone und asynchrone Nachrichten
+\item Antworten (optional) durch gestrichelte Pfeile 
+\end{itemize}
+
+
+}
+
+\frame {
+\frametitle {Sequenzdiagramm}
+\begin{block}{Sequenzdiagramm - Wie verschicke ich Nachrichten?}
+\begin{center}
+\includegraphics[width=0.6\textwidth]{pics/SequenzDiagramm1}
+\end{center}
+\end{block}
+
+}
+
+\frame {
+\frametitle {Sequenzdiagramm}
+\begin{block}{Sequenzdiagramm - Weiteres Beispiel}
+\begin{center}
+\includegraphics[width=0.8\textwidth]{pics/sequenzdiagrammBeispiel2.png}
+\end{center}
+\end{block}
+
+}
+
+\frame {
+\frametitle {Aufgabe Sequenzdiagramm 2010 (5P)}
+\small {
+Ein Passagierjet p meldet seinen momentanen Kurs $k_p$ an den Kontrollturm. Der Kontrollturm beauftragt den nächsten freien Fluglotsen f zu berechnen, ob irgendwelche Flugobjekte ausweichen müssen. Der Fluglotse kommt zu dem Ergebnis, dass keine Kollisionsgefahr besteht und alle Flugobjekte ihren Kurs beibehalten können. Folglich antwortet er mit einem leeren Feld von Kursen. Anschließend meldet ein Helikopter h seinen Kurs $k_h$ an den Kontrollturm. Wieder ist der nächste verfügbare Fluglotse der Flug-lotse f. Dieser berechnet unter Berücksichtigung von $k_h$, ob nun Flugobjekte ausweichen müssen. Diesmal besteht eine Kollisionsgefahr zwischen dem Passagierjet und dem Helikopter. Deswegen antwortet der Fluglotse mit zwei Ausweichkursen $k’_p$ und $k’_h$ für den Passagierjet bzw. den Helikopter. Der Kontrollturm weist daraufhin den Passagierjet und den Helikopter an ihre Kurse auf den jeweiligen Ausweichkurs zu ändern.
+\\
+Hinweis: Modellieren Sie die Kurse nicht als Objekte mit Lebenslinie. Wenn Sie Kurse als Parameter/Rückgabewert benötigen, verwenden Sie die vorgegebenen Bezeichner aus dem Szenario. Zeichnen Sie zu jedem Methodenaufruf auch die Rückantwort ein
+}
+}
+
+\frame {
+\frametitle {Musterlösung} 
+\begin{center}
+\includegraphics[scale=0.5]{pics/MSequenzdiagrammAufgabe.png}
+\end{center}
+
+
+}
+
+\section{Ende}
+
+\subsection{Tipps zum nächsten Übungsblatt}
+
+\frame{
+\frametitle{Tipps zum nächsten Übungsblatt}
+
+\begin{block}{Aufgabe 1 - Sequenzdiagramm}
+\begin{itemize}
+\item denkt an Lebenslinien, synchrone vs. asynchrone Nachrichten, Steuerungsfokus \pause
+\item laut Folien sind Fokus und Antworten egal, können aber in Klausur gefordert sein \pause
+\item zeichnet sie also am Besten immer ein
+\end{itemize}
+\end{block}
+
+\begin{block}{Aufgabe 2 - Zustandsdiagramm}
+\begin{itemize} \pause
+\item gebt stets das “Gedächtnis”' des Diagramms mit an
+\end{itemize}
+\end{block}
+
+}
+
+
+\frame{
+\frametitle{Tipps zum nächsten Übungsblatt}
+\begin{block}{Aufgabe 3 - Programmieren}
+\begin{itemize}
+\item besteht aus den Teilaufgaben “GUI” und Floyd-Steinberg für 3,6,..,24-Bit RGB \pause
+\item denkt an
+\texttt{int p = (o + 128 ) / 256 * 255 }
+\\ hier müsst ihr ansetzen um von 256 möglichen Ergebnissen auf $2^i$ mögliche Ergebnisse zu reduzieren \pause
+\item für das GUI gibt es unzählige Tutorials u.a. bei Oracle:
+\\ \url{http://download.oracle.com/javase/tutorial/uiswing/components/index.html}
+\\ \url{http://download.oracle.com/javase/tutorial/uiswing/components/componentlist.html}
+\\ \url{http://download.oracle.com/javase/tutorial/uiswing/layout/visual.html}
+\end{itemize}
+\end{block}
+}
+
+\frame{
+\frametitle{Tipps zum nächsten Übungsblatt}
+\begin{block}{Bonusaufgabe - Klassendiagramm}
+\begin{itemize}
+\item gute Übungsmöglichkeit
+\item für alle deren Klassendiagramme nicht fehlerfrei waren ;)\pause
+\item zeichnet die Diagramme von Hand: \\
+ in der Klausur hilft euch auch keine Software
+\end{itemize}
+\end{block}
+}
+
+
+\frame{
+\frametitle{Bis zum nächsten Mal}
+\begin{center}
+\includegraphics[height=200pt]{pics/02_zeitmaschine}
+\end{center}
+
+}
+
+
+\end{document}
