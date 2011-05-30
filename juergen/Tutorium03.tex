@@ -79,9 +79,7 @@
 	\pause
 	\begin{block}{Aufgabe 3:  Grafische Oberfläche für Floyd-Steinberg} 
 	\begin{itemize}
-	\item BLA BLA BLA
-	\item BLA BLA BLA
-	\item BLA BLA BLA
+	\item Bisher noch nicht korrigiert
 	\end{itemize}
 	\end{block}
 }
@@ -115,38 +113,52 @@
 }
 
 \frame {
-\frametitle {Klausurfragen zum Aufwärmen} 
-\begin{block} {Aufgabe 1 (2P)}
-Nennen Sie 4 aus der Vorlesung bekannte Techniken zur Anforderungsermittlung während der Planungsphase. \\
-\visible<2-> {
-Fragebögen (engl. questionnaires), Interviews, Aufgaben-, Dokumenten-, Systemanalyse, Szenarien (engl. scenarios), Anwendungsfälle (engl. use cases)
-
+\frametitle {Klausuraufgaben zum Aufwärmen} 
+	\begin{block} {Aufgabe 1 (2P)}
+	Nennen Sie 4 aus der Vorlesung bekannte Techniken zur Anforderungsermittlung während der 			
+	Planungsphase. \\
+	\visible<2-> {
+	\begin{itemize}
+		\item Fragebögen (engl. questionnaires)
+		\item Interviews
+		\item Aufgaben-
+		\item Dokumenten-
+		\item Systemanalyse
+		\item Szenarien (engl. scenarios)
+		\item Anwendungsfälle (engl. use cases)
+	\end{itemize}
+	}
+	\end{block}
 }
-\end{block}
 
-\pause
-\begin{block} {Aufgabe 2 (1,5P)}
-Nennen Sie 3 Ergebnisartefakte der Planungsphase.\\
-\visible<4-> {
-Durchführbarkeitsstudie, Lastenheft, Projektkalkulation, Projektplan
-
+\frame {
+\frametitle {Klausuraufgaben zum Aufwärmen} 
+	\begin{block} {Aufgabe 2 (1,5P)}
+	Nennen Sie 3 Ergebnisartefakte der Planungsphase.\\
+	\visible<4-> {
+	\begin{itemize}
+		\item Durchführbarkeitsstudie
+		\item Lastenheft
+		\item Projektkalkulation
+		\item Projektplan
+	\end{itemize}
+	}
+	\end{block}
 }
-\end{block}
 
-\pause
-\begin{block} {Aufgabe 3 (1,5P)}
-Für welche vier Eigenschaften steht der Begriff „ACID“-Prinzip? (2P)\\
-\visible<4-> {
-\begin{itemize}
-	\item Atomicity
-	\item Consistency
-	\item Durability
-	\item Isolation
-\end{itemize}
-}
-\end{block}
-
- 
+\frame {
+\frametitle {Klausuraufgaben zum Aufwärmen} 
+	\begin{block} {Aufgabe 3 (1,5P)}
+	Für welche vier Eigenschaften steht der Begriff „ACID“-Prinzip? (2P)\\
+	\visible<4-> {
+	\begin{itemize}
+		\item Atomicity
+		\item Consistency
+		\item Durability
+		\item Isolation
+	\end{itemize}
+	}
+	\end{block} 
 }
 
 \section{Überladen und Überschreiben}
@@ -178,6 +190,8 @@ Für welche vier Eigenschaften steht der Begriff „ACID“-Prinzip? (2P)\\
 	\end{block}
 \end{frame}
 
+
+\subsection{Überladen}
 \frame {
 \frametitle{Überladen}
 	\begin{block}{Überladene Methoden}
@@ -189,30 +203,23 @@ Für welche vier Eigenschaften steht der Begriff „ACID“-Prinzip? (2P)\\
 }
 
 
-\subsection{Eclipse}
+\subsection{Eclipse Demo}
 \frame {
-\frametitle{Parameter in Eclipse übergeben}
-	\begin{exampleblock}{Parameter übergeben I}
-	\begin{center}
-	\includegraphics[scale=0.6]{pics/ParameterPassing1.jpg}
-	\end{center}
-	\end{exampleblock}
+\frametitle{Eclipse Demo}
+	\begin{block}{Überladene Methoden}
+	\begin{itemize}
+	\item Vererbung
+	\item Überladen
+	\end{itemize}
+	\end{block}
 }
 
-\frame {
-\frametitle{Parameter in Eclipse übergeben}
-	\begin{exampleblock}{Parameter übergeben II}
-	\begin{center}
-	\includegraphics[scale=0.36]{pics/ParameterPassing2.jpg}
-	\end{center}
-	\end{exampleblock}
-}
 
 \section{UML}
 \subsection{Zustandsdiagramm}
 
 \frame{
-\frametitle {Zustandsdiagramm} 
+\frametitle {Zustandsdiagramm (Wiederholung)} 
 	\begin{itemize}
 	\item Beschreibt mögliche Zustände eines Objekts sowie mögliche Zustandsübergänge
 	\item Der Zustandsübergang (Transition) wird durch ein Ereignis ausgelöst
@@ -221,15 +228,7 @@ Für welche vier Eigenschaften steht der Begriff „ACID“-Prinzip? (2P)\\
 	\end{center}
 	\item Zustandsübergang findet nur statt, wenn die Bedingung zu diesem Zeitpunkt erfüllt ist
 	\item $\epsilon$ -Übergänge sind erlaubt
-\end{itemize}
-}
-
-\frame {
-\begin{exampleblock}{Beispiel Zustandsdiagramm}
-\begin{center}
-\includegraphics[scale=0.6]{pics/zustandsdiagramm.png}
-\end{center}
-\end{exampleblock}
+	\end{itemize}
 }
 
 \frame {
@@ -243,32 +242,31 @@ Für welche vier Eigenschaften steht der Begriff „ACID“-Prinzip? (2P)\\
 
 \frame{
 \frametitle {Zustandsdiagramm Aufgabe Klausur 2009 (1P)}
-Gegeben ist der folgende UML-Zustandsautomat. Geben Sie an, in welcher Zustandskombination
-sich der Zustandsautomat, jeweils ausgehend vom Startzustand, nach den beiden Eingabefolgen
-befindet. 
-
-\begin{center}
-\includegraphics[scale=0.6]{pics/03/zustandN.png}
-\end{center}
+	Gegeben ist der folgende UML-Zustandsautomat. Geben Sie an, in welcher Zustandskombination	
+	sich der Zustandsautomat, jeweils ausgehend vom Startzustand, nach den beiden Eingabefolgen
+	befindet. 
+	\begin{center}
+	\includegraphics[scale=0.6]{pics/03/zustandN.png}
+	\end{center}
 }
 
 \frame{
 \frametitle {Zustandsdiagramm Aufgabe Klausur 2009 5P)}
-Wandeln Sie den UML-Zustandsautomaten in einen äquivalenten neuen um, der weder nebenläufige noch hierarchische Zustände oder Zustände mit Historie enthält. Leiten Sie die Namen für die Zustände wie folgt aus den Namen der Zustände des alten Automaten ab:
-Regel 1: Die Kombination der alten Zustände 1 und 2 wird zum neuen Zustand $1 \times 2$.
-Regel 2: Wurde der alte Zustand 1 vom alten Zustand 2 aus erreicht, ergibt dies den neuen
-Zustand 1(2). 
+	Wandeln Sie den UML-Zustandsautomaten in einen äquivalenten neuen um, der weder nebenläufige noch 			hierarchische Zustände oder Zustände mit Historie enthält. Leiten Sie die Namen für die Zustände wie folgt 		aus den Namen der Zustände des alten Automaten ab:
+	Regel 1: Die Kombination der alten Zustände 1 und 2 wird zum neuen Zustand $1 \times 2$.
+	Regel 2: Wurde der alte Zustand 1 vom alten Zustand 2 aus erreicht, ergibt dies den neuen
+	Zustand 1(2). 
 
-\begin{center}
-\includegraphics[scale=0.55]{pics/03/zustandN.png}
-\end{center}
+	\begin{center}
+	\includegraphics[scale=0.55]{pics/03/zustandN.png}
+	\end{center}
 }
 
 \frame {
 \frametitle {Musterlösung} 
-\begin{center}
-\includegraphics[scale=0.6]{pics/03/zustandNM.png}
-\end{center}
+	\begin{center}
+	\includegraphics[scale=0.6]{pics/03/zustandNM.png}
+	\end{center}
 }
 
 \subsection{Sequenzdiagramm}
@@ -282,67 +280,49 @@ Zustand 1(2).
 	\end{block}
 }
 
-%
-%\frame {
-%\frametitle {Aufgabe Sequenzdiagramm 2010 (5P)}
-%\small {
-%Ein Passagierjet p meldet seinen momentanen Kurs $k_p$ an den Kontrollturm. Der Kontrollturm beauftragt den nächsten freien Fluglotsen f zu berechnen, ob irgendwelche Flugobjekte ausweichen müssen. Der Fluglotse kommt zu dem Ergebnis, dass keine Kollisionsgefahr besteht und alle Flugobjekte ihren Kurs beibehalten können. Folglich antwortet er mit einem leeren Feld von Kursen. Anschließend meldet ein Helikopter h seinen Kurs $k_h$ an den Kontrollturm. Wieder ist der nächste verfügbare Fluglotse der Flug-lotse f. Dieser berechnet unter Berücksichtigung von $k_h$, ob nun Flugobjekte ausweichen müssen. Diesmal besteht eine Kollisionsgefahr zwischen dem Passagierjet und dem Helikopter. Deswegen antwortet der Fluglotse mit zwei Ausweichkursen $k’_p$ und $k’_h$ für den Passagierjet bzw. den Helikopter. Der Kontrollturm weist daraufhin den Passagierjet und den Helikopter an ihre Kurse auf den jeweiligen Ausweichkurs zu ändern.
-%\\
-%Hinweis: Modellieren Sie die Kurse nicht als Objekte mit Lebenslinie. Wenn Sie Kurse als Parameter/Rückgabewert benötigen, verwenden Sie die vorgegebenen Bezeichner aus dem Szenario. Zeichnen Sie zu jedem Methodenaufruf auch die Rückantwort ein
-%}
-%}
-%
-%\frame {
-%\frametitle {Musterlösung} 
-%\begin{center}
-%\includegraphics[scale=0.5]{pics/MSequenzdiagrammAufgabe.png}
-%\end{center}
-%}
-
 \section{Ende}
-
 \subsection{Tipps zum nächsten Übungsblatt}
 
 \frame{
 \frametitle{Tipps zum nächsten Übungsblatt}
 
-\begin{block}{Aufgabe 1 - UML Zustandautomaten}
-\begin{itemize}
-\item a) Umkehrung der Klausuraufgabe des letzten Tutoriums
-\item b) Das History H gilt nur für den rechten Abschnitt
-\end{itemize}
-\end{block}
+	\begin{block}{Aufgabe 1 - UML Zustandautomaten}
+	\begin{itemize}
+	\item a) Umkehrung der Klausuraufgabe des letzten Tutoriums
+	\item b) Das History H gilt nur für den rechten Abschnitt
+	\end{itemize}
+	\end{block}
 
-\begin{block}{Aufgabe 2 - Überladen und Überschreiben}
-\begin{itemize} \pause
-\item Vererbung ist das grundlegende Konzept der objektorientierten Programmierung
-\item Hier könnt ihr relativ schnell merken, ob ihr es verstanden habt!
-\end{itemize}
-\end{block}
+	\begin{block}{Aufgabe 2 - Überladen und Überschreiben}
+	\begin{itemize} \pause
+	\item Vererbung ist das grundlegende Konzept der objektorientierten Programmierung
+	\item Hier könnt ihr relativ schnell merken, ob ihr es verstanden habt!
+	\end{itemize}
+	\end{block}
 }
 
 
 \frame{
 \frametitle{Tipps zum nächsten Übungsblatt}
-\begin{block}{Aufgabe 3 - Programmieren}
-\begin{itemize}
-\item Einfügen des der letzten Programmieraufgabe in JMRST
-\item TODO Wo muss ich was einfügen
-\item Wichtig: Sprache muss in eine Property Datei ausgelagert werden
-% \url{http://download.oracle.com/javase/tutorial/uiswing/layout/visual.html}
-\end{itemize}
-\end{block}
+	\begin{block}{Aufgabe 3 - Programmieren}
+	\begin{itemize}
+	\item Einfügen des der letzten Programmieraufgabe in JMRST
+	\item TODO Wo muss ich was einfügen
+	\item Wichtig: Sprache muss in eine Property Datei ausgelagert werden
+	% \url{http://download.oracle.com/javase/tutorial/uiswing/layout/visual.html}
+	\end{itemize}
+	\end{block}
 }
 
 \frame{
 \frametitle{Tipps zum nächsten Übungsblatt}
-\begin{block}{Bonusaufgabe - Kammerjäger}
-\begin{itemize}
-\item Für die, die sich nicht ausgelastet fühlen
-\item Viel Aufwand für 3 Punkte
-\item Nutzt Eclipse tools zum profilen
-\end{itemize}
-\end{block}
+	\begin{block}{Bonusaufgabe - Kammerjäger}
+	\begin{itemize}
+	\item Für die, die sich nicht ausgelastet fühlen
+	\item Viel Aufwand für 3 Punkte
+	\item Nutzt Eclipse tools zum profilen
+	\end{itemize}
+	\end{block}
 }
 
 
