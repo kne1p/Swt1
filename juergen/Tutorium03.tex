@@ -109,6 +109,15 @@
 	\item In Java muss eine abstrakte Klasse, die eine Schnittstelle implementiert, alle in der Schnittstelle vorgegebenen Methoden implementieren
 	\color[rgb]{0,0,0}
 
+\pause
+	\color<7->[rgb]{0,1,0}
+	\item Unter welchen Umständen ein Objekt welche Botschaft entgegen nimmt, spezifiziert man in einem UML-Zustandsdiagramm
+	\color[rgb]{0,0,0}
+
+\pause
+	\color<8->[rgb]{0,1,0}
+	\item Solange sich ein Objekt in einem Zustand befindet, reagiert es im gleichen Kontext immer gleich auf seine Umwelt
+	\color[rgb]{0,0,0}
 \end{itemize}
 }
 
@@ -278,7 +287,7 @@
 	\end{center}
 }
 
-\frame{
+\frame {
 \frametitle {Klausuraufgabe 2009 (5P)}
 	Wandeln Sie den UML-Zustandsautomaten in einen äquivalenten neuen um, der weder nebenläufige noch 				hierarchische Zustände oder Zustände mit Historie enthält. Leiten Sie die Namen für die Zustände wie folgt 			aus den Namen der Zustände des alten Automaten ab:
 	\begin{itemize}
@@ -299,6 +308,29 @@
 	\end{center}
 }
 
+\frame {
+\frametitle {Abbildung Zustandsdiagramm auf Code} 
+	\begin{exampleblock} {Beispiel: Explizite Speicherung}
+		\begin{center}
+		\includegraphics[scale=0.4]{pics/03/zustandB.png}
+		\end{center}
+	\end{exampleblock}
+}
+
+\frame {
+\frametitle {Klausuraufgabe 2008: Abbildung auf Code (6P)} 
+Realisieren Sie folgenden Zustandsautomaten für die Klasse P als eingebettete explizite Speicherung mit Java-Code
+	\begin{center}
+	\includegraphics[scale=0.6]{pics/03/zustandCode.png}
+	\end{center}
+}
+
+\frame {
+\frametitle {Musterlösung} 
+	\begin{center}
+	\includegraphics[scale=0.6]{pics/03/zustandCM.png}
+	\end{center}
+}
 \section{Ende}
 \subsection{Tipps zum nächsten Übungsblatt}
 
