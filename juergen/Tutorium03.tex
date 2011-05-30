@@ -126,58 +126,33 @@
 	\end{block}
 }
 
+\begin{frame}[fragile]
+\frametitle{Überladen}
+	\begin{block}{Beispiel überladene Methoden}
+	\begin{lstlisting}
+		void printParameter(String p){
+			System.out.println("Parameter = " + p);
+		}
+		void printParameter(char p){
+			System.out.println("Parameter = " + p);
+		}
+		void printParameter(){
+			System.out.println("no parameter passed");
+		}
+	\end{lstlisting}
+	\end{block}
+\end{frame}
 
-\frame{
-\frametitle{Swing Tipps}
-	\begin{block}{Layouts}
+\frame {
+\frametitle{Überladen}
+	\begin{block}{Überladene Methoden}
 	\begin{itemize}
-	\item um Swing Komponenten anzuordnen verwendet man Layouts \pause
-	\item es gibt sehr viele Varianten: \url{http://download.oracle.com/javase/tutorial/uiswing/layout/visual.html}  \pause
-	\item für ÜB3 habt ihr freie Wahl, daher bieten sich \texttt{FlowLayout} oder ein vertikales \texttt{BoxLayout} an 		\pause
-	\item für bessere Strukturierung: gruppiert mehrere Komponenten mit einem JPanel  \pause
-	\item jeder Swing Container kann sein eigenes Layout haben \pause
-	\item default: JFrame - \texttt{BorderLayout}, JPanel -  \texttt{FlowLayout})
+	\item Methoden einer Klasse mit gleichen Namen, aber verschiedene Parameterlisten
+	\item Bequem für den Benutzer
 	\end{itemize}
 	\end{block}
 }
-\begin{frame}[fragile]
-\frametitle{Swing Tipps}
-\begin{block}{Bilder anzeigen}
-\begin{itemize}
-\item grundsätzlich kann man auf jede Swing Komponente malen \pause
-\item am einfachsten: \texttt{Icon} setzen \\
-\url{http://download.oracle.com/javase/tutorial/uiswing/components/icon.html}  \pause
-\end{itemize}
-\end{block}
 
-\begin{block}{Beispiel}
-\begin{lstlisting}
-	JFrame f = new JFrame();
-	f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	f.add(new JLabel(new ImageIcon(image)));
-	f.setSize(200,200);
-	f.setVisible(true);
-\end{lstlisting}
-\end{block}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Swing Tipps}
-\begin{block}{Beispiel}
-\begin{lstlisting}
-	JFrame f  = new JFrame();
-	f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	f.setLayout(new FlowLayout());
-	f.setSize(220,325);
-
-	for (int i=0; i<20; i++) {
-	  	f.add(new JLabel("Text"));
-	  	f.add(new JButton("Button"));
-	}
-	f.setVisible(true);
-\end{lstlisting}
-\end{block}
-\end{frame}
 
 \subsection{Eclipse}
 \frame {
