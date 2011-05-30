@@ -206,7 +206,7 @@
 \subsection{Eclipse Demo}
 \frame {
 \frametitle{Eclipse Demo}
-	\begin{block}{Überladene Methoden}
+	\begin{block}{Themen}
 	\begin{itemize}
 	\item Vererbung
 	\item Überladen
@@ -232,30 +232,42 @@
 }
 
 \frame {
-\begin{exampleblock}{Beispiel Zustandsdiagramm mit Gedächtnis}
-\begin{center}
-\includegraphics[scale=0.6]{pics/ZustandsDiagrammGedaechtnis.png}
-\end{center}
-\end{exampleblock}
+	\begin{exampleblock}{Zustandsdiagramm mit Gedächtnis (Wiederholung)}
+	\begin{center}
+	\includegraphics[scale=0.6]{pics/ZustandsDiagrammGedaechtnis.png}
+	\end{center}
+	\end{exampleblock}
 }
 
 
 \frame{
-\frametitle {Zustandsdiagramm Aufgabe Klausur 2009 (1P)}
+\frametitle {Klausuraufgabe 2009 (1P)}
 	Gegeben ist der folgende UML-Zustandsautomat. Geben Sie an, in welcher Zustandskombination	
 	sich der Zustandsautomat, jeweils ausgehend vom Startzustand, nach den beiden Eingabefolgen
 	befindet. 
+	\begin{itemize}
+	\item Folge1: a, b, c, c   
+	\visible<2-> {
+	\item Zustandskombination: $A \times $D
+	}
+	\item Folge2: c, c, a, b, b, a, c, c, a
+	\visible<3-> {
+	\item Zustandskombination: $B \times $C
+	}
+	\end{itemize}
 	\begin{center}
 	\includegraphics[scale=0.6]{pics/03/zustandN.png}
 	\end{center}
 }
 
 \frame{
-\frametitle {Zustandsdiagramm Aufgabe Klausur 2009 5P)}
+\frametitle {Klausuraufgabe 2009 (5P)}
 	Wandeln Sie den UML-Zustandsautomaten in einen äquivalenten neuen um, der weder nebenläufige noch 			hierarchische Zustände oder Zustände mit Historie enthält. Leiten Sie die Namen für die Zustände wie folgt 		aus den Namen der Zustände des alten Automaten ab:
-	Regel 1: Die Kombination der alten Zustände 1 und 2 wird zum neuen Zustand $1 \times 2$.
-	Regel 2: Wurde der alte Zustand 1 vom alten Zustand 2 aus erreicht, ergibt dies den neuen
+	\begin{itemize}
+	\item Regel 1: Die Kombination der alten Zustände 1 und 2 wird zum neuen Zustand $1 \times 2$.
+	\item Regel 2: Wurde der alte Zustand 1 vom alten Zustand 2 aus erreicht, ergibt dies den neuen
 	Zustand 1(2). 
+	\end{itemize}
 
 	\begin{center}
 	\includegraphics[scale=0.55]{pics/03/zustandN.png}
@@ -267,17 +279,6 @@
 	\begin{center}
 	\includegraphics[scale=0.6]{pics/03/zustandNM.png}
 	\end{center}
-}
-
-\subsection{Sequenzdiagramm}
-
-\frame {
-	\frametitle {Sequenzdiagramm}
-	\begin{block}{Sequenzdiagramm - Weiteres Beispiel}
-	\begin{center}
-	\includegraphics[width=0.8\textwidth]{pics/sequenzdiagrammBeispiel2.png}
-	\end{center}
-	\end{block}
 }
 
 \section{Ende}
