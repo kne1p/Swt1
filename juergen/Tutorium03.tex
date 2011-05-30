@@ -135,7 +135,7 @@
 \frametitle {Klausuraufgaben zum Aufwärmen} 
 	\begin{block} {Aufgabe 2 (1,5P)}
 	Nennen Sie 3 Ergebnisartefakte der Planungsphase.\\
-	\visible<4-> {
+	\visible<2-> {
 	\begin{itemize}
 		\item Durchführbarkeitsstudie
 		\item Lastenheft
@@ -150,7 +150,7 @@
 \frametitle {Klausuraufgaben zum Aufwärmen} 
 	\begin{block} {Aufgabe 3 (1,5P)}
 	Für welche vier Eigenschaften steht der Begriff „ACID“-Prinzip? (2P)\\
-	\visible<4-> {
+	\visible<2-> {
 	\begin{itemize}
 		\item Atomicity
 		\item Consistency
@@ -172,6 +172,24 @@
 	\end{center}
 	\end{block}
 }
+
+\frame {
+\frametitle {Varianz} 
+	\begin{block} {Substitutionsprinzip / Liskovsches Substitutionsprinzip / Ersetzbarkeitsprinzip}
+	" Objekte der abgeleiteten Klasse können stets Objekte der Oberklasse ersetzen"
+
+	Durch das Substitutionsprinzip ergeben sich in der Polymorphie der objektorientierten Programmierung folgende 			Auftrittsmöglichkeiten für Varianzen:
+	\visible<2-> {
+	\begin{itemize}
+		\item 	Kontravarianz  -  Eingabeparameter
+		\item Kovarianz  - Rückgabewert und Ausnahmen
+		\item Invarianz - Ein- und Ausgabeparameter
+
+	\end{itemize}
+	}
+	\end{block} 
+}
+
 
 \begin{frame}[fragile]
 \frametitle{Überladen}
@@ -262,7 +280,7 @@
 
 \frame{
 \frametitle {Klausuraufgabe 2009 (5P)}
-	Wandeln Sie den UML-Zustandsautomaten in einen äquivalenten neuen um, der weder nebenläufige noch 			hierarchische Zustände oder Zustände mit Historie enthält. Leiten Sie die Namen für die Zustände wie folgt 		aus den Namen der Zustände des alten Automaten ab:
+	Wandeln Sie den UML-Zustandsautomaten in einen äquivalenten neuen um, der weder nebenläufige noch 				hierarchische Zustände oder Zustände mit Historie enthält. Leiten Sie die Namen für die Zustände wie folgt 			aus den Namen der Zustände des alten Automaten ab:
 	\begin{itemize}
 	\item Regel 1: Die Kombination der alten Zustände 1 und 2 wird zum neuen Zustand $1 \times 2$.
 	\item Regel 2: Wurde der alte Zustand 1 vom alten Zustand 2 aus erreicht, ergibt dies den neuen
@@ -296,6 +314,7 @@
 
 	\begin{block}{Aufgabe 2 - Überladen und Überschreiben}
 	\begin{itemize} \pause
+	\item Abgabe in der LEZ
 	\item Vererbung ist das grundlegende Konzept der objektorientierten Programmierung
 	\item Hier könnt ihr relativ schnell merken, ob ihr es verstanden habt!
 	\end{itemize}
@@ -310,7 +329,6 @@
 	\item Einfügen des der letzten Programmieraufgabe in JMRST
 	\item TODO Wo muss ich was einfügen
 	\item Wichtig: Sprache muss in eine Property Datei ausgelagert werden
-	% \url{http://download.oracle.com/javase/tutorial/uiswing/layout/visual.html}
 	\end{itemize}
 	\end{block}
 }
