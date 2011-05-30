@@ -1,7 +1,7 @@
 \input{header.tex}
 
-\title[Tutorium03]{Tutorium 03: UML in Aktion}
-\subtitle{Softwaretechnik im SS 2011, Tutorien 4 + 11 + 17}
+\title[Tutorium03]{Tutorium 02: Überschreiben und Überladen + Zustandsdiagramm}
+\subtitle{Softwaretechnik im SS 2011, Tutorium 4}
 \author{Jürgen Walter}
 \date{\today}
 
@@ -17,7 +17,7 @@
 %table of contents
 \frame{
 \frametitle{Was machen wir heute?}
-\tableofcontents
+	\tableofcontents
 }
 
 \section{Altes Übungsblatt}
@@ -25,27 +25,65 @@
 \subsection{Altes Übungsblatt}
 \frame {
 \frametitle{Altes Übungsblatt}
-\begin{block}{Aufgabe 1: Sequenzdiagramm}
-\begin{itemize}
-\item ...
-\end{itemize}
-\end{block}
-
-
-\begin{block}{Aufgabe 2: Zustandsdiagramm}
-\begin{itemize}
-\item ...
-\end{itemize}
-\end{block}
+	\begin{block}{Aufgabe 1: Sequenzdiagramm}
+	\begin{itemize}
+	\item Probleme mit Unterschied synchrone vs asynchrone Kommunikation
+	\item Pfeilspitze ausmalen oder nicht?
+	\end{itemize}
+	\end{block}
 }
 
-\frame{
-\begin{block}{Aufgabe 3 Floyd-Steinberg-Algorithmus} 
-\begin{itemize}
-\item Checkstyle: “Utility classes should not have a public or default constructor” \pause
-\item Lösung: \lstinline[language=Java]"private Klassenname() \{\}"
-\end{itemize}
-\end{block}
+\frame {
+\frametitle{Altes Übungsblatt}
+	\begin{block}{synchroner Nachrichten}
+	\begin{itemize}
+	\item Warten immer bis der aufgerufene fertig ist 
+	\item (auch wenn keine Antworten gegeben werden)
+	\end{itemize}
+	\end{block}
+	\pause
+
+	\begin{block}{Antworten}
+	\begin{itemize}
+	\item nur bei synchronen Nachrichten möglich, optional
+	\end{itemize}
+	\end{block}
+	\pause
+
+	\begin{block}{asynchrone Nachrichten}
+	\begin{itemize}
+	\item "Mach es irgendwann zuende, ich bin nicht von dir abhängig!"
+	\item z.B. Zerstörung eins Threads der nichts mehr tut, hier sollte das Programm nicht warten
+	\item Entsprechen unsynchronisierten Thread-Operationen
+	\item schneller, aber schwerer zu debuggen
+	\end{itemize}
+	\end{block}
+}
+
+\frame {
+\frametitle{Altes Übungsblatt}
+	\begin{block}{Sequenzdiagramm - Kommunikation}
+	\begin{center}
+	\includegraphics[width=0.6\textwidth]{pics/SequenzDiagramm1}
+	\end{center}
+	\end{block}
+}
+
+\frame {
+\frametitle{Altes Übungsblatt}
+	\begin{block}{Aufgabe 2: Zustandsdiagramm}
+	\begin{itemize}
+	\item Überwiegend richtig gelöst, sehr schön!
+	\end{itemize}
+	\end{block}
+	\pause
+	\begin{block}{Aufgabe 3:  Grafische Oberfläche für Floyd-Steinberg} 
+	\begin{itemize}
+	\item BLA BLA BLA
+	\item BLA BLA BLA
+	\item BLA BLA BLA
+	\end{itemize}
+	\end{block}
 }
 
 \subsection{Zum Aufwärmen ...}
@@ -76,20 +114,21 @@
 \end{itemize}
 }
 
-\subsection{Swing}
+\section{Überladen und Überschreiben}
+\subsection{Vererbung}
 
 \frame{
 \frametitle{Swing Tipps}
-\begin{block}{Layouts}
-\begin{itemize}
-\item um Swing Komponenten anzuordnen verwendet man Layouts \pause
-\item es gibt sehr viele Varianten: \url{http://download.oracle.com/javase/tutorial/uiswing/layout/visual.html}  \pause
-\item für ÜB3 habt ihr freie Wahl, daher bieten sich \texttt{FlowLayout} oder ein vertikales \texttt{BoxLayout} an \pause
-\item für bessere Strukturierung: gruppiert mehrere Komponenten mit einem JPanel  \pause
-\item jeder Swing Container kann sein eigenes Layout haben \pause
-\item default: JFrame - \texttt{BorderLayout}, JPanel -  \texttt{FlowLayout})
-\end{itemize}
-\end{block}
+	\begin{block}{Layouts}
+	\begin{itemize}
+	\item um Swing Komponenten anzuordnen verwendet man Layouts \pause
+	\item es gibt sehr viele Varianten: \url{http://download.oracle.com/javase/tutorial/uiswing/layout/visual.html}  \pause
+	\item für ÜB3 habt ihr freie Wahl, daher bieten sich \texttt{FlowLayout} oder ein vertikales \texttt{BoxLayout} an 		\pause
+	\item für bessere Strukturierung: gruppiert mehrere Komponenten mit einem JPanel  \pause
+	\item jeder Swing Container kann sein eigenes Layout haben \pause
+	\item default: JFrame - \texttt{BorderLayout}, JPanel -  \texttt{FlowLayout})
+	\end{itemize}
+	\end{block}
 }
 \begin{frame}[fragile]
 \frametitle{Swing Tipps}
@@ -133,20 +172,20 @@
 \subsection{Eclipse}
 \frame {
 \frametitle{Parameter in Eclipse übergeben}
-\begin{exampleblock}{Parameter übergeben I}
-\begin{center}
-\includegraphics[scale=0.6]{pics/ParameterPassing1.jpg}
-\end{center}
-\end{exampleblock}
+	\begin{exampleblock}{Parameter übergeben I}
+	\begin{center}
+	\includegraphics[scale=0.6]{pics/ParameterPassing1.jpg}
+	\end{center}
+	\end{exampleblock}
 }
 
 \frame {
 \frametitle{Parameter in Eclipse übergeben}
-\begin{exampleblock}{Parameter übergeben II}
-\begin{center}
-\includegraphics[scale=0.36]{pics/ParameterPassing2.jpg}
-\end{center}
-\end{exampleblock}
+	\begin{exampleblock}{Parameter übergeben II}
+	\begin{center}
+	\includegraphics[scale=0.36]{pics/ParameterPassing2.jpg}
+	\end{center}
+	\end{exampleblock}
 }
 
 \section{UML}
@@ -154,15 +193,14 @@
 
 \frame{
 \frametitle {Zustandsdiagramm} 
-\begin{itemize}
- \item Beschreibt mögliche Zustände eines Objekts sowie mögliche Zustandsübergänge
- \item Zustandsübergang (Transition) wird durch ein Ereignis ausgelöst
- \begin{center}
-\includegraphics[scale=0.5]{pics/zustandsuebergang.png}
-\end{center}
-\item Zustandsübergang findet nur statt, wenn zu diesem Zeitpunkt die Bedingung erfüllt ist
-\item $\epsilon$ -Übergang erlaubt
-\item Aktionen
+	\begin{itemize}
+	\item Beschreibt mögliche Zustände eines Objekts sowie mögliche Zustandsübergänge
+	\item Der Zustandsübergang (Transition) wird durch ein Ereignis ausgelöst
+	\begin{center}
+	\includegraphics[scale=0.5]{pics/zustandsuebergang.png}
+	\end{center}
+	\item Zustandsübergang findet nur statt, wenn die Bedingung zu diesem Zeitpunkt erfüllt ist
+	\item $\epsilon$ -Übergänge sind erlaubt
 \end{itemize}
 }
 
@@ -170,6 +208,14 @@
 \begin{exampleblock}{Beispiel Zustandsdiagramm}
 \begin{center}
 \includegraphics[scale=0.6]{pics/zustandsdiagramm.png}
+\end{center}
+\end{exampleblock}
+}
+
+\frame {
+\begin{exampleblock}{Beispiel Zustandsdiagramm mit Gedächtnis}
+\begin{center}
+\includegraphics[scale=0.6]{pics/ZustandsDiagrammGedaechtnis.png}
 \end{center}
 \end{exampleblock}
 }
@@ -197,57 +243,30 @@ Hinweis: Beachten Sie, dass die gleiche Eingabefolge in Ihrem transformierten Au
 \subsection{Sequenzdiagramm}
 
 \frame {
-\frametitle {Sequenzdiagramm Allgemein}
-\begin{itemize}
-\item Darstellung eines möglichen Ablauf eines Anwendungsfalls
-\item Konzentration auf zeitlichen Verlauf von Nachrichten
-\item Zeit verläuft von unten nach oben
-\item Lebenslinien durch gestrichelte Linien
-\item Nachrichten durch waagerechte Pfeile \\
-$\Rightarrow$ Unterscheide synchrone und asynchrone Nachrichten
-\item Antworten (optional) durch gestrichelte Pfeile 
-\end{itemize}
-
-
+	\frametitle {Sequenzdiagramm}
+	\begin{block}{Sequenzdiagramm - Weiteres Beispiel}
+	\begin{center}
+	\includegraphics[width=0.8\textwidth]{pics/sequenzdiagrammBeispiel2.png}
+	\end{center}
+	\end{block}
 }
 
-\frame {
-\frametitle {Sequenzdiagramm}
-\begin{block}{Sequenzdiagramm - Wie verschicke ich Nachrichten?}
-\begin{center}
-\includegraphics[width=0.6\textwidth]{pics/SequenzDiagramm1}
-\end{center}
-\end{block}
-
-}
-
-\frame {
-\frametitle {Sequenzdiagramm}
-\begin{block}{Sequenzdiagramm - Weiteres Beispiel}
-\begin{center}
-\includegraphics[width=0.8\textwidth]{pics/sequenzdiagrammBeispiel2.png}
-\end{center}
-\end{block}
-
-}
-
-\frame {
-\frametitle {Aufgabe Sequenzdiagramm 2010 (5P)}
-\small {
-Ein Passagierjet p meldet seinen momentanen Kurs $k_p$ an den Kontrollturm. Der Kontrollturm beauftragt den nächsten freien Fluglotsen f zu berechnen, ob irgendwelche Flugobjekte ausweichen müssen. Der Fluglotse kommt zu dem Ergebnis, dass keine Kollisionsgefahr besteht und alle Flugobjekte ihren Kurs beibehalten können. Folglich antwortet er mit einem leeren Feld von Kursen. Anschließend meldet ein Helikopter h seinen Kurs $k_h$ an den Kontrollturm. Wieder ist der nächste verfügbare Fluglotse der Flug-lotse f. Dieser berechnet unter Berücksichtigung von $k_h$, ob nun Flugobjekte ausweichen müssen. Diesmal besteht eine Kollisionsgefahr zwischen dem Passagierjet und dem Helikopter. Deswegen antwortet der Fluglotse mit zwei Ausweichkursen $k’_p$ und $k’_h$ für den Passagierjet bzw. den Helikopter. Der Kontrollturm weist daraufhin den Passagierjet und den Helikopter an ihre Kurse auf den jeweiligen Ausweichkurs zu ändern.
-\\
-Hinweis: Modellieren Sie die Kurse nicht als Objekte mit Lebenslinie. Wenn Sie Kurse als Parameter/Rückgabewert benötigen, verwenden Sie die vorgegebenen Bezeichner aus dem Szenario. Zeichnen Sie zu jedem Methodenaufruf auch die Rückantwort ein
-}
-}
-
-\frame {
-\frametitle {Musterlösung} 
-\begin{center}
-\includegraphics[scale=0.5]{pics/MSequenzdiagrammAufgabe.png}
-\end{center}
-
-
-}
+%
+%\frame {
+%\frametitle {Aufgabe Sequenzdiagramm 2010 (5P)}
+%\small {
+%Ein Passagierjet p meldet seinen momentanen Kurs $k_p$ an den Kontrollturm. Der Kontrollturm beauftragt den nächsten freien Fluglotsen f zu berechnen, ob irgendwelche Flugobjekte ausweichen müssen. Der Fluglotse kommt zu dem Ergebnis, dass keine Kollisionsgefahr besteht und alle Flugobjekte ihren Kurs beibehalten können. Folglich antwortet er mit einem leeren Feld von Kursen. Anschließend meldet ein Helikopter h seinen Kurs $k_h$ an den Kontrollturm. Wieder ist der nächste verfügbare Fluglotse der Flug-lotse f. Dieser berechnet unter Berücksichtigung von $k_h$, ob nun Flugobjekte ausweichen müssen. Diesmal besteht eine Kollisionsgefahr zwischen dem Passagierjet und dem Helikopter. Deswegen antwortet der Fluglotse mit zwei Ausweichkursen $k’_p$ und $k’_h$ für den Passagierjet bzw. den Helikopter. Der Kontrollturm weist daraufhin den Passagierjet und den Helikopter an ihre Kurse auf den jeweiligen Ausweichkurs zu ändern.
+%\\
+%Hinweis: Modellieren Sie die Kurse nicht als Objekte mit Lebenslinie. Wenn Sie Kurse als Parameter/Rückgabewert benötigen, verwenden Sie die vorgegebenen Bezeichner aus dem Szenario. Zeichnen Sie zu jedem Methodenaufruf auch die Rückantwort ein
+%}
+%}
+%
+%\frame {
+%\frametitle {Musterlösung} 
+%\begin{center}
+%\includegraphics[scale=0.5]{pics/MSequenzdiagrammAufgabe.png}
+%\end{center}
+%}
 
 \section{Ende}
 
@@ -256,20 +275,19 @@ Hinweis: Modellieren Sie die Kurse nicht als Objekte mit Lebenslinie. Wenn Sie K
 \frame{
 \frametitle{Tipps zum nächsten Übungsblatt}
 
-\begin{block}{Aufgabe 1 - Sequenzdiagramm}
+\begin{block}{Aufgabe 1 - UML Zustandautomaten}
 \begin{itemize}
-\item denkt an Lebenslinien, synchrone vs. asynchrone Nachrichten, Steuerungsfokus \pause
-\item laut Folien sind Fokus und Antworten egal, können aber in Klausur gefordert sein \pause
-\item zeichnet sie also am Besten immer ein
+\item a) Umkehrung der Klausuraufgabe des letzten Tutoriums
+\item b) Das History H gilt nur für den rechten Abschnitt
 \end{itemize}
 \end{block}
 
-\begin{block}{Aufgabe 2 - Zustandsdiagramm}
+\begin{block}{Aufgabe 2 - Überladen und Überschreiben}
 \begin{itemize} \pause
-\item gebt stets das “Gedächtnis”' des Diagramms mit an
+\item Vererbung ist das grundlegende Konzept der objektorientierten Programmierung
+\item Hier könnt ihr relativ schnell merken, ob ihr es verstanden habt!
 \end{itemize}
 \end{block}
-
 }
 
 
@@ -277,26 +295,21 @@ Hinweis: Modellieren Sie die Kurse nicht als Objekte mit Lebenslinie. Wenn Sie K
 \frametitle{Tipps zum nächsten Übungsblatt}
 \begin{block}{Aufgabe 3 - Programmieren}
 \begin{itemize}
-\item besteht aus den Teilaufgaben “GUI” und Floyd-Steinberg für 3,6,..,24-Bit RGB \pause
-\item denkt an
-\texttt{int p = (o + 128 ) / 256 * 255 }
-\\ hier müsst ihr ansetzen um von 256 möglichen Ergebnissen auf $2^i$ mögliche Ergebnisse zu reduzieren \pause
-\item für das GUI gibt es unzählige Tutorials u.a. bei Oracle:
-\\ \url{http://download.oracle.com/javase/tutorial/uiswing/components/index.html}
-\\ \url{http://download.oracle.com/javase/tutorial/uiswing/components/componentlist.html}
-\\ \url{http://download.oracle.com/javase/tutorial/uiswing/layout/visual.html}
+\item Einfügen des der letzten Programmieraufgabe in JMRST
+\item TODO Wo muss ich was einfügen
+\item Wichtig: Sprache muss in eine Property Datei ausgelagert werden
+% \url{http://download.oracle.com/javase/tutorial/uiswing/layout/visual.html}
 \end{itemize}
 \end{block}
 }
 
 \frame{
 \frametitle{Tipps zum nächsten Übungsblatt}
-\begin{block}{Bonusaufgabe - Klassendiagramm}
+\begin{block}{Bonusaufgabe - Kammerjäger}
 \begin{itemize}
-\item gute Übungsmöglichkeit
-\item für alle deren Klassendiagramme nicht fehlerfrei waren ;)\pause
-\item zeichnet die Diagramme von Hand: \\
- in der Klausur hilft euch auch keine Software
+\item Für die, die sich nicht ausgelastet fühlen
+\item Viel Aufwand für 3 Punkte
+\item Nutzt Eclipse tools zum profilen
 \end{itemize}
 \end{block}
 }
@@ -304,10 +317,9 @@ Hinweis: Modellieren Sie die Kurse nicht als Objekte mit Lebenslinie. Wenn Sie K
 
 \frame{
 \frametitle{Bis zum nächsten Mal}
-\begin{center}
-\includegraphics[height=200pt]{pics/02_zeitmaschine}
-\end{center}
-
+	\begin{center}
+	\includegraphics[height=200pt]{pics/02_zeitmaschine}
+	\end{center}
 }
 
 
