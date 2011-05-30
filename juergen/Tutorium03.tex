@@ -1,6 +1,6 @@
 \input{header.tex}
 
-\title[Tutorium03]{Tutorium 02: Überschreiben und Überladen + Zustandsdiagramm}
+\title[Tutorium03]{Tutorium 03: Überschreiben und Überladen + Zustandsdiagramm}
 \subtitle{Softwaretechnik im SS 2011, Tutorium 4}
 \author{Jürgen Walter}
 \date{\today}
@@ -207,21 +207,32 @@
 
 
 \frame{
-\frametitle {Zustandsdiagramm Aufgabe Klausur 2010 (3P)}
-Wandeln Sie den rechts abgebildeten UML-Zustandsautomaten durch Zusammenlegen der Zustände $A_B$ 
-und $A_C$ zu einem neuen Zustand A in einen äquivalenten hierarchischen Zustandsautomaten um. (3 P)
+\frametitle {Zustandsdiagramm Aufgabe Klausur 2009 (1P)}
+Gegeben ist der folgende UML-Zustandsautomat. Geben Sie an, in welcher Zustandskombination
+sich der Zustandsautomat, jeweils ausgehend vom Startzustand, nach den beiden Eingabefolgen
+befindet. 
 
-Hinweis: Beachten Sie, dass die gleiche Eingabefolge in Ihrem transformierten Automaten zu einem
-äquivalenten Zustand führt, wie im Originalautomaten (z. B.: Start $\rightarrow$ 1, 2, 3, 1 $\rightarrow$ C).
 \begin{center}
-\includegraphics[scale=0.5]{pics/ZustandsdiagrammAufgabe.png}
+\includegraphics[scale=0.6]{pics/03/zustandN.png}
+\end{center}
+}
+
+\frame{
+\frametitle {Zustandsdiagramm Aufgabe Klausur 2009 5P)}
+Wandeln Sie den UML-Zustandsautomaten in einen äquivalenten neuen um, der weder nebenläufige noch hierarchische Zustände oder Zustände mit Historie enthält. Leiten Sie die Namen für die Zustände wie folgt aus den Namen der Zustände des alten Automaten ab:
+Regel 1: Die Kombination der alten Zustände 1 und 2 wird zum neuen Zustand $1 \times 2$.
+Regel 2: Wurde der alte Zustand 1 vom alten Zustand 2 aus erreicht, ergibt dies den neuen
+Zustand 1(2). 
+
+\begin{center}
+\includegraphics[scale=0.55]{pics/03/zustandN.png}
 \end{center}
 }
 
 \frame {
 \frametitle {Musterlösung} 
 \begin{center}
-\includegraphics[scale=0.6]{pics/MZustandsdiagrammAufgabe.png}
+\includegraphics[scale=0.6]{pics/03/zustandNM.png}
 \end{center}
 }
 
