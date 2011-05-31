@@ -27,9 +27,19 @@
 \frametitle{Altes Übungsblatt}
 	\begin{block}{Aufgabe 1: Sequenzdiagramm}
 	\begin{itemize}
-	\item Probleme mit Unterschied synchrone vs asynchrone Kommunikation
+	\item Oft nicht vollständig modelliert.
+	\item Probleme mit Unterschied synchrone vs asynchrone Kommunikation.
 	\item Pfeilspitze ausmalen oder nicht?
 	\end{itemize}
+	\end{block}
+}
+
+\frame {
+\frametitle{Altes Übungsblatt}
+	\begin{block}{Sequenzdiagramm - Kommunikation}
+	\begin{center}
+	\includegraphics[width=0.6\textwidth]{pics/SequenzDiagramm1}
+	\end{center}
 	\end{block}
 }
 
@@ -60,15 +70,6 @@
 	\end{block}
 }
 
-\frame {
-\frametitle{Altes Übungsblatt}
-	\begin{block}{Sequenzdiagramm - Kommunikation}
-	\begin{center}
-	\includegraphics[width=0.6\textwidth]{pics/SequenzDiagramm1}
-	\end{center}
-	\end{block}
-}
-
 \begin{frame}[fragile]
 \frametitle{Altes Übungsblatt}
 	\begin{block}{Aufgabe 2: Zustandsdiagramm}
@@ -80,6 +81,7 @@
 	\begin{block}{Aufgabe 3:  Grafische Oberfläche für Floyd-Steinberg} 
 	\begin{itemize}
 	\item Bisher noch nicht korrigiert
+	\item GUI als extra Thread
 	\end{itemize}
 	\begin{lstlisting} {}
 		SwingUtilities.invokeLater(new Runnable() {
@@ -178,8 +180,41 @@
 	\end{block} 
 }
 
-\section{Überladen und Überschreiben}
-\subsection{Kovarianz und Kontravarianz}
+\section{Polymorphie}
+\frame {
+\frametitle {Polymorphie} 
+	\begin{itemize}
+		\item Polymorphie bedeutet Vielgestaltigkeit
+	\end{itemize}
+
+	\begin{block} {dynamische Polymorphie}
+	\begin{itemize}
+		\item Verwendung von Vererbung
+	\end{itemize}
+	\end{block} 
+	\begin{block} {statisch Polymorphie}
+	\begin{itemize}
+		\item Überladen von Methoden
+	\end{itemize}
+	\end{block} 
+}
+
+
+\subsection{Vererbung +  Varianz}
+
+
+\frame {
+\frametitle {Vererbung} 
+	\begin{center}
+	\begin{block} {}
+	\begin{itemize}
+		\item Gibt es einschränkungen für die Vererbung?
+		\pause 
+		\item Ja
+	\end{itemize}
+	\end{block} 
+	\end{center}
+}
 
 \frame {
 \frametitle{Varianz}
@@ -213,13 +248,13 @@
 	\begin{block}{Beispiel überladene Methoden}
 	\begin{lstlisting}
 		void printParameter(String p){
-			System.out.println("Parameter = " + p);
+		  System.out.println("Parameter = " + p);
 		}
 		void printParameter(char p){
-			System.out.println("Parameter = " + p);
+		  System.out.println("Parameter = " + p);
 		}
 		void printParameter(){
-			System.out.println("no parameter passed");
+		  System.out.println("no parameter passed");
 		}
 	\end{lstlisting}
 	\end{block}
@@ -229,9 +264,11 @@
 \subsection{Überladen}
 \frame {
 \frametitle{Überladen}
-	\begin{block}{Überladene Methoden}
+	\begin{block}{Methoden überladen \dots}
 	\begin{itemize}
-	\item Methoden einer Klasse mit gleichen Namen, aber verschiedene Parameterlisten
+	\item statische Polymorpie
+	\item Methoden einer Klasse mit gleichen Namen, aber unterschiedlicher Signatur
+	\item Hat nichts mit Vererbung zu tun!
 	\item Bequem für den Benutzer
 	\end{itemize}
 	\end{block}
@@ -371,8 +408,8 @@
 	\begin{block}{Aufgabe 2 - Überladen und Überschreiben}
 	\begin{itemize} \pause
 	\item Abgabe in der LEZ
-	\item Vererbung ist das grundlegende Konzept der objektorientierten Programmierung
-	\item Hier könnt ihr relativ schnell merken, ob ihr es verstanden habt!
+	\item Bevor sich jemand verkünstelt: 2 Klassen und 4 Methoden + main, mehr braucht man nicht
+	\item Hier merkt der Tutor schnell, ob ihr es verstanden habt ;-)
 	\end{itemize}
 	\end{block}
 }
