@@ -69,7 +69,7 @@
 	\end{block}
 }
 
-\frame {
+\begin{frame}[fragile]
 \frametitle{Altes Übungsblatt}
 	\begin{block}{Aufgabe 2: Zustandsdiagramm}
 	\begin{itemize}
@@ -81,16 +81,16 @@
 	\begin{itemize}
 	\item Bisher noch nicht korrigiert
 	\end{itemize}
-%		\begin{lstlisting} {}
-%			SwingUtilities.invokeLater(new Runnable() {
-%			public void run() {
-%				Hauptfenster hauptfenster = new Hauptfenster();
-%				hauptfenster.setVisible(true);
-%			}
-%		});
+	\begin{lstlisting} {}
+		SwingUtilities.invokeLater(new Runnable() {
+		  public void run() {
+		    Hauptfenster hauptfenster = new Hauptfenster();
+		    hauptfenster.setVisible(true);
+		  }
+		});
 	\end{lstlisting}
 	\end{block}
-}
+\end{frame}
 
 \subsection{Zum Aufwärmen ...}
 \frame {
@@ -310,14 +310,14 @@
 }
 
 \frame {
-\frametitle {Musterlösung} 
+\frametitle{Musterlösung} 
 	\begin{center}
 	\includegraphics[scale=0.6]{pics/03/zustandNM.png}
 	\end{center}
 }
 
 \frame {
-\frametitle {Abbildung Zustandsdiagramm auf Code} 
+\frametitle{Abbildung Zustandsdiagramm auf Code} 
 	\begin{exampleblock} {Beispiel: Explizite Speicherung}
 		\begin{center}
 		\includegraphics[scale=0.4]{pics/03/zustandB.png}
@@ -327,18 +327,19 @@
 
 \frame {
 \frametitle {Klausuraufgabe 2008: Abbildung auf Code (6P)} 
-Realisieren Sie folgenden Zustandsautomaten für die Klasse P als eingebettete explizite Speicherung mit Java-Code
+	Realisieren Sie folgenden Zustandsautomaten für die Klasse P als eingebettete explizite Speicherung mit Java-			Code
 	\begin{center}
-	\includegraphics[scale=0.6]{pics/03/zustandCode.png}
+		\includegraphics[scale=0.6]{pics/03/zustandCode.png}
 	\end{center}
 }
 
 \frame {
-\frametitle {Musterlösung} 
+\frametitle{Musterlösung} 
 	\begin{center}
-	\includegraphics[scale=0.6]{pics/03/zustandCM.png}
+		\includegraphics[scale=0.6]{pics/03/zustandCM.png}
 	\end{center}
 }
+
 \section{Ende}
 
 \subsection{Architekturstile}
