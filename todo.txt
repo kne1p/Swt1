@@ -44,3 +44,9 @@ Tipp für Folien:
 Eclipse: vorkommen von Variablen, methoden anzeigen: References>Working Set ( Ctrl+Shift+G), oder einfach markieren und dann an der Seitenleiste
 Problem: OptionsEdit verwendet null-Layout, d.h. alle Elemente müssen Pixelgenau positioniert werden!
 OptionsEdit: setBounds(x,y,width,height) (0,0) ist links oben, einfach "einreihen", abstände beachten
+
+
+für Tut3:
+{unique} auf Klassendiagrammen erklären, gegensatz: 
+ Benutzer  --- Konto, hat beidseitig multipl. 1 bzw. default, unique ergibt keinen sinn
+ Student   --- Tutorium, multipl. 1..*, 0,1 jeder Student wird höchstens einmal einem Tut zugeordnet
