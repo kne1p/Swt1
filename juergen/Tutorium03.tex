@@ -1,6 +1,6 @@
 \input{header.tex}
 
-\title[Tutorium03]{Tutorium 03: Überschreiben und Überladen + Zustandsdiagramm}
+\title[Tutorium03]{Tutorium 03: Polymorphie + Zustandsdiagramm}
 \subtitle{Softwaretechnik im SS 2011, Tutorium 4}
 \author{Jürgen Walter}
 \date{\today}
@@ -203,20 +203,59 @@
 }
 
 
-\subsection{Vererbung +  Varianz}
+\subsection{Vererbung}
 
 
 \frame {
 \frametitle {Vererbung} 
-	\begin{center}
-	\begin{block} {}
+	\begin{block} {Signaturvererbung}
 	\begin{itemize}
-		\item Gibt es einschränkungen für die Vererbung?
-		\pause 
-		\item Ja
+		\item Oberklasse gibt an, welche Methoden implementiert werden sollen
+		\item Java: Implementieren eines Interfaces mit implements
 	\end{itemize}
 	\end{block} 
-	\end{center}
+
+	\begin{block} {Implementierungsvererbung}
+	\begin{itemize}
+		\item Oberklasse hat Methoden schon implementiert
+		\item Methode kann überschrieben werden (@Override)
+		\item Java: Erweitern einer Klasse mit extends
+	\end{itemize}
+	\end{block} 
+
+	\begin{block} {Frage}
+	\begin{itemize}
+		\item Gibt es eine Einschränkungen für die Vererbung?
+		\visible<2-> {
+		\item Ja, das Substitutionsprinzip
+		}
+	\end{itemize}
+	\end{block} 
+}
+
+\frame {
+\frametitle {Vererbung} 
+	\begin{block} {(Liskovsches) Substitutionsprinzip / Ersetzbarkeitsprinzip}
+	\begin{itemize}
+	\item Objekte der abgeleiteten Klasse können stets Objekte der Oberklasse ersetzen
+	\item Objekte der Oberklasse müssen durch Objekte einer ihrer Unterklassen ersetzbar sein
+	\item \dots
+	\end{itemize}
+	\end{block} 
+
+	\visible<2-> {
+	\begin{block} {Varianzen}
+	Durch Substitutionsprinzip und Polymorphie in der OOP können folgende Varianzen auftreten:
+
+	\begin{itemize}
+	\visible<3-> {
+		\item 	Kontravarianz  - \visible<4-> { Eingabeparameter}
+		\item Kovarianz  - \visible<5-> {Rückgabewert und Ausnahmen}
+		\item Invarianz - \visible<6-> { Ein- und Ausgabeparameter}
+	}
+	\end{itemize}
+	}
+	\end{block} 
 }
 
 \frame {
@@ -227,27 +266,6 @@
 	\end{center}
 	\end{block}
 }
-
-\frame {
-\frametitle {Varianz} 
-	\begin{block} {(Liskovsches) Substitutionsprinzip / Ersetzbarkeitsprinzip}
-	\begin{itemize}
-	\item Objekte der abgeleiteten Klasse können stets Objekte der Oberklasse ersetzen
-	\end{itemize}
-	\end{block} 
-
-	\visible<2-> {
-	\begin{block} {Varianzen}
-	Durch Substitutionsprinzip und Polymorphie in der OOP können folgende Varianzen auftreten:
-	\begin{itemize}
-		\item 	Kontravarianz  -  Eingabeparameter
-		\item Kovarianz  - Rückgabewert und Ausnahmen
-		\item Invarianz - Ein- und Ausgabeparameter
-	\end{itemize}
-	}
-	\end{block} 
-}
-
 
 \begin{frame}[fragile]
 \frametitle{Überladen}
@@ -286,7 +304,8 @@
 \frametitle{Eclipse Demo}
 	\begin{block}{Themen}
 	\begin{itemize}
-	\item Vererbung
+	\item Signaturvererbung
+	\item Implementierungsvererbung
 	\item Überladen
 	\end{itemize}
 	\end{block}
@@ -385,20 +404,6 @@
 
 \section{Ende}
 
-\subsection{Architekturstile}
-\frame{
-\frametitle{Architekturstile}
-	\begin{itemize}
-	\item Schichtenarchitektur
-	\item Klient/Dienstgeber (engl. client/server)
-	\item Partnernetze (engl. peer-to-peer)
-	\item Datenablage (engl. repository)
-	\item Model/View/Controller
-	\item Fließband (engl. pipeline)
-	\item Rahmenarchitektur (engl. framework)
-	\end{itemize}
-}
-
 \subsection{Tipps zum nächsten Übungsblatt}
 
 \frame{
@@ -425,7 +430,7 @@
 \frametitle{Tipps zum nächsten Übungsblatt}
 	\begin{block}{Aufgabe 3 - Programmieren}
 	\begin{itemize}
-	\item Einfügen des der letzten Programmieraufgabe in JMRST
+	\item Einfügen des der letzten Programmieraufgabe in JMJRST
 	\item Lasst euch nicht vom Code überwältigen: \pause
 	\begin{itemize}
 		\item alle Änderungen an bestehenden JMJRST \texttt{.java} Dateien werden vmtl. in nur drei Dateien liegen
@@ -506,7 +511,7 @@ public void reduceColors(BufferedImage image, int colors) {
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{null Layout}
+\frametitle{null Layout (Aufgabenteil e)}
 	\begin{block}{Beispiel}
 	\begin{lstlisting}
 private static void nullLayout() {
@@ -537,7 +542,7 @@ private static void nullLayout() {
 		\item Breakpoint an die verdächtige Stelle, dann sehen welche Werte die Variablen haben
 		\item Woher kam der ungültige Wert? Folgt der Spur\dots
 	\end{itemize}
-	\item Debugger können die Produktivität stark steigern, da man nicht mehr "im Dunkeln stochert" sondern gezielt den Programmablauf unterbrechen kann
+	\item Debugger können die Produktivität stark steigern, da man nicht mehr im Dunkeln stochert sondern gezielt den Programmablauf unterbrechen kann
 	\end{itemize}
 	\end{block}
 }
@@ -549,6 +554,5 @@ private static void nullLayout() {
 	\includegraphics[height=200pt]{pics/03/03_comic}
 	\end{center}
 }
-
 
 \end{document}
