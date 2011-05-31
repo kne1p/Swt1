@@ -515,9 +515,9 @@ private static void nullLayout() {
   f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
   f.setLayout(null);
-
   JButton button = new JButton("etwas Text");
-  button.setBounds(10, 5, 130, 25);  // entscheidend
+  button.setBounds(10, 5, 130, 25);  //x,y,wide,high
+    // x=0, y=0 ist links oben
   f.add(button);
 	
   f.setVisible(true);
