@@ -69,7 +69,7 @@
 	\end{block}
 }
 
-\frame {
+\begin{frame}[fragile]
 \frametitle{Altes Übungsblatt}
 	\begin{block}{Aufgabe 2: Zustandsdiagramm}
 	\begin{itemize}
@@ -81,16 +81,16 @@
 	\begin{itemize}
 	\item Bisher noch nicht korrigiert
 	\end{itemize}
-%		\begin{lstlisting} {}
-%			SwingUtilities.invokeLater(new Runnable() {
-%			public void run() {
-%				Hauptfenster hauptfenster = new Hauptfenster();
-%				hauptfenster.setVisible(true);
-%			}
-%		});
-	\end{lstlisting}
+%		\begin{lstlisting}
+%SwingUtilities.invokeLater(new Runnable() {
+%  public void run() {
+%    Hauptfenster hauptfenster = new Hauptfenster();
+%    hauptfenster.setVisible(true);
+%  }
+%});
+%		\end{lstlisting}
 	\end{block}
-}
+\end{frame}
 
 \subsection{Zum Aufwärmen ...}
 \frame {
@@ -165,8 +165,8 @@
 
 \frame {
 \frametitle {Klausuraufgaben zum Aufwärmen} 
-	\begin{block} {Aufgabe 3 (1,5P)}
-	Für welche vier Eigenschaften steht der Begriff „ACID“-Prinzip? (2P)\\
+	\begin{block} {Aufgabe 3 (2P)}
+	Für welche vier Eigenschaften steht der Begriff „ACID“-Prinzip?\\
 	\visible<2-> {
 	\begin{itemize}
 		\item Atomicity
@@ -192,12 +192,15 @@
 
 \frame {
 \frametitle {Varianz} 
-	\begin{block} {Substitutionsprinzip / Liskovsches Substitutionsprinzip / Ersetzbarkeitsprinzip}
+	\begin{block} {(Liskovsches) Substitutionsprinzip / Ersetzbarkeitsprinzip}
 	\begin{itemize}
 	\item Objekte der abgeleiteten Klasse können stets Objekte der Oberklasse ersetzen
 	\end{itemize}
-	Durch das Substitutionsprinzip ergeben sich in der Polymorphie der objektorientierten Programmierung folgende 			Auftrittsmöglichkeiten für Varianzen:
+	\end{block} 
+
 	\visible<2-> {
+	\begin{block} {Varianzen}
+	Durch Substitutionsprinzip und Polymorphie in der OOP können folgende Varianzen auftreten:
 	\begin{itemize}
 		\item 	Kontravarianz  -  Eingabeparameter
 		\item Kovarianz  - Rückgabewert und Ausnahmen
@@ -210,17 +213,17 @@
 
 \begin{frame}[fragile]
 \frametitle{Überladen}
-	\begin{block}{Beispiel überladene Methoden}
+	\begin{block}{Beispiel: überladene Methoden}
 	\begin{lstlisting}
-		void printParameter(String p){
-			System.out.println("Parameter = " + p);
-		}
-		void printParameter(char p){
-			System.out.println("Parameter = " + p);
-		}
-		void printParameter(){
-			System.out.println("no parameter passed");
-		}
+void printParameter(String p){
+  System.out.println("Parameter = " + p);
+}
+void printParameter(char p){
+  System.out.println("Parameter = " + p);
+}
+void printParameter(){
+  System.out.println("no parameter passed");
+}
 	\end{lstlisting}
 	\end{block}
 \end{frame}
