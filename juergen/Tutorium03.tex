@@ -342,6 +342,8 @@ Realisieren Sie folgenden Zustandsautomaten für die Klasse P als eingebettete e
 	\includegraphics[scale=0.6]{pics/03/zustandCM.png}
 	\end{center}
 }
+
+
 \section{Ende}
 
 \subsection{Architekturstile}
@@ -385,11 +387,105 @@ Realisieren Sie folgenden Zustandsautomaten für die Klasse P als eingebettete e
 	\begin{block}{Aufgabe 3 - Programmieren}
 	\begin{itemize}
 	\item Einfügen des der letzten Programmieraufgabe in JMRST
-	\item TODO Wo muss ich was einfügen
-	\item Wichtig: Sprache muss in eine Property Datei ausgelagert werden
+	\item Lasst euch nicht vom Code überwältigen: \pause
+	\begin{itemize}
+		\item alle Änderungen an bestehenden JMJRST \texttt{.java} Dateien werden vmtl. in nur drei Dateien liegen
+		\item schaut euch nur jeweils ein kleines Stück an und hangelt euch mit Eclipse weiter
+	\end{itemize} \pause
+	\item besonders nützlich:
+	\begin{itemize}
+		\item \texttt{Strg+Linksklick} springt zur Deklaration
+		\item \texttt{Alt+Umschalt+O} markiert dateiweit alle Vorkommnisse
+		\item markieren und \texttt{Strg+Umschalt+G} liefert alle Vorkommnisse 
+	\end{itemize} \pause
+	\item fürs Einfügen der neuen Optionen sucht den Code zu den bestehenden Elementen
+	\item von diesen ausgehend findet ihr alle Stellen, an denen ihr einhaken müsst
 	\end{itemize}
 	\end{block}
 }
+
+\frame{
+\frametitle{Property Files}
+	\begin{block}{Wozu?}
+	\begin{itemize}
+	\item JMJRST verwendet \texttt{.properties} Dateien fürs: \pause
+	\item Speichern der Konfiguration zwischen verschiedenen Programmstarts \pause
+	\item Lokalisieren aller Strings für Deutsch und Englisch \pause
+	\item die \texttt{.properties} selbst kann als reine Textdatei oder als XML vorliegen
+	\item da alle Strings in diesen Dateien liegen, lässt sich der Text des Programmes ändern, ohne die Code-Stellen dazu zu suchen
+	\end{itemize}
+	\end{block}
+}
+
+\begin{frame}[fragile]
+\frametitle{Property Files}
+	\begin{block}{Lokalisierung}
+	\begin{itemize}
+	\item für jede unterstützte Sprache gibt es eine \texttt{.properties} Datei \pause
+	\item darin findet sich zB: \\
+\texttt{Main.2=Java Mass JPEG Resizer Tool gestartet} bzw.\\
+\texttt{Main.2=Java Mass JPEG Resizer Tool started} \pause
+	\item der Name auf der linken Seite ist jeweils beliebig, muss aber auch an der entsprechenden Code-Stelle verwendet werden:
+	\begin{lstlisting}
+JLabel l_slider = 
+  new JLabel(main.mes.getString("OptionsEdit.1"));
+	\end{lstlisting}
+	\end{itemize}
+	\end{block}
+\end{frame}
+
+\frame{
+\frametitle{Lokalisierung vs. Internationalisierung}
+	\begin{block}{Der Unterschied}
+	\begin{itemize}
+	\item Internationalisierung bereitet ein Programm auf Lokalisierung vor \pause
+	\item mit Lokalisierung meint man idR. die Anpassung auf einzelne Sprachen \pause
+	\item Abkürzungen: \\
+		L10n = Localization \\
+		i18n = internationalization \pause
+	\item Internationalisierung ist die Ausrichtung des Programms auf sprachabhängigen Text (Schreibrichtung, Sonderzeichen usw.)
+	\item ein internationalisiertes Programm kann in alle Sprachen lokalisiert werden, deren Eigenheiten bei der i18n beachtet wurden
+	\end{itemize}
+	\end{block}
+}
+
+\begin{frame}[fragile]
+\frametitle{Fehler im eigenen Code überwachen}
+	\begin{block}{Argumente überprüfen}
+	\begin{lstlisting}
+public void reduceColors(BufferedImage image, int colors) {
+  if (image == null) {
+    throw new IllegalArgumentException("image is null");
+  else if (colors < 2) {
+    throw new IllegalArgumentException(
+      "cannot reduce to "+colors+" colors");
+  }
+  // do something with image
+}
+	\end{lstlisting}
+	\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{null Layout}
+	\begin{block}{Beispiel}
+	\begin{lstlisting}
+private static void nullLayout() {
+  JFrame f = new JFrame("null Layout Frame");
+  f.setSize(200, 200);
+  f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+  f.setLayout(null);
+
+  JButton button = new JButton("etwas Text");
+  button.setBounds(10, 5, 130, 25);  // entscheidend
+  f.add(button);
+	
+  f.setVisible(true);
+}
+	\end{lstlisting}
+	\end{block}
+\end{frame}
 
 \frame{
 \frametitle{Tipps zum nächsten Übungsblatt}
@@ -397,7 +493,12 @@ Realisieren Sie folgenden Zustandsautomaten für die Klasse P als eingebettete e
 	\begin{itemize}
 	\item Für die, die sich nicht ausgelastet fühlen
 	\item Viel Aufwand für 3 Punkte
-	\item Nutzt Eclipse tools zum profilen
+	\item Nutzt die Eclipse Debug Funktion: \pause
+	\begin{itemize}
+		\item Breakpoint an die verdächtige Stelle, dann sehen welche Werte die Variablen haben
+		\item Woher kam der ungültige Wert? Folgt der Spur\dots
+	\end{itemize}
+	\item Debugger können die Produktivität stark steigern, da man nicht mehr "im Dunkeln stochert" sondern gezielt den Programmablauf unterbrechen kann
 	\end{itemize}
 	\end{block}
 }
@@ -406,7 +507,7 @@ Realisieren Sie folgenden Zustandsautomaten für die Klasse P als eingebettete e
 \frame{
 \frametitle{Bis zum nächsten Mal}
 	\begin{center}
-	\includegraphics[height=200pt]{pics/02_zeitmaschine}
+	\includegraphics[height=200pt]{pics/03/03_comic}
 	\end{center}
 }
 
