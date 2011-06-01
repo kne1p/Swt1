@@ -1,0 +1,558 @@
+\input{header.tex}
+
+\title[Tutorium03]{Tutorium 03: Polymorphie + Zustandsdiagramm}
+\subtitle{Softwaretechnik im SS 2011, Tutorium 17}
+\author{Christian Jülg}
+\date{\today}
+
+\institute{Chair for Software Design and Quality}
+
+\begin{document}
+
+%title page
+\begin{frame}
+\titlepage
+\end{frame}
+
+%table of contents
+\frame{
+\frametitle{Was machen wir heute?}
+	\tableofcontents
+}
+
+\section{Altes Übungsblatt}
+
+\subsection{Altes Übungsblatt}
+\frame {
+\frametitle{Altes Übungsblatt}
+	\begin{block}{Aufgabe 1: Sequenzdiagramm}
+	\begin{itemize}
+	\item Oft nicht vollständig modelliert.
+	\item Probleme mit Unterschied synchrone vs asynchrone Kommunikation.
+	\item Pfeilspitze ausmalen oder nicht?
+	\end{itemize}
+	\end{block}
+}
+
+\frame {
+\frametitle{Altes Übungsblatt}
+	\begin{block}{Sequenzdiagramm - Kommunikation}
+	\begin{center}
+	\includegraphics[width=0.6\textwidth]{pics/SequenzDiagramm1}
+	\end{center}
+	\end{block}
+}
+
+\frame {
+\frametitle{Altes Übungsblatt}
+	\begin{block}{synchroner Nachrichten}
+	\begin{itemize}
+	\item Warten immer bis der aufgerufene fertig ist 
+	\item (auch wenn keine Antworten gegeben werden)
+	\end{itemize}
+	\end{block}
+	\pause
+
+	\begin{block}{Antworten}
+	\begin{itemize}
+	\item nur bei synchronen Nachrichten möglich, optional
+	\end{itemize}
+	\end{block}
+	\pause
+
+	\begin{block}{asynchrone Nachrichten}
+	\begin{itemize}
+	\item "Mach es irgendwann zuende, ich bin nicht von dir abhängig!"
+	\item z.B. Zerstörung eins Threads der nichts mehr tut, hier sollte das Programm nicht warten
+	\item Entsprechen unsynchronisierten Thread-Operationen
+	\item schneller, aber schwerer zu debuggen
+	\end{itemize}
+	\end{block}
+}
+
+\begin{frame}[fragile]
+\frametitle{Altes Übungsblatt}
+	\begin{block}{Aufgabe 2: Zustandsdiagramm}
+	\begin{itemize}
+	\item Überwiegend richtig gelöst, sehr schön!
+	\end{itemize}
+	\end{block}
+	\pause
+	\begin{block}{Aufgabe 3:  Grafische Oberfläche für Floyd-Steinberg} 
+	\begin{itemize}
+	\item Bisher noch nicht korrigiert
+	\item GUI als extra Thread
+	\end{itemize}
+	\begin{lstlisting} {}
+		SwingUtilities.invokeLater(new Runnable() {
+		  public void run() {
+		    Hauptfenster hauptfenster = new Hauptfenster();
+		    hauptfenster.setVisible(true);
+		  }
+		});
+	\end{lstlisting}
+	\end{block}
+\end{frame}
+
+\subsection{Zum Aufwärmen ...}
+\frame {
+\frametitle{Wahr oder falsch?}
+\begin{itemize}
+	\color<2->[rgb]{1,0,0}
+	\item Implementierungsvererbung ist die Voraussetzung für Signaturvererbung 
+	\color[rgb]{0,0,0}
+	\pause
+	\color<3->[rgb]{0,1,0}
+	\item Ein Modul ist eine Menge von Programmelementen, die nach dem Geheimnisprinzip gemeinsam entworfen und geändert werden.
+	\color[rgb]{0,0,0}
+	
+	\pause
+	\color<4->[rgb]{1,0,0}
+	\item Wenn eine Benutzthierarchie nur transitive Zyklen aufweist, heißt sie Benutztrelation
+	\color[rgb]{0,0,0}
+	\pause
+	\color<5->[rgb]{1,0,0}
+	\item Software ist leichter zu ändern als ein physisches Produkt vergleichbarer Komplexität.
+	\color[rgb]{0,0,0}
+	\pause
+	\color<6->[rgb]{1,0,0}
+	\item In Java muss eine abstrakte Klasse, die eine Schnittstelle implementiert, alle in der Schnittstelle vorgegebenen Methoden implementieren
+	\color[rgb]{0,0,0}
+
+\pause
+	\color<7->[rgb]{0,1,0}
+	\item Unter welchen Umständen ein Objekt welche Botschaft entgegen nimmt, spezifiziert man in einem UML-Zustandsdiagramm
+	\color[rgb]{0,0,0}
+
+\pause
+	\color<8->[rgb]{0,1,0}
+	\item Solange sich ein Objekt in einem Zustand befindet, reagiert es im gleichen Kontext immer gleich auf seine Umwelt
+	\color[rgb]{0,0,0}
+\end{itemize}
+}
+
+\frame {
+\frametitle {Klausuraufgaben zum Aufwärmen} 
+	\begin{block} {Aufgabe 1 (2P)}
+	Nennen Sie 4 aus der Vorlesung bekannte Techniken zur Anforderungsermittlung während der 			
+	Planungsphase. \\
+	\visible<2-> {
+	\begin{itemize}
+		\item Fragebögen (engl. questionnaires)
+		\item Interviews
+		\item Aufgaben-
+		\item Dokumenten-
+		\item Systemanalyse
+		\item Szenarien (engl. scenarios)
+		\item Anwendungsfälle (engl. use cases)
+	\end{itemize}
+	}
+	\end{block}
+}
+
+\frame {
+\frametitle {Klausuraufgaben zum Aufwärmen} 
+	\begin{block} {Aufgabe 2 (1,5P)}
+	Nennen Sie 3 Ergebnisartefakte der Planungsphase.\\
+	\visible<2-> {
+	\begin{itemize}
+		\item Durchführbarkeitsstudie
+		\item Lastenheft
+		\item Projektkalkulation
+		\item Projektplan
+	\end{itemize}
+	}
+	\end{block}
+}
+
+\frame {
+\frametitle {Klausuraufgaben zum Aufwärmen} 
+	\begin{block} {Aufgabe 3 (2P)}
+	Für welche vier Eigenschaften steht der Begriff „ACID“-Prinzip?\\
+	\visible<2-> {
+	\begin{itemize}
+		\item Atomicity
+		\item Consistency
+		\item Isolation
+		\item Durability
+	\end{itemize}
+	}
+	\end{block} 
+}
+
+\section{Polymorphie}
+\frame {
+\frametitle {Polymorphie} 
+	\begin{block} {Polymorphie}
+	\begin{itemize}
+		\item Polymorphie bedeutet Vielgestaltigkeit
+	\end{itemize}
+	\end{block} 
+
+	\begin{block} {dynamische Polymorphie}
+	\begin{itemize}
+		\item Verwendung von Vererbung
+	\end{itemize}
+	\end{block} 
+
+	\begin{block} {statisch Polymorphie}
+	\begin{itemize}
+		\item Überladen von Methoden
+	\end{itemize}
+	\end{block} 
+}
+
+
+\subsection{Vererbung}
+
+
+\frame {
+\frametitle {Vererbung} 
+	\begin{block} {Signaturvererbung}
+	\begin{itemize}
+		\item Oberklasse gibt an, welche Methoden implementiert werden sollen
+		\item Java: Implementieren eines Interfaces mit implements
+	\end{itemize}
+	\end{block} 
+
+	\begin{block} {Implementierungsvererbung}
+	\begin{itemize}
+		\item Oberklasse hat Methoden schon implementiert
+		\item Methode kann überschrieben werden (@Override)
+		\item Java: Erweitern einer Klasse mit extends
+	\end{itemize}
+	\end{block} 
+
+	\begin{block} {Frage}
+	\begin{itemize}
+		\item Gibt es eine Einschränkungen für die Vererbung?
+		\visible<2-> {
+		\item Ja, das Substitutionsprinzip
+		}
+	\end{itemize}
+	\end{block} 
+}
+
+\frame {
+\frametitle {Vererbung} 
+	\begin{block} {(Liskovsches) Substitutionsprinzip / Ersetzbarkeitsprinzip}
+	\begin{itemize}
+	\item Objekte der abgeleiteten Klasse können stets Objekte der Oberklasse ersetzen
+	\item Objekte der Oberklasse müssen durch Objekte einer ihrer Unterklassen ersetzbar sein
+	\item \dots
+	\end{itemize}
+	\end{block} 
+
+	\visible<2-> {
+	\begin{block} {Varianzen}
+	Durch Substitutionsprinzip und Polymorphie in der OOP können folgende Varianzen auftreten:
+
+	\begin{itemize}
+	\visible<3-> {
+		\item 	Kontravarianz  - \visible<4-> { Eingabeparameter}
+		\item Kovarianz  - \visible<5-> {Rückgabewert und Ausnahmen}
+		\item Invarianz - \visible<6-> { Ein- und Ausgabeparameter}
+	}
+	\end{itemize}
+	}
+	\end{block} 
+}
+
+\frame {
+\frametitle{Varianz}
+	\begin{block}{Kovarianz, Kontravarianz und Invarianz im Überblick}
+	\begin{center}
+	\includegraphics[width=1\textwidth]{pics/03/VarianzUeberblick}
+	\end{center}
+	\end{block}
+}
+
+\begin{frame}[fragile]
+\frametitle{Überladen}
+	\begin{block}{Beispiel: überladene Methoden}
+	\begin{lstlisting}
+		void printParameter(String p){
+		  System.out.println("Parameter = " + p);
+		}
+		void printParameter(char p){
+		  System.out.println("Parameter = " + p);
+		}
+		void printParameter(){
+		  System.out.println("no parameter passed");
+		}
+	\end{lstlisting}
+	\end{block}
+\end{frame}
+
+
+\subsection{Überladen}
+\frame {
+\frametitle{Überladen}
+	\begin{block}{Methoden überladen \dots}
+	\begin{itemize}
+	\item statische Polymorpie
+	\item Methoden einer Klasse mit gleichen Namen, aber unterschiedlicher Signatur
+	\item Hat nichts mit Vererbung zu tun!
+	\item Bequem für den Benutzer
+	\end{itemize}
+	\end{block}
+}
+
+
+\subsection{Eclipse Demo}
+\frame {
+\frametitle{Eclipse Demo}
+	\begin{block}{Themen}
+	\begin{itemize}
+	\item Signaturvererbung
+	\item Implementierungsvererbung
+	\item Überladen
+	\end{itemize}
+	\end{block}
+}
+
+
+\section{UML}
+\subsection{Zustandsdiagramm}
+
+\frame{
+\frametitle {Zustandsdiagramm (Wiederholung)} 
+	\begin{itemize}
+	\item Beschreibt mögliche Zustände eines Objekts sowie mögliche Zustandsübergänge
+	\item Der Zustandsübergang (Transition) wird durch ein Ereignis ausgelöst
+	\begin{center}
+	\includegraphics[scale=0.5]{pics/zustandsuebergang.png}
+	\end{center}
+	\item Zustandsübergang findet nur statt, wenn die Bedingung zu diesem Zeitpunkt erfüllt ist
+	\item $\epsilon$ -Übergänge sind erlaubt
+	\end{itemize}
+}
+
+\frame {
+	\begin{exampleblock}{Zustandsdiagramm mit Gedächtnis (Wiederholung)}
+	\begin{center}
+	\includegraphics[scale=0.6]{pics/ZustandsDiagrammGedaechtnis.png}
+	\end{center}
+	\end{exampleblock}
+}
+
+
+\frame{
+\frametitle {Klausuraufgabe 2009 (1P)}
+	Gegeben ist der folgende UML-Zustandsautomat. Geben Sie an, in welcher Zustandskombination	
+	sich der Zustandsautomat, jeweils ausgehend vom Startzustand, nach den beiden Eingabefolgen
+	befindet. 
+	\begin{itemize}
+	\item Folge1: a, b, c, c   
+	\visible<2-> {
+	\item Zustandskombination: $A \times $D
+	}
+	\item Folge2: c, c, a, b, b, a, c, c, a
+	\visible<3-> {
+	\item Zustandskombination: $B \times $C
+	}
+	\end{itemize}
+	\begin{center}
+	\includegraphics[scale=0.6]{pics/03/zustandN.png}
+	\end{center}
+}
+
+\frame {
+\frametitle {Klausuraufgabe 2009 (5P)}
+	Wandeln Sie den UML-Zustandsautomaten in einen äquivalenten neuen um, der weder nebenläufige noch 				hierarchische Zustände oder Zustände mit Historie enthält. Leiten Sie die Namen für die Zustände wie folgt 			aus den Namen der Zustände des alten Automaten ab:
+	\begin{itemize}
+	\item Regel 1: Die Kombination der alten Zustände 1 und 2 wird zum neuen Zustand $1 \times 2$.
+	\item Regel 2: Wurde der alte Zustand 1 vom alten Zustand 2 aus erreicht, ergibt dies den neuen
+	Zustand 1(2). 
+	\end{itemize}
+
+	\begin{center}
+	\includegraphics[scale=0.55]{pics/03/zustandN.png}
+	\end{center}
+}
+
+\frame {
+\frametitle{Musterlösung} 
+	\begin{center}
+	\includegraphics[scale=0.6]{pics/03/zustandNM.png}
+	\end{center}
+}
+
+\frame {
+\frametitle{Abbildung Zustandsdiagramm auf Code} 
+	\begin{exampleblock} {Beispiel: Explizite Speicherung}
+		\begin{center}
+		\includegraphics[scale=0.4]{pics/03/zustandB.png}
+		\end{center}
+	\end{exampleblock}
+}
+
+\frame {
+\frametitle {Klausuraufgabe 2008: Abbildung auf Code (6P)} 
+	Realisieren Sie folgenden Zustandsautomaten für die Klasse P als eingebettete explizite Speicherung mit Java-Code
+	\begin{center}
+		\includegraphics[scale=0.6]{pics/03/zustandCode.png}
+	\end{center}
+}
+
+\frame {
+\frametitle{Musterlösung} 
+	\begin{center}
+		\includegraphics[scale=0.6]{pics/03/zustandCM.png}
+	\end{center}
+}
+
+\section{Ende}
+
+\subsection{Tipps zum nächsten Übungsblatt}
+
+\frame{
+\frametitle{Tipps zum nächsten Übungsblatt}
+
+	\begin{block}{Aufgabe 1 - UML Zustandautomaten}
+	\begin{itemize}
+	\item a) Umkehrung der Klausuraufgabe des letzten Tutoriums
+	\item b) Das History H gilt nur für den rechten Abschnitt
+	\end{itemize}
+	\end{block}
+
+	\begin{block}{Aufgabe 2 - Überladen und Überschreiben}
+	\begin{itemize} \pause
+	\item Abgabe in der LEZ
+	\item Bevor sich jemand verkünstelt: 2 Klassen und 4 Methoden + main, mehr braucht man nicht
+	\item Hier merkt der Tutor schnell, ob ihr es verstanden habt ;-)
+	\end{itemize}
+	\end{block}
+}
+
+
+\frame{
+\frametitle{Tipps zum nächsten Übungsblatt}
+	\begin{block}{Aufgabe 3 - Programmieren}
+	\begin{itemize}
+	\item Einfügen der letzten Programmieraufgabe in JMJRST
+	\item Lasst euch nicht vom Code überwältigen: \pause
+	\begin{itemize}
+		\item alle Änderungen an bestehenden JMJRST \texttt{.java} Dateien werden vmtl. in nur drei Dateien liegen
+		\item schaut euch nur jeweils ein kleines Stück an und hangelt euch mit Eclipse weiter
+	\end{itemize} \pause
+	\item besonders nützlich:
+	\begin{itemize}
+		\item \texttt{Strg+Linksklick} springt zur Deklaration
+		\item \texttt{Alt+Umschalt+O} markiert dateiweit alle Vorkommnisse
+		\item markieren und \texttt{Strg+Umschalt+G} liefert alle Vorkommnisse 
+	\end{itemize} \pause
+	\item fürs Einfügen der neuen Optionen sucht den Code zu den bestehenden Elementen
+	\item von diesen ausgehend findet ihr alle Stellen, an denen ihr einhaken müsst
+	\end{itemize}
+	\end{block}
+}
+
+\frame{
+\frametitle{Property Files}
+	\begin{block}{Wozu?}
+	\begin{itemize}
+	\item JMJRST verwendet \texttt{.properties} Dateien fürs: \pause
+	\item Speichern der Konfiguration zwischen verschiedenen Programmstarts \pause
+	\item Lokalisieren aller Strings für Deutsch und Englisch \pause
+	\item die \texttt{.properties} selbst kann als reine Textdatei oder als XML vorliegen
+	\item da alle Strings in diesen Dateien liegen, lässt sich der Text des Programmes ändern, ohne die Code-Stellen dazu zu suchen
+	\end{itemize}
+	\end{block}
+}
+
+\begin{frame}[fragile]
+\frametitle{Property Files}
+	\begin{block}{Lokalisierung}
+	\begin{itemize}
+	\item für jede unterstützte Sprache gibt es eine \texttt{.properties} Datei \pause
+	\item darin findet sich zB: \\
+\texttt{Main.2=Java Mass JPEG Resizer Tool gestartet} bzw.\\
+\texttt{Main.2=Java Mass JPEG Resizer Tool started} \pause
+	\item der Name auf der linken Seite ist jeweils beliebig, muss aber auch an der entsprechenden Code-Stelle verwendet werden:
+	\begin{lstlisting}
+JLabel l_slider = 
+  new JLabel(main.mes.getString("OptionsEdit.1"));
+	\end{lstlisting}
+	\end{itemize}
+	\end{block}
+\end{frame}
+
+\frame{
+\frametitle{Lokalisierung vs. Internationalisierung}
+	\begin{block}{Der Unterschied}
+	\begin{itemize}
+	\item Internationalisierung bereitet ein Programm auf Lokalisierung vor \pause
+	\item mit Lokalisierung meint man idR. die Anpassung auf einzelne Sprachen \pause
+	\item Abkürzungen: \\
+		L10n = Localization \\
+		i18n = internationalization \pause
+	\item Internationalisierung ist die Ausrichtung des Programms auf sprachabhängigen Text (Schreibrichtung, Sonderzeichen usw.)
+	\item ein internationalisiertes Programm kann in alle Sprachen lokalisiert werden, deren Eigenheiten bei der i18n beachtet wurden
+	\end{itemize}
+	\end{block}
+}
+
+\begin{frame}[fragile]
+\frametitle{Fehler im eigenen Code überwachen}
+	\begin{block}{Argumente überprüfen}
+	\begin{lstlisting}
+public void reduceColors(BufferedImage image, int colors) {
+  if (image == null) {
+    throw new IllegalArgumentException("image is null");
+  else if (colors < 2) {
+    throw new IllegalArgumentException(
+      "cannot reduce to "+colors+" colors");
+  }
+  // do something with image
+}
+	\end{lstlisting}
+	\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{null Layout (Aufgabenteil e)}
+	\begin{block}{Beispiel}
+	\begin{lstlisting}
+private static void nullLayout() {
+  JFrame f = new JFrame("null Layout Frame");
+  f.setSize(200, 200);
+  f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+  f.setLayout(null);
+  JButton button = new JButton("etwas Text");
+  button.setBounds(10, 5, 130, 25);  //x,y,wide,high
+    // x=0, y=0 ist links oben
+  f.add(button);
+	
+  f.setVisible(true);
+}
+	\end{lstlisting}
+	\end{block}
+\end{frame}
+
+\frame{
+\frametitle{Tipps zum nächsten Übungsblatt}
+	\begin{block}{Bonusaufgabe - Kammerjäger}
+	\begin{itemize}
+	\item Für die, die sich nicht ausgelastet fühlen
+	\item Viel Aufwand für 3 Punkte
+	\item Nutzt die Eclipse Debug Funktion: \pause
+	\begin{itemize}
+		\item Breakpoint an die verdächtige Stelle, dann sehen welche Werte die Variablen haben
+		\item Woher kam der ungültige Wert? Folgt der Spur\dots
+	\end{itemize}
+	\item Debugger können die Produktivität stark steigern, da man nicht mehr im Dunkeln stochert sondern gezielt den Programmablauf unterbrechen kann
+	\end{itemize}
+	\end{block}
+}
+
+
+\frame{
+\frametitle{Bis zum nächsten Mal}
+	\begin{center}
+	\includegraphics[height=200pt]{pics/03/03_comic}
+	\end{center}
+}
+
+\end{document}
