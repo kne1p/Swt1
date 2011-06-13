@@ -63,16 +63,16 @@
 \frametitle{Wahr oder falsch?}
 \begin{itemize}
 	\color<2->[rgb]{1,0,0}
-	\item Implementierungsvererbung ist die Voraussetzung für Signaturvererbung 
+	\item Fassade und Adapter gehören zu den Bequemlichkeitsmustern.
 	\color[rgb]{0,0,0}
 	\pause
 	\color<3->[rgb]{0,1,0}
-	\item Ein Modul ist eine Menge von Programmelementen, die nach dem Geheimnisprinzip gemeinsam entworfen und geändert werden.
+	\item Das Entwurfsmuster „Abstrakte Fabrik“ konzentriert sich auf den schrittweisen Konstruktionsprozess komplexer Objekte. geändert werden.
 	\color[rgb]{0,0,0}
 	
 	\pause
-	\color<4->[rgb]{1,0,0}
-	\item Wenn eine Benutzthierarchie nur transitive Zyklen aufweist, heißt sie Benutztrelation
+	\color<4->[rgb]{0,1,0}
+	\item Eine Fabrikmethode kann eine Einschubmethode bei einer Schablonenmethode für Objekterzeugung sein.
 	\color[rgb]{0,0,0}
 	\pause
 	\color<5->[rgb]{1,0,0}
@@ -80,7 +80,7 @@
 	\color[rgb]{0,0,0}
 	\pause
 	\color<6->[rgb]{1,0,0}
-	\item In Java muss eine abstrakte Klasse, die eine Schnittstelle implementiert, alle in der Schnittstelle vorgegebenen Methoden implementieren
+	\item In Java ist das Entwurfsmuster „Null-Objekt“ durch das Schüsselwort null realisiert.
 	\color[rgb]{0,0,0}
 
 \pause
@@ -90,25 +90,26 @@
 
 \pause
 	\color<8->[rgb]{0,1,0}
-	\item Solange sich ein Objekt in einem Zustand befindet, reagiert es im gleichen Kontext immer gleich auf seine Umwelt
+	\item Zusicherungen (z.B. mit dem Schlüsselwort assert in Java) werden zur Laufzeit eines Programs ausgeführt.
 	\color[rgb]{0,0,0}
 \end{itemize}
 }
 
 \frame {
 \frametitle {Klausuraufgaben zum Aufwärmen} 
-	\begin{block} {Aufgabe 1 (2P)}
-	Nennen Sie 4 aus der Vorlesung bekannte Techniken zur Anforderungsermittlung während der 			
-	Planungsphase. \\
+	\begin{block} {Aufgabe 1 (1P)}
+	Nennen Sie genau zwei Gründe, die laut Vorlesung für den Einsatz von Entwurfsmustern sprechen. \\
 	\visible<2-> {
 	\begin{itemize}
-		\item Fragebögen (engl. questionnaires)
-		\item Interviews
-		\item Aufgaben-
-		\item Dokumenten-
-		\item Systemanalyse
-		\item Szenarien (engl. scenarios)
-		\item Anwendungsfälle (engl. use cases)
+		\item verbessern die Kommunikation im Team
+		\item erfassen wesentliche Konzepte und bringen sie in eine verständliche Form
+		\item helfen Entwürfe zu verstehen
+		\item dokumentieren Entwürfe kurz und knapp
+		\item dokumentieren und fördern den Stand der Kunst
+		\item helfen weniger erfahrenen Entwerfern)
+		\item vermeiden die Neuerfindung des Rades
+		\item können Code-Qualität und Code-Struktur verbessern
+		\item fördern gute Entwürfe und guten Code durch Angabe konstruktiver Beispiele
 	\end{itemize}
 	}
 	\end{block}
@@ -116,14 +117,14 @@
 
 \frame {
 \frametitle {Klausuraufgaben zum Aufwärmen} 
-	\begin{block} {Aufgabe 2 (1,5P)}
-	Nennen Sie 3 Ergebnisartefakte der Planungsphase.\\
+	\begin{block} {Aufgabe 2 (2P)}
+	In der Konfigurationsverwaltung haben Sie zwei Alternativen kennengelernt, Änderungen an versionierten Dateien zu speichern. Nennen und beschreiben Sie die beiden Alternativen kurz. Nennen Sie für jede Alternative je einen Vorteil.\\
 	\visible<2-> {
 	\begin{itemize}
-		\item Durchführbarkeitsstudie
-		\item Lastenheft
-		\item Projektkalkulation
-		\item Projektplan
+		\item Vorwärtsdeltas speichern eine Grundversion und die daran durchgeführten Änderungen
+		\item Rückwärtsdeltas speichern die aktuelle Version und die Änderungen für frühere Versionen
+		\item Vorteil Vorwärtsdelta: Schneller Zugriff auf frühere Versionen
+		\item Vorteil Rückwärtsdelta: Schneller Zugriff auf aktuelle Versionen
 	\end{itemize}
 	}
 	\end{block}
@@ -131,14 +132,14 @@
 
 \frame {
 \frametitle {Klausuraufgaben zum Aufwärmen} 
-	\begin{block} {Aufgabe 3 (2P)}
-	Für welche vier Eigenschaften steht der Begriff „ACID“-Prinzip?\\
+	\begin{block} {Aufgabe 3 (3P)}
+In der Vorlesung wurden für den Vergleich zweier Objekte mehrere Stufen von Gleichheit definiert. Geben Sie die Definitionen für Gleichheit 0. und 1. Stufe an. \\
 	\visible<2-> {
 	\begin{itemize}
-		\item Atomicity
-		\item Consistency
-		\item Isolation
-		\item Durability
+		\item Gleichheit 0. Stufe: Es handelt sich um dasselbe Objekt, die Objekte sind identisch.
+		\visible<3-> {
+		\item Gleichheit 1. Stufe: Es handelt sich entweder um dasselbe Objekt oder zwei verschiedene Objekte, die aber in allen Attributen/Assoziationen identische Werte besitzen (Gleichheit 0. Stufe oder paarweise Gleichheit 0. Stufe in allen Attributen)
+		}
 	\end{itemize}
 	}
 	\end{block} 
