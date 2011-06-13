@@ -230,20 +230,62 @@ Definiert eine 1-zu-n Abhängigkeit zwischen Objekten, so dass die Änderung ein
 
 \frame {
 \frametitle {Brücke}
+\begin{block} {Zweck}
+Entkopple eine Abstraktion von ihrer Implementierung, so dass beide unabhängig voneinander variiert werden können.
+\end{block}
+	\begin{center}
+		\includegraphics[scale=0.5]{pics/04/Bruecke.png}
+	\end{center}
+}
+
+\frame {
+\frametitle {Aufgabe: Brücke und Beobachter}
+
+Der Begriff Shading bezeichnet in der 3D-Computergrafik im allgemeinen Sinne die Simulation der Oberfläche eines Objekts. Für die Berechnung der Oberfläche gibt es viele verschiedene Verfahren – unter anderem das Flat Shading und das Gouraud Shading. \\
+\begin{wrapfigure}{r}{4cm}
+	\centering
+	\includegraphics[scale=0.35]{pics/04/BrueckeA.png}
+\end{wrapfigure}
+Sie haben einen Flat Shader für die DirectX-Programmierschnittstelle entsprechend dem folgenden UML-Klassendiagramm entworfen.
+Die Methode shade() in der Klasse FlatShaderDirectX implementiert den Flat Shading-Algorithmus und verwendet die Methode draw(x:int, y:int, c:int), um einen Punkt unter Verwendung der DirectX-Programmierschnittstelle zu zeichnen
 
 }
 
 \frame {
-\frametitle {Klausuraufgabe: Brücke und Beobachter}
-Der Begriff Shading bezeichnet in der 3D-Computergrafik im allgemeinen Sinne die Simulation der Oberfläche eines Objekts. Für die Berechnung der Oberfläche gibt es viele verschiedene Verfahren – unter anderem das Flat Shading und das Gouraud Shading.
-Sie haben einen Flat Shader für die DirectX-Programmierschnittstelle entsprechend dem folgenden UML-Klassendiagramm entworfen.
-Die Methode shade() in der Klasse FlatShaderDirectX implemen-tiert den Flat Shading-Algorithmus und verwendet die Methode draw(x:int, y:int, c:int), um einen Punkt unter Verwendung der DirectX-Programmierschnittstelle zu zeichnen
+\frametitle {Aufgabe 1 (7P)}
+Verwenden Sie das Entwurfsmuster Brücke um die Abstraktion (Methode shade) von der Implementierung (Methode draw) zu trennen. \\
+Hinweis: Trennen Sie die obige Schnittstelle IShader geeignet auf und erweitern Sie Ihr UML-Klassendiagramm um die konkreten Klassen DirectXImpl und OpenGLImpl, FlatShader und GouraudShader. Tragen Sie Vererbungsbeziehungen und Assoziationen entsprechend dem Entwurfsmuster Brücke ein. 
+\begin{center}
+\includegraphics[scale=0.35]{pics/04/BrueckeA.png}
+\end{center}
+}
 
-\includegraphics[scale=0.4]{pics/04/BrueckeA.png}
 
+\frame {
+\frametitle {Musterlösung  (7P)}
+\begin{center}
+\includegraphics[scale=0.45]{pics/04/BrueckeM.png}
+\end{center}
+}
+
+\frame {
+\frametitle {Aufgabe 1 b(3P)}
+\small{Das Gittermodell, für das Ihre Shader-Klassen die Darstellungen der Oberflächen berechnen, wird von der Klasse Gittermodell verwaltet. Bei jeder Änderung des Git-termodells (Subjekt) soll der verwendete Shader (Beobachter) benachrichtigt werden. Verwenden Sie das Entwurfsmuster Beobachter und erweitern Sie das folgende UML-Klassendiagramm um Methoden-Signaturen für das An- und Abmelden, Benachrichtigen und Aktualisieren des Beobachters. \\
+Hinweis: Definieren Sie keine zusätzlichen abstrakten Subjekt- und Beobachterklassen sondern verwenden und erweitern Sie lediglich die gegebene Schnittstelle Shader und die Klasse Gittermodell. 
+}
+\begin{center}
+\includegraphics[scale=0.3]{pics/04/BeobachterA.png}
+\end{center}
+}
+
+
+\frame {
+\frametitle {Musterlösung}
+\begin{center}
+\includegraphics[scale=0.6]{pics/04/BeobachterM.png}
+\end{center}
 }
 \section{Ende}
-
 \subsection{Tipps zum nächsten Übungsblatt}
 
 \frame{
