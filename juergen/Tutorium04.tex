@@ -27,7 +27,8 @@
 \frametitle{Altes Übungsblatt}
 	\begin{block}{Aufgabe 1 - UML Zustandautomaten}
 	\begin{itemize}
-	\item ???
+	\item Start- und Endzustand nicht vergessen!
+	\item Bei Nebenläufigen Zustandsautomaten ist beim transformierten Automaten ein ,,guter'' Name A$\times$B für einen Zustand
 	\end{itemize}
 	\end{block}
 }
@@ -37,7 +38,7 @@
 \frametitle{Altes Übungsblatt}
 	\begin{block}{Aufgabe 2 - Überladen und Überschreiben}
 	\begin{itemize}
-	\item ???
+	\item Super! Hat jeder verstanden.
 	\end{itemize}
 	\end{block}
 	\pause
@@ -76,7 +77,7 @@
 	\color[rgb]{0,0,0}
 	\pause
 	\color<5->[rgb]{1,0,0}
-	\item Software ist leichter zu ändern als ein physisches Produkt vergleichbarer Komplexität.
+	\item In Java muss eine Klasse, die eine Schnittstelle implementiert, alle in der Schnittstelle vorgegebenen Methoden implementieren
 	\color[rgb]{0,0,0}
 	\pause
 	\color<6->[rgb]{1,0,0}
@@ -106,10 +107,10 @@
 		\item helfen Entwürfe zu verstehen
 		\item dokumentieren Entwürfe kurz und knapp
 		\item dokumentieren und fördern den Stand der Kunst
-		\item helfen weniger erfahrenen Entwerfern)
+		\item helfen weniger erfahrenen Entwerfern
 		\item vermeiden die Neuerfindung des Rades
 		\item können Code-Qualität und Code-Struktur verbessern
-		\item fördern gute Entwürfe und guten Code durch Angabe konstruktiver Beispiele
+		\item fördern gute Entwürfe und guten Code
 	\end{itemize}
 	}
 	\end{block}
@@ -146,6 +147,38 @@ In der Vorlesung wurden für den Vergleich zweier Objekte mehrere Stufen von Gle
 }
 
 \section{Entwurfsmuster}
+
+\frame{
+\frametitle {Entwurfsmuster - Überblick}
+	\begin{itemize}
+		\item Entkopplungsmuster
+		
+		\begin{itemize}
+			\item Adapter, Beobachter, Brücke, Iterator, Stellvertreter, Vermittler
+		\end{itemize}
+		
+		\item Varianten-Muster
+		\begin{itemize}
+			\item Abstrakte Fabrik, Besucher, Fabrikmethode, Kompositum, Schablonenmethode, Strategie
+		\end {itemize}
+		\item Zustandshandhabungs-Muster
+		\begin{itemize}
+			\item Einzelstück, Fliegengewicht, Memento, Prototyp, Zustand
+		\end{itemize}
+		\item Steuerung-Muster
+			\begin{itemize}
+				\item Befehl, Master/worker
+		\end{itemize}
+		\item Virtuelle Maschinen
+		\item Bequemlichkeitsmuster
+			\begin{itemize}
+				\item Bequemlichkeits-Klasse, Bequemlichkeits-Methode, Fassade, Null-Objekt
+		\end{itemize}
+	\end{itemize}
+
+
+}
+
 \frame {
 \frametitle {Klausuraufgabe 2006} 
 	\begin{block} {Aufgabe (5)}
@@ -185,7 +218,30 @@ Ein binärer arithmetischer Ausdruck enthält einen Operanden, einen Operator (+
 	\end{center}
 }
 
+\frame {
+\frametitle {Beobachter}
+\begin{block} {Zweck}
+Definiert eine 1-zu-n Abhängigkeit zwischen Objekten, so dass die Änderung eines Zustandes eines Objektes dazu führt, dass alle abhängigen Objekte benachrichtigt und automatisch aktualisiert werden.
+\end{block}
+\begin{center}
+		\includegraphics[scale=0.5]{pics/04/beobachter.png}
+	\end{center}
+}
 
+\frame {
+\frametitle {Brücke}
+
+}
+
+\frame {
+\frametitle {Klausuraufgabe: Brücke und Beobachter}
+Der Begriff Shading bezeichnet in der 3D-Computergrafik im allgemeinen Sinne die Simulation der Oberfläche eines Objekts. Für die Berechnung der Oberfläche gibt es viele verschiedene Verfahren – unter anderem das Flat Shading und das Gouraud Shading.
+Sie haben einen Flat Shader für die DirectX-Programmierschnittstelle entsprechend dem folgenden UML-Klassendiagramm entworfen.
+Die Methode shade() in der Klasse FlatShaderDirectX implemen-tiert den Flat Shading-Algorithmus und verwendet die Methode draw(x:int, y:int, c:int), um einen Punkt unter Verwendung der DirectX-Programmierschnittstelle zu zeichnen
+
+\includegraphics[scale=0.4]{pics/04/BrueckeA.png}
+
+}
 \section{Ende}
 
 \subsection{Tipps zum nächsten Übungsblatt}
