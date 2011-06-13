@@ -85,7 +85,7 @@
 
 \pause
 	\color<7->[rgb]{0,1,0}
-	\item Unter welchen Umständen ein Objekt welche Botschaft entgegen nimmt, spezifiziert man in einem UML-Zustandsdiagramm
+	\item Wenn eine Klasse eine abstrakte Methode besitzt, dann ist sie auch selbst abstrakt.
 	\color[rgb]{0,0,0}
 
 \pause
@@ -145,117 +145,46 @@ In der Vorlesung wurden für den Vergleich zweier Objekte mehrere Stufen von Gle
 	\end{block} 
 }
 
-\section{Polymorphie}
+\section{Entwurfsmuster}
 \frame {
-\frametitle {Polymorphie} 
-	\begin{block} {Polymorphie}
-	\begin{itemize}
-		\item Polymorphie bedeutet Vielgestaltigkeit
-	\end{itemize}
+\frametitle {Klausuraufgabe 2006} 
+	\begin{block} {Aufgabe (5)}
+Ein binärer arithmetischer Ausdruck enthält einen Operanden, einen Operator (+ - * /) und einen anderen Operanden. Die Operanden können entweder eine Zahl sein oder selbst wieder ein anderer binärer arithmetischer Ausdruck. Entwerfen Sie mit Hilfe eines Entwurfsmusters ein Klassendiagramm, um die Bestandteile eines binären arithmetischen Ausdrucks zu einer Baumstruktur zusammenzufügen und seine Bestands-Hierarchien zu repräsentieren. Nennen Sie das verwendete Entwurfsmuster. Hinweis: z.B. 2 + 3 und (2 + 3) + (4 * 6) sind beide gültige arithmetische Ausdrücke. (5 P)
 	\end{block} 
 
-	\begin{block} {dynamische Polymorphie}
-	\begin{itemize}
-		\item Verwendung von Vererbung
-	\end{itemize}
-	\end{block} 
-
-	\begin{block} {statisch Polymorphie}
-	\begin{itemize}
-		\item Überladen von Methoden
-	\end{itemize}
-	\end{block} 
+Welches Entwurfsmuster sollte man hier verwenden?
+\visible<2-> {
+	Kompositum
+}
 }
 
 
-\subsection{Vererbung}
-
-
 \frame {
-\frametitle {Vererbung} 
-	\begin{block} {Signaturvererbung}
-	\begin{itemize}
-		\item Oberklasse gibt an, welche Methoden implementiert werden sollen
-		\item Java: Implementieren eines Interfaces mit implements
-	\end{itemize}
+\frametitle {Kompositum Allgemeines} 
+	\begin{block} {Zweck}
+	Füge Objekte zu Baumstrukturen zusammen, um Bestands-Hierarchien zu repräsentieren. Das Muster ermöglicht es 					Klienten, sowohl einzelne Objekte als auch Aggregate einheitlich zu behandeln.
 	\end{block} 
-
-	\begin{block} {Implementierungsvererbung}
-	\begin{itemize}
-		\item Oberklasse hat Methoden schon implementiert
-		\item Methode kann überschrieben werden (@Override)
-		\item Java: Erweitern einer Klasse mit extends
-	\end{itemize}
-	\end{block} 
-
-	\begin{block} {Frage}
-	\begin{itemize}
-		\item Gibt es eine Einschränkungen für die Vererbung?
-		\visible<2-> {
-		\item Ja, das Substitutionsprinzip
-		}
-	\end{itemize}
-	\end{block} 
-}
-
-\subsection{Überladen}
-\frame {
-\frametitle{Überladen}
-	\begin{block}{Methoden überladen \dots}
-	\begin{itemize}
-	\item statische Polymorpie
-	\item Methoden einer Klasse mit gleichen Namen, aber unterschiedlicher Signatur
-	\item Hat nichts mit Vererbung zu tun!
-	\item Bequem für den Benutzer
-	\end{itemize}
-	\end{block}
-}
-
-
-\section{UML}
-\subsection{Zustandsdiagramm}
-
-\frame{
-\frametitle {Zustandsdiagramm (Wiederholung)} 
-	\begin{itemize}
-	\item Beschreibt mögliche Zustände eines Objekts sowie mögliche Zustandsübergänge
-	\item Der Zustandsübergang (Transition) wird durch ein Ereignis ausgelöst
 	\begin{center}
-	\includegraphics[scale=0.5]{pics/zustandsuebergang.png}
+		\includegraphics[scale=0.45]{pics/04/KompositumStruktur.png}
 	\end{center}
-	\item Zustandsübergang findet nur statt, wenn die Bedingung zu diesem Zeitpunkt erfüllt ist
-	\item $\epsilon$ -Übergänge sind erlaubt
-	\end{itemize}
+
+}
+
+
+\frame {
+\frametitle{Zurück zur Aufgabe}
+	\begin{block} {Aufgabe (5P)}
+Ein binärer arithmetischer Ausdruck enthält einen Operanden, einen Operator (+ - * /) und einen anderen Operanden. Die Operanden können entweder eine Zahl sein oder selbst wieder ein anderer binärer arithmetischer Ausdruck. Entwerfen Sie mit Hilfe eines Entwurfsmusters ein Klassendiagramm, um die Bestandteile eines binären arithmetischen Ausdrucks zu einer Baumstruktur zusammenzufügen und seine Bestands-Hierarchien zu repräsentieren. Nennen Sie das verwendete Entwurfsmuster. Hinweis: z.B. 2 + 3 und (2 + 3) + (4 * 6) sind beide gültige arithmetische Ausdrücke. 
+	\end{block} 
 }
 
 \frame {
-	\begin{exampleblock}{Zustandsdiagramm mit Gedächtnis (Wiederholung)}
+\frametitle {Musterlösung}
 	\begin{center}
-	\includegraphics[scale=0.6]{pics/ZustandsDiagrammGedaechtnis.png}
-	\end{center}
-	\end{exampleblock}
-}
-
-
-\frame{
-\frametitle {Klausuraufgabe 2009 (1P)}
-	Gegeben ist der folgende UML-Zustandsautomat. Geben Sie an, in welcher Zustandskombination	
-	sich der Zustandsautomat, jeweils ausgehend vom Startzustand, nach den beiden Eingabefolgen
-	befindet. 
-	\begin{itemize}
-	\item Folge1: a, b, c, c   
-	\visible<2-> {
-	\item Zustandskombination: $A \times $D
-	}
-	\item Folge2: c, c, a, b, b, a, c, c, a
-	\visible<3-> {
-	\item Zustandskombination: $B \times $C
-	}
-	\end{itemize}
-	\begin{center}
-	\includegraphics[scale=0.6]{pics/03/zustandN.png}
+		\includegraphics[scale=0.6]{pics/04/KompositumM.png}
 	\end{center}
 }
+
 
 \section{Ende}
 
