@@ -28,7 +28,7 @@
 	\begin{block}{Aufgabe 1 - UML Zustandautomaten}
 	\begin{itemize}
 	\item Start- und Endzustand nicht vergessen!
-	\item nach der Transformation wäre "$A\times B$" ein ,,guter'' Name für einen Zustand, da aussagekräftiger als z.B. $A_1$
+	\item nach der Transformation wäre "$A\times B$".  ein ,,guter'' Name für einen Zustand, da aussagekräftiger als z.B. $A_1$
 	\item wurde größtenteils richtig gemacht, weiter so
 	\end{itemize}
 	\end{block}
@@ -196,7 +196,7 @@ Welches Entwurfsmuster sollte man hier verwenden?
 }
 }
 
-
+\subsection{Kompositum}
 \frame {
 \frametitle {Kompositum Allgemeines} 
 	\begin{block} {Zweck}
@@ -223,6 +223,7 @@ Ein binärer arithmetischer Ausdruck enthält einen Operanden, einen Operator (+
 	\end{center}
 }
 
+\subsection{Beobachter}
 \frame {
 \frametitle {Beobachter}
 \begin{block} {Zweck}
@@ -233,6 +234,7 @@ Definiert eine 1-zu-n Abhängigkeit zwischen Objekten, so dass die Änderung ein
 	\end{center}
 }
 
+\subsection{Brücke}
 \frame {
 \frametitle {Brücke}
 \begin{block} {Zweck}
@@ -291,8 +293,9 @@ Hinweis: Definieren Sie keine zusätzlichen abstrakten Subjekt- und Beobachterkl
 \end{center}
 }
 
+\subsection{Schablonenmethode}
 \frame {
-\frametitle {Schablone}
+\frametitle {Schablonenmethode}
 \begin{block} {Zweck}
 	\begin{itemize}
 	\item Definiere das Skelett eines Algorithmus in einer Operation und delegiere einzelne Schritte an Unterklassen\\
@@ -306,7 +309,7 @@ Hinweis: Definieren Sie keine zusätzlichen abstrakten Subjekt- und Beobachterkl
 	\end{center}
 }
 
-
+\subsection{Strategie}
 \frame {
 \frametitle {Strategie}
 \begin{block} {Zweck}
@@ -364,14 +367,14 @@ Hinweis: Definieren Sie keine zusätzlichen abstrakten Subjekt- und Beobachterkl
 
 }
 
-
+\subsection{Null-Objekt}
 \frame {
-\frametitle {null-Objekt}
+\frametitle {Null-Objekt}
 \includegraphics[scale=0.5]{pics/04/nullObjekt.png}
 }
 
 \begin{frame}[fragile]
-\frametitle {null-Objekt}
+\frametitle {Null-Objekt}
 \begin{block} {Zweck}
 	\begin{itemize}
 		\item Stelle einen Stellvertreter zur Verfügung, der die gleiche
@@ -395,7 +398,7 @@ Hinweis: Definieren Sie keine zusätzlichen abstrakten Subjekt- und Beobachterkl
 
 
 \begin{frame}[fragile]
-\frametitle{null Objekt}
+\frametitle{Null Objekt}
 	\begin{block}{So könnte das im Code aussehen} 
 	\begin{lstlisting} {}
 		Class NullAction implements Action {
