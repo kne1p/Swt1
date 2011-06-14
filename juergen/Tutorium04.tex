@@ -28,7 +28,8 @@
 	\begin{block}{Aufgabe 1 - UML Zustandautomaten}
 	\begin{itemize}
 	\item Start- und Endzustand nicht vergessen!
-	\item Bei Nebenläufigen Zustandsautomaten ist beim transformierten Automaten ein ,,guter'' Name A$\times$B für einen Zustand
+	\item nach der Transformation wäre "$A\times B$" ein ,,guter'' Name für einen Zustand, da aussagekräftiger als z.B. $A_1$
+	\item wurde größtenteils richtig gemacht, weiter so
 	\end{itemize}
 	\end{block}
 }
@@ -39,12 +40,14 @@
 	\begin{block}{Aufgabe 2 - Überladen und Überschreiben}
 	\begin{itemize}
 	\item Super! Hat jeder verstanden.
+	\item da man in Java sehr leicht Überladung statt Überschreiben erreicht: \\
+		verwendet jedes mal "@Override", wenn ihr etwas überschreiben wollt, dann prüft der Compiler für euch
 	\end{itemize}
 	\end{block}
 	\pause
 	\begin{block}{Aufgabe 3 - JMJRST erweitern} 
 	\begin{itemize}
-	\item ???
+	\item größtenteils korrekt gelöst, gut gemacht!
 	\end{itemize}
 	\end{block}
 \end{frame}
@@ -53,8 +56,10 @@
 \frametitle{Altes Übungsblatt}
 	\begin{block}{Bonusaufgabe - Kammerjäger}
 	\begin{itemize}
-	\item wer hat den Debugger benutzt?
-	\item bla?
+	\item wer hat den Debugger benutzt? \pause
+	\item Debugger können die Fehlersuche extrem vereinfachen
+	\item den Fehler finden heißt hier nicht nur, den Stacktrace abzuschreiben! \pause
+	\item die Stelle an der die Exception fliegt ist korrekt, sie vertraut lediglich auf korrekt initialisierte Eingaben
 	\end{itemize}
 	\end{block}
 }
@@ -67,8 +72,8 @@
 	\item Fassade und Adapter gehören zu den Bequemlichkeitsmustern.
 	\color[rgb]{0,0,0}
 	\pause
-	\color<3->[rgb]{0,1,0}
-	\item Das Entwurfsmuster „Abstrakte Fabrik“ konzentriert sich auf den schrittweisen Konstruktionsprozess komplexer Objekte. geändert werden.
+	\color<3->[rgb]{1,0,0}
+	\item Das Entwurfsmuster „Abstrakte Fabrik“ konzentriert sich auf den schrittweisen Konstruktionsprozess komplexer Objekte.
 	\color[rgb]{0,0,0}
 	
 	\pause
@@ -91,7 +96,7 @@
 
 \pause
 	\color<8->[rgb]{0,1,0}
-	\item Zusicherungen (z.B. mit dem Schlüsselwort assert in Java) werden zur Laufzeit eines Programs ausgeführt.
+	\item Zusicherungen (z.B. mit dem Schlüsselwort assert in Java) werden zur Laufzeit eines Programs ausgeführt und überprüft.
 	\color[rgb]{0,0,0}
 \end{itemize}
 }
@@ -103,7 +108,7 @@
 	\visible<2-> {
 	\begin{itemize}
 		\item verbessern die Kommunikation im Team
-		\item erfassen wesentliche Konzepte und bringen sie in eine verständliche Form
+		\item erfassen wesentliche Konzepte und bringen sie in verständliche Form
 		\item helfen Entwürfe zu verstehen
 		\item dokumentieren Entwürfe kurz und knapp
 		\item dokumentieren und fördern den Stand der Kunst
@@ -167,13 +172,13 @@ In der Vorlesung wurden für den Vergleich zweier Objekte mehrere Stufen von Gle
 		\end{itemize}
 		\item Steuerung-Muster
 			\begin{itemize}
-				\item Befehl, Master/worker
-		\end{itemize}
+				\item Befehl, Master/Worker
+			\end{itemize}
 		\item Virtuelle Maschinen
 		\item Bequemlichkeitsmuster
 			\begin{itemize}
 				\item Bequemlichkeits-Klasse, Bequemlichkeits-Methode, Fassade, Null-Objekt
-		\end{itemize}
+			\end{itemize}
 	\end{itemize}
 
 
@@ -252,7 +257,7 @@ Die Methode shade() in der Klasse FlatShaderDirectX implementiert den Flat Shadi
 }
 
 \frame {
-\frametitle {Aufgabe 1 (7P)}
+\frametitle {Aufgabe 1a - Brücke (7P)}
 Verwenden Sie das Entwurfsmuster Brücke um die Abstraktion (Methode shade) von der Implementierung (Methode draw) zu trennen. \\
 Hinweis: Trennen Sie die obige Schnittstelle IShader geeignet auf und erweitern Sie Ihr UML-Klassendiagramm um die konkreten Klassen DirectXImpl und OpenGLImpl, FlatShader und GouraudShader. Tragen Sie Vererbungsbeziehungen und Assoziationen entsprechend dem Entwurfsmuster Brücke ein. 
 \begin{center}
@@ -269,7 +274,7 @@ Hinweis: Trennen Sie die obige Schnittstelle IShader geeignet auf und erweitern 
 }
 
 \frame {
-\frametitle {Aufgabe 1 b(3P)}
+\frametitle {Aufgabe 1b - Beobachter(3P)}
 \small{Das Gittermodell, für das Ihre Shader-Klassen die Darstellungen der Oberflächen berechnen, wird von der Klasse Gittermodell verwaltet. Bei jeder Änderung des Git-termodells (Subjekt) soll der verwendete Shader (Beobachter) benachrichtigt werden. Verwenden Sie das Entwurfsmuster Beobachter und erweitern Sie das folgende UML-Klassendiagramm um Methoden-Signaturen für das An- und Abmelden, Benachrichtigen und Aktualisieren des Beobachters. \\
 Hinweis: Definieren Sie keine zusätzlichen abstrakten Subjekt- und Beobachterklassen sondern verwenden und erweitern Sie lediglich die gegebene Schnittstelle Shader und die Klasse Gittermodell. 
 }
@@ -285,6 +290,67 @@ Hinweis: Definieren Sie keine zusätzlichen abstrakten Subjekt- und Beobachterkl
 \includegraphics[scale=0.6]{pics/04/BeobachterM.png}
 \end{center}
 }
+
+\frame {
+\frametitle {Schablone}
+\begin{block} {Zweck}
+	\begin{itemize}
+	\item Definiere das Skelett eines Algorithmus in einer Operation und delegiere einzelne Schritte an Unterklassen\\
+		$\Rightarrow$ abstrakte Klasse die manche Details offen lässt
+	\item ermöglicht es Unterklassen, bestimmte Schritte eines Algorithmus zu überschreiben, ohne seine Struktur zu verändern.
+	\end{itemize}
+\end{block}
+
+	\begin{center}
+		\includegraphics[scale=0.25]{pics/04/Schablone.png}
+	\end{center}
+}
+
+
+\frame {
+\frametitle {Strategie}
+\begin{block} {Zweck}
+	\begin{itemize}
+	\item Definiere eine Familie von Algorithmen, kapsele sie und mache sie austauschbar.
+	\item Ermöglicht es, den Algorithmus unabhängig von nutzenden Klienten zu variieren.
+	\end{itemize}
+\end{block}
+
+	\begin{center}
+		\includegraphics[scale=0.27]{pics/04/Strategie1.png}
+	\end{center}
+}
+
+\frame {
+\frametitle {Strategie}
+\begin{block} {Zweck}
+	\begin{itemize}
+	\item Definiere eine Familie von Algorithmen, kapsele sie und mache sie austauschbar.
+	\item Ermöglicht es, den Algorithmus unabhängig von nutzenden Klienten zu variieren.
+	\end{itemize}
+\end{block}
+
+	\begin{center}
+		\includegraphics[scale=0.26]{pics/04/Strategie2.png}
+	\end{center}
+}
+
+\frame {
+\frametitle {Strategie vs. Schablone}
+	\begin{block} {Gemeinsamkeit}
+	\begin{itemize}
+	\item beide sollen verschiedene Verhaltensvarianten ermöglichen
+	\end{itemize}
+\end{block} \pause
+
+	\begin{block} {Unterschied}
+	\begin{itemize}
+	\item Strategie verwendet eine Aggregation von Implementierungen \pause
+	\item Schablone wird i.d.R. während des Betriebs nicht ausgetauscht und ist nicht vom Aufrufer/Klienten getrennt.
+	\end{itemize}
+\end{block}
+}
+
 \section{Ende}
 \subsection{Tipps zum nächsten Übungsblatt}
 
@@ -293,7 +359,7 @@ Hinweis: Definieren Sie keine zusätzlichen abstrakten Subjekt- und Beobachterkl
 
 	\begin{block}{Aufgabe 1 - Entwurfsmuster in der Java-API}
 	\begin{itemize}
-	\item Falls ihr nicht wisst, was die jeweiligen Code-Stellen tun, "googelt" euch Anwendungsbeispiele
+	\item Falls ihr nicht wisst, was die jeweiligen Code-Stellen tun, ``googelt'' euch Anwendungsbeispiele
 	\item Stellt wirklich nur das allernotwendigste mit UML dar, denn diese Klassen sind recht groß
 	\end{itemize}
 	\end{block}
@@ -301,7 +367,7 @@ Hinweis: Definieren Sie keine zusätzlichen abstrakten Subjekt- und Beobachterkl
 	\begin{block}{Aufgabe 2 - Kreuzworträtsel}
 	\begin{itemize} \pause
 	\item das sollte jeder mit den Entwurfsmustern aus der Vorlesung hinbekommen
-	\item achtet darauf, den jeweiligen Namen aus der Vorlesung zu benutzen!
+	\item achtet darauf, nur die Namen aus der Vorlesung zu benutzen!
 	\end{itemize}
 	\end{block}
 }
@@ -311,7 +377,8 @@ Hinweis: Definieren Sie keine zusätzlichen abstrakten Subjekt- und Beobachterkl
 \frametitle{Tipps zum nächsten Übungsblatt}
 	\begin{block}{Aufgabe 3 - Entwurfsmuster anwenden}
 	\begin{itemize}
-	\item in beiden Projekten soll genau ein passendes Entwurfsmuster umgesetzt werden, um das Programm einfacher bzw. einfacher erweiterbar zu machen
+	\item in beiden Projekten soll genau ein passendes Entwurfsmuster umgesetzt werden, um das Programm einfacher bzw. einfacher erweiterbar zu machen \pause
+	\item ihr müsst die Programme nicht komplett umschreiben, es sind i.d.R. nur ein paar Zeilen pro Klasse zu ändern.
 	\item Abgabe besteht jeweils aus zwei Teilen:
 
 		\begin{itemize}
@@ -322,6 +389,34 @@ Hinweis: Definieren Sie keine zusätzlichen abstrakten Subjekt- und Beobachterkl
 	\end{itemize}
 	\end{block}
 }
+
+
+\begin{frame}[fragile]
+\frametitle{Wiederholung: Generics Besonderheiten}
+	\begin{block}{Arrays}
+	\begin{itemize}
+	\item echte Java Arrays können keine generischen Typen enthalten \pause
+	\item daher verwendet man oft z.B. \texttt{ArrayList<MeineKlasse>} wenn man viele Objekte verwalten will
+	\end{itemize}
+	\end{block}
+
+	\pause
+	\begin{block}{Probleme mit Vererbung: das "?" hilft} 
+	\begin{itemize}
+	\item Klasse A:
+	\begin{lstlisting}
+ public ArrayList<? extends A> getMembers(){...}
+	\end{lstlisting}
+\pause
+	\item Klasse B, Unterklasse von A:
+	\begin{lstlisting}
+ @Overrride
+ public ArrayList<B> getMembers(){...}
+	\end{lstlisting}
+	\end{itemize}
+	\end{block}
+\end{frame}
+
 
 
 \frame{
