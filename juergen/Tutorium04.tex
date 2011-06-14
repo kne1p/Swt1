@@ -351,6 +351,58 @@ Hinweis: Definieren Sie keine zusätzlichen abstrakten Subjekt- und Beobachterkl
 \end{block}
 }
 
+\frame {
+\frametitle {null-Objekt}
+\includegraphics[scale=0.5]{pics/04/nullObjekt.png}
+}
+
+\begin{frame}[fragile]
+\frametitle {null-Objekt}
+\begin{block} {Zweck}
+	\begin{itemize}
+		\item Stelle einen Stellvertreter zur Verfügung, der die gleiche
+			Schnittstelle bietet, aber nichts tut. Das Null-Objekt kapselt die
+			Implementierungs-Entscheidungen (wie genau es „nichts tut“) und
+			versteckt diese Details vor seinen Mitarbeitern.
+	\end{itemize}
+\end{block}
+
+\begin{block} {Motivation}
+	\begin{itemize}
+		\item Vermeidung dauernder null-Überprüfung
+	\end{itemize}
+	\begin{lstlisting} {}
+		if (thisCall.callingParty != null)
+		  thisCall.callingParty.action();
+	\end{lstlisting}
+\end{block}
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{null Objekt}
+	\begin{block}{So könnte das im Code aussehen} 
+	\begin{lstlisting} {}
+		Class NullAction implements Action {
+		  public void action(){ /* leer */ }
+		}
+		Class TrueAction implements Action {
+		  public void action () {
+		    /* echter Code */
+		  }
+		}
+		...
+		thisCall.callingParty = new TrueAction();
+		thisCall.callingParty = new NullAction();
+		...
+		thisCall.callingParty.action(); // kein Test auf null
+	\end{lstlisting}
+	\end{block}
+\end{frame}
+
+
+
 \section{Ende}
 \subsection{Tipps zum nächsten Übungsblatt}
 
