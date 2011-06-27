@@ -25,11 +25,16 @@
 \subsection{Altes Übungsblatt}
 \frame {
 \frametitle{Altes Übungsblatt}
-	\begin{block}{Aufgabe 1 - UML Zustandautomaten}
+	\begin{block}{Aufgabe 1 - Entwurfsmuster in der Java-API}
 	\begin{itemize}
-	\item Start- und Endzustand nicht vergessen!
-	\item nach der Transformation wäre "$A\times B$" ein ,,guter'' Name für einen Zustand, da aussagekräftiger als z.B. $A_1$
-	\item wurde größtenteils richtig gemacht, weiter so
+	\item ???
+	\end{itemize}
+	\end{block}
+
+	\begin{block}{Aufgabe 2 - Kreuzworträtsel}
+	\begin{itemize} \pause
+	\item geschenkte Punkte \pause
+	\item der Zusammenhang zwischen der Beschreibung und dem Muster sollte euch dennoch klar werden!
 	\end{itemize}
 	\end{block}
 }
@@ -37,32 +42,13 @@
 
 \begin{frame}[fragile]
 \frametitle{Altes Übungsblatt}
-	\begin{block}{Aufgabe 2 - Überladen und Überschreiben}
+	\begin{block}{Aufgabe 3 - Entwurfsmuster anwenden}
 	\begin{itemize}
-	\item Super! Hat jeder verstanden.
-	\item da man in Java sehr leicht Überladung statt Überschreiben erreicht: \\
-		verwendet jedes mal "@Override", wenn ihr etwas überschreiben wollt, dann prüft der Compiler für euch
-	\end{itemize}
-	\end{block}
-	\pause
-	\begin{block}{Aufgabe 3 - JMJRST erweitern} 
-	\begin{itemize}
-	\item größtenteils korrekt gelöst, gut gemacht!
+	\item ???
 	\end{itemize}
 	\end{block}
 \end{frame}
 
-\frame{
-\frametitle{Altes Übungsblatt}
-	\begin{block}{Bonusaufgabe - Kammerjäger}
-	\begin{itemize}
-	\item wer hat den Debugger benutzt? \pause
-	\item Debugger können die Fehlersuche extrem vereinfachen
-	\item den Fehler finden heißt hier nicht nur, den Stacktrace abzuschreiben! \pause
-	\item die Stelle an der die Exception fliegt ist korrekt, sie vertraut lediglich auf korrekt initialisierte Eingaben
-	\end{itemize}
-	\end{block}
-}
 
 \subsection{Zum Aufwärmen ...}
 \frame {
@@ -358,75 +344,30 @@ Hinweis: Definieren Sie keine zusätzlichen abstrakten Subjekt- und Beobachterkl
 }
 
 
-\frame {
-\frametitle {null-Objekt}
-\includegraphics[scale=0.5]{pics/04/nullObjekt.png}
-}
-
-\begin{frame}[fragile]
-\frametitle {null-Objekt}
-\begin{block} {Zweck}
-	\begin{itemize}
-		\item Stelle einen Stellvertreter zur Verfügung, der die gleiche
-			Schnittstelle bietet, aber nichts tut. Das Null-Objekt kapselt die
-			Implementierungs-Entscheidungen (wie genau es „nichts tut“) und
-			versteckt diese Details vor seinen Mitarbeitern.
-	\end{itemize}
-\end{block}
-
-\begin{block} {Motivation}
-	\begin{itemize}
-		\item Vermeidung dauernder null-Überprüfung
-	\end{itemize}
-	\begin{lstlisting} {}
-		if (thisCall.callingParty != null)
-		  thisCall.callingParty.action();
-	\end{lstlisting}
-\end{block}
-
-\end{frame}
-
-
-\begin{frame}[fragile]
-\frametitle{null Objekt}
-	\begin{block}{So könnte das im Code aussehen} 
-	\begin{lstlisting} {}
-		Class NullAction implements Action {
-		  public void action(){ /* leer */ }
-		}
-		Class TrueAction implements Action {
-		  public void action () {
-		    /* echter Code */
-		  }
-		}
-		...
-		thisCall.callingParty = new TrueAction();
-		thisCall.callingParty = new NullAction();
-		...
-		thisCall.callingParty.action(); // kein Test auf null
-	\end{lstlisting}
-	\end{block}
-\end{frame}
-
-
-
 \section{Ende}
 \subsection{Tipps zum nächsten Übungsblatt}
 
 \frame{
 \frametitle{Tipps zum nächsten Übungsblatt}
 
-	\begin{block}{Aufgabe 1 - Entwurfsmuster in der Java-API}
+	\begin{block}{Aufgabe 1 - Kontrollflussorientiertes Testen}
 	\begin{itemize}
-	\item Falls ihr nicht wisst, was die jeweiligen Code-Stellen tun, ``googelt'' euch Anwendungsbeispiele
-	\item Stellt wirklich nur das allernotwendigste mit UML dar, denn diese Klassen sind recht groß
+	\item kommt oft in der Klausur vor \pause
+	\item relativ leicht verdiente Punkte!
 	\end{itemize}
 	\end{block}
+}
 
-	\begin{block}{Aufgabe 2 - Kreuzworträtsel}
+\frame{
+\frametitle{Tipps zum nächsten Übungsblatt}
+
+	\begin{block}{Aufgabe 2 -Gebietszerlegung und Synchronisation}
 	\begin{itemize} \pause
-	\item das sollte jeder mit den Entwurfsmustern aus der Vorlesung hinbekommen
-	\item achtet darauf, nur die Namen aus der Vorlesung zu benutzen!
+	\item a) sollte jeder hinbekommen - falls euch nichts einfällt wählt einfach ein paar Parameter und schaut was passiert \pause
+	\item b) sieht auf den ersten Blick harmlos aus - um sicher zu gehen programmiert ein Testprogramm und testet, ob euer Fix tatsächlich das Problem behebt \pause
+	\item stellt dazu auch sicher, dass die ursprüngliche Barriere tatsächlich falsch funktioniert in eurem Test-Programm \pause
+	\item ein Test ist nur dann sinnvoll, wenn er den Unterschied zwischen richtigem und falschem Code auch zeigt - \pause
+	\item sonst kann es sein, dass euer Test das eigentliche Fehlverhalten nicht sichtbar macht
 	\end{itemize}
 	\end{block}
 }
@@ -434,54 +375,21 @@ Hinweis: Definieren Sie keine zusätzlichen abstrakten Subjekt- und Beobachterkl
 
 \frame{
 \frametitle{Tipps zum nächsten Übungsblatt}
-	\begin{block}{Aufgabe 3 - Entwurfsmuster anwenden}
+	\begin{block}{Aufgabe 3 - Parallelisierung}
 	\begin{itemize}
-	\item in beiden Projekten soll genau ein passendes Entwurfsmuster umgesetzt werden, um das Programm einfacher bzw. einfacher erweiterbar zu machen \pause
-	\item ihr müsst die Programme nicht komplett umschreiben, es sind i.d.R. nur ein paar Zeilen pro Klasse zu ändern.
-	\item Abgabe besteht jeweils aus zwei Teilen:
-
-		\begin{itemize}
-		\item je ein Klassendiagramm auf Papier
-		\item je ein Zip-Archiv mit dem umgebauten Programmcode
-		\end{itemize}
-
+	\item für diese Aufgabe gibt es 9 ``Pflicht''- und 5 Bonuspunkte
+	\item ihr braucht zum Testen einen Rechner mit mindestens zwei Kernen - \\
+		falls ihr keinen habt, gibt es in der Atis genug davon (Core2Duo, Core i5, Athlon X2)
+	\item zuverlässige Laufzeitmessungen kann man oft brauchen, und es gibt dabei mehr als genug Fehlerquellen ;-)
 	\end{itemize}
 	\end{block}
 }
 
 
-\begin{frame}[fragile]
-\frametitle{Wiederholung: Generics Besonderheiten}
-	\begin{block}{Arrays}
-	\begin{itemize}
-	\item echte Java Arrays können keine generischen Typen enthalten \pause
-	\item daher verwendet man oft z.B. \texttt{ArrayList<MeineKlasse>} wenn man viele Objekte verwalten will
-	\end{itemize}
-	\end{block}
-
-	\pause
-	\begin{block}{Probleme mit Vererbung: das "?" hilft} 
-	\begin{itemize}
-	\item Klasse A:
-	\begin{lstlisting}
- public ArrayList<? extends A> getMembers(){...}
-	\end{lstlisting}
-\pause
-	\item Klasse B, Unterklasse von A:
-	\begin{lstlisting}
- @Overrride
- public ArrayList<B> getMembers(){...}
-	\end{lstlisting}
-	\end{itemize}
-	\end{block}
-\end{frame}
-
-
-
 \frame{
 \frametitle{Bis zum nächsten Mal}
 	\begin{center}
-	\includegraphics[height=200pt]{pics/04/04_comic}
+	\includegraphics[height=200pt]{pics/05/05_comic}
 	\end{center}
 }
 

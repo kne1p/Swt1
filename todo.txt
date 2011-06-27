@@ -1,51 +1,22 @@
 rückblick, tipps aus der korrektur
 
-eclipse: svn plugin installieren?
-
-zu uml diagrammen:
--am besten immer von hand, in der klausur auch keine software verfügbar
-
-Jürgen
--richtige und falsche diagramme
-
-ÜB3
-* UML-Sequenzdiagramm
-* recht sicher nochmal Klassendiagramm
-* Integration des in ÜB2 programmierten Floyd-Steinberg in JMJRST; dazu 
-  gibt es (einigermaßen detaillierte) Hinweise, wie und wo
-
-Bewertungen
--fleißig sternchen vergeben, das hebt die Arbeitsleistung der Tutoren ;)
-
-programmieraufgabe ub2:
--args4j
--randfälle beachten (rumpf für alle pixel durchführen, bei fehleranwendung grenzen beachten)
-
-
-Daniel:
-übernimmt klausur zustandsdiagramm
--kann noch erweitert werden, hierarchisches zustandsdiagramm mit direktem übergang von innen nach außen, + zwei beispiel eingabesequenzen
-
-
-Christian:
-Programmieraufgabe ÜB3 ausprobieren, Probleme beschreiben
-
-Hinweise für ÜB3
--Swing Layouts
-  Aussehen unwichtig, also am einfachsten Flow Layout und JPanels zum Gruppieren verwenden
--man kann auf jedes Swing Element malen, der geforderte Bildausschnitt lässt sich also auch zB auf ein JLabel malen
--der Bildausschnitt kann beliebig gewählt werden
-
--zwischen der GUI Aufgabe ist auch eine Anpassung des Floyd Steinberg Algorithmus für 3*k bit pro Kanal versteckt
-
--Abgabe als zip das die Paketstruktur enthält: /swt1/ub3/Main.java
-
-Tipp für Folien:
-Eclipse: vorkommen von Variablen, methoden anzeigen: References>Working Set ( Ctrl+Shift+G), oder einfach markieren und dann an der Seitenleiste
-Problem: OptionsEdit verwendet null-Layout, d.h. alle Elemente müssen Pixelgenau positioniert werden!
-OptionsEdit: setBounds(x,y,width,height) (0,0) ist links oben, einfach "einreihen", abstände beachten
-
-
  {unique} auf Klassendiagrammen erklären, gegensatz: 
  Benutzer  --- Konto, hat beidseitig multipl. 1 bzw. default, unique daher sinnlos
  Student   --- Tutorium, multipl. 1..*, 0,1 jeder Student wird höchstens einmal einem Tut zugeordnet, unique sinnvoll
+
+
+
+üb5 rückblick
+1 muster finden
+2 rätsel
+3 muster refaktorisieren
+
+
+
+üb6:
+1: alte test-aufgabe finden und einbauen
+2: a) nichts?
+
+Christian
+   b) alternative synchronisierungsaufgabe finden?
+3: parallelisierungsansätze beschreiben
