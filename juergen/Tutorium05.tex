@@ -103,30 +103,38 @@ Implementierung aller Module des Zyklus abhängt. Oder:
 \frame {
 \frametitle {Klausuraufgaben zum Aufwärmen} 
 	\begin{block} {Aufgabe 2 (2P)}
-	In der Konfigurationsverwaltung haben Sie zwei Alternativen kennengelernt, Änderungen an versionierten Dateien zu speichern. Nennen und beschreiben Sie die beiden Alternativen kurz. Nennen Sie für jede Alternative je einen Vorteil.\\
-	\visible<2-> {
+Nennen Sie jeweils zwei in der Vorlesung besprochene Entwurfsmuster der Kategorien Entkopplungsmuster und Variantenmuster und ordnen Sie die genannten Entwurfsmuster der entsprechenden Kategorie zu. \\
+
+	
 	\begin{itemize}
-		\item Vorwärtsdeltas speichern eine Grundversion und die daran durchgeführten Änderungen
-		\item Rückwärtsdeltas speichern die aktuelle Version und die Änderungen für frühere Versionen
-		\item Vorteil Vorwärtsdelta: Schneller Zugriff auf frühere Versionen
-		\item Vorteil Rückwärtsdelta: Schneller Zugriff auf aktuelle Versionen
+		\item Entkopplungsmuster: 
+		\visible<2-> {Adapter, Beobachter, Brücke, Iterator, Stellvertreter, Vermittler}
+		\item Variantenmuster:
+		\visible<3-> {Abstrakte Fabrik, Besucher, Erbauer, Fabrikmethode, Kompositum, Schablonenmethode, Strategie, Dekorierer}
 	\end{itemize}
-	}
+	
 	\end{block}
 }
 
 \frame {
 \frametitle {Klausuraufgaben zum Aufwärmen} 
-	\begin{block} {Aufgabe 3 (3P)}
-In der Vorlesung wurden für den Vergleich zweier Objekte mehrere Stufen von Gleichheit definiert. Geben Sie die Definitionen für Gleichheit 0. und 1. Stufe an. \\
+	\begin{block} {Aufgabe 3 (1P)}
+	
+	Begründen Sie: Was wäre die Folge, wenn man das && durch ein & ersetzt?
 	\visible<2-> {
-	\begin{itemize}
-		\item Gleichheit 0. Stufe: Es handelt sich um dasselbe Objekt, die Objekte sind identisch.
-		\visible<3-> {
-		\item Gleichheit 1. Stufe: Es handelt sich entweder um dasselbe Objekt oder zwei verschiedene Objekte, die aber in allen Attributen/Assoziationen identische Werte besitzen (Gleichheit 0. Stufe oder paarweise Gleichheit 0. Stufe in allen Attributen)
+	Keine Kurzauswertung (0,5 P) 
+	\Rightarrow Bei null als Eingabe gäbe es eine NullPointerExeption bei d.length (0,5 P).
+	\begin{lstlisting} 
+	public static double blub(double[] d) {
+		if  (d != null && d.length > 0) {
+		...
 		}
-	\end{itemize}
+		...
 	}
+		}
+			\end{lstlisting}
+
+	
 	\end{block} 
 }
 
@@ -344,6 +352,16 @@ Hinweis: Definieren Sie keine zusätzlichen abstrakten Subjekt- und Beobachterkl
 }
 
 
+\section{Kontrollflussorientiertes Testen}
+\begin{block}{Aufgabe}
+Gegeben sei der folgende Algorithmus, der Werte aus dem RGB-Farbraum in Werte des HSV-Farbraums umrechnet.
+\begin{center}
+\includegraphics[scale=0.45]{pics/05/code.png}
+\end{center}
+
+a) Übersetzen sie den Algorithmus in die in der Vorlesung besprochene Zwischensprache und erstellen sie daraus den Kontrollflussgraphen
+
+\end{block}
 \section{Ende}
 \subsection{Tipps zum nächsten Übungsblatt}
 
