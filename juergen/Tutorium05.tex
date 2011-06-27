@@ -1,6 +1,6 @@
 \input{header.tex}
 
-\title[Tutorium04]{Tutorium 04: Entwurfsmuster}
+\title[Tutorium05]{Tutorium 05: Parallelismus und Testen}
 \subtitle{Softwaretechnik im SS 2011, Tutorium 4}
 \author{Jürgen Walter}
 \date{\today}
@@ -69,11 +69,11 @@
 \frametitle{Wahr oder falsch?}
 \begin{itemize}
 	\color<2->[rgb]{1,0,0}
-	\item Fassade und Adapter gehören zu den Bequemlichkeitsmustern.
+	\item Die letzte Phase des klassischen Wasserfallmodells ist „Testen und Abnahme“.
 	\color[rgb]{0,0,0}
 	\pause
-	\color<3->[rgb]{1,0,0}
-	\item Das Entwurfsmuster „Abstrakte Fabrik“ konzentriert sich auf den schrittweisen Konstruktionsprozess komplexer Objekte.
+	\color<3->[rgb]{0,1,0}
+	\item Regressionstests helfen verhindern, dass alte Fehler wieder auftreten.
 	\color[rgb]{0,0,0}
 	
 	\pause
@@ -104,19 +104,12 @@
 \frame {
 \frametitle {Klausuraufgaben zum Aufwärmen} 
 	\begin{block} {Aufgabe 1 (1P)}
-	Nennen Sie genau zwei Gründe, die laut Vorlesung für den Einsatz von Entwurfsmustern sprechen. \\
+Was ist der Nachteil von Zyklen in der Benutzt-Relation zwischen Modulen? \\
 	\visible<2-> {
-	\begin{itemize}
-		\item verbessern die Kommunikation im Team
-		\item erfassen wesentliche Konzepte und bringen sie in verständliche Form
-		\item helfen Entwürfe zu verstehen
-		\item dokumentieren Entwürfe kurz und knapp
-		\item dokumentieren und fördern den Stand der Kunst
-		\item helfen weniger erfahrenen Entwerfern
-		\item vermeiden die Neuerfindung des Rades
-		\item können Code-Qualität und Code-Struktur verbessern
-		\item fördern gute Entwürfe und guten Code
-	\end{itemize}
+	Die einzelnen Module können nicht nacheinander implementiert
+und getestet werden, weil ihr Funktionieren von einer korrekten
+Implementierung aller Module des Zyklus abhängt. Oder:
+„Nothing works until everything works.“
 	}
 	\end{block}
 }
