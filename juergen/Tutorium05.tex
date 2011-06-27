@@ -137,11 +137,69 @@ Nennen Sie jeweils zwei in der Vorlesung besprochene Entwurfsmuster der Kategori
 	\end{block} 
 \end{frame}
 
+\section{Kontrollflussorientiertes Testen}
+\frame {
+\frametitle{Kontrollflussorientiertes Testen}
+\begin{itemize}
+\item Anweisungsüberdeckung 
+\item Zweigüberdeckung
+\item Pfadüberdeckung 
+\item Bedingungsüberdeckung
+\end{itemize}
+$\Rightarrow$ Werden jedoch über Kontrollflussgraphen definiert \\
+$\Rightarrow$ zunächst strukturerhaltende Transformation in Zwischensprache
+}
 
+\frame {
+\frametitle{Beispiel Transformation}
+\begin{center}
+\includegraphics[scale=0.6]{pics/05/tr.png}
+\end{center}
+
+}
+
+\frame {
+\frametitle{Kontrollflussgraph}
+\begin{itemize}
+	\item Besteht aus Menge von Grundblöcken: Menge von Anweisungen in Zwischensprache,
+		\begin{itemize}
+			\item in die in die der Kontrollfluss nur am Anfang eintritt 
+			\item und die außer am Ende keine Sprungbefehle enthält.
+		\end{itemize}
+		\item Start- und Stoppblock
+		\item Menge von gerichteten Kanten, die die Ausführungsreihenfolge angeben
+		$\Rightarrow$ Eine Kante in einem KFG wird Zweig genannt
+\end{itemize}
+
+}
+
+\frame {
+\frametitle{Beispiel KFG}
+\begin{center}
+\includegraphics[scale=0.6]{pics/05/KFG.png}
+\end{center}
+
+}
+
+\frame {
+\frametitle{Teststrategien}
+\begin{itemize}
+\item Anweisungsüberdeckung : Ausführung aller Grundblöcke eines Programms
+\item Zweigüberdeckung: Traversieren aller Zweige im KFG
+\item Pfadüberdeckung : Ausführung aller unterschiedlicher Pfade im Programm
+
+\begin{center}
+\includegraphics[scale=0.6]{pics/05/diagramm.png}
+\end{center}
+
+Anweisungs-, Zweigs-, Pfadüberdeckung?
+\end{itemize}
+
+}
 
 \frame {
 \frametitle{Aufgabe}
-\section{Kontrollflussorientiertes Testen}
+
 
 Gegeben sei der folgende Algorithmus, der Werte aus dem RGB-Farbraum in Werte des HSV-Farbraums umrechnet.
 \begin{center}
