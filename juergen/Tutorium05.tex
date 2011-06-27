@@ -116,27 +116,28 @@ Nennen Sie jeweils zwei in der Vorlesung besprochene Entwurfsmuster der Kategori
 	\end{block}
 }
 
-\frame {
+\begin{frame}[fragile]
 \frametitle {Klausuraufgaben zum Aufwärmen} 
 	\begin{block} {Aufgabe 3 (1P)}
 	
-	Begründen Sie: Was wäre die Folge, wenn man das && durch ein & ersetzt?
+	Begründen Sie: Was wäre die Folge, wenn man das \&\& durch ein \& ersetzt?
 	\visible<2-> {
 	Keine Kurzauswertung (0,5 P) 
-	\Rightarrow Bei null als Eingabe gäbe es eine NullPointerExeption bei d.length (0,5 P).
-	\begin{lstlisting} 
-	public static double blub(double[] d) {
-		if  (d != null && d.length > 0) {
-		...
-		}
-		...
-	}
-		}
-			\end{lstlisting}
+	$\Rightarrow$ Bei null als Eingabe gäbe es eine NullPointerExeption bei d.length (0,5 P).
+%	\begin{lstlisting} {}
+bla
+%	public static double blub(double[] d) {
+%		if  (d != null \&\& d.length > 0) {
+%		...
+%		}
+%		...
+%	}
+%	\end{lstlisting}
+}	
 
 	
 	\end{block} 
-}
+\end{frame}
 
 \section{Entwurfsmuster}
 
