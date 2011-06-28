@@ -112,46 +112,40 @@
 	\end{block}
 }
 
+\section{Parallelismus}
 
+\subsection{Beispiel}
 \begin{frame}[fragile]
-\frametitle {Klausuraufgaben zum Aufwärmen} 
-	\begin{block} {Aufgabe 3 (1P)}
+\frametitle {Parallelismus} 
+	\begin{block} {kritische Sektionen}
 
 	\begin{lstlisting} {}
-	public static double blub(double[] d) {
-		if  (d != null \&\& d.length > 0) {
-		...
-		}
-		...
+	private int var = 1;
+	public void incorrect() {
+	  if  (var > 0) {
+  	    var--;
+	  }
 	}
 	\end{lstlisting}
 	
-	Begründen Sie: Was wäre die Folge, wenn man das \&\& durch ein \& ersetzt?
-	\visible<2-> {
-	Keine Kurzauswertung (0,5 P) 
-	$\Rightarrow$ Bei null als Eingabe gäbe es eine NullPointerExeption bei d.length (0,5 P).
-	}
+	Weshalb kann das schiefgehen? \\
+		\visible<2-> {
+		\begin{itemize}
+			\item Falls mehrere Threads die Methode gleichzeitig aufrufen, kann einer davon die Bedingung 				prüfen und dann ``stehen bleiben'', während ein anderer Thread $var$ dekrementiert. ($var$ 				kann kleiner als 0 werden)\\
+		\end{itemize}
+		}
+	Lösung: 
+		\visible<3-> {
+		\begin{itemize}
+			\item den kritischen Abschnitt schützen, z.B. mit $synchronized$ 
+		\end{itemize}
+		}
 	\end{block} 
 \end{frame}
 
+\subsection{Definitionen}
 \frame {
-\frametitle {Klausuraufgaben zum Aufwärmen} 
-	\begin{block} {Aufgabe 1 (1P)}
-Erklären Sie, was eine Verklemmung ist und welche Auswirkung sie hat \\
-	\visible<2-> {
-	\begin{itemize}
-		\item Eine Blockade, die durch eine zyklische Abhängigkeit von Fäden auf Ressourcen hervorgerufen wird
-		\item Eine Verklemmung führt dazu, dass alle beteiligten Fäden ewig im Wartezustand verharren
-	\end{itemize}
-	}
-	\end{block}
-}
-
-
-\section{Parallelismus}
-
-\frame {
-\frametitle {Definitionen} 
+\frametitle {Parallelismus} 
 	\visible<2-> {
 	\begin{block} {Kritscher Abschnitt (Critical Section)}
 		Ein Bereich, in dem ein Zugriff auf einen gemeinsam
@@ -185,6 +179,8 @@ Erklären Sie, was eine Verklemmung ist und welche Auswirkung sie hat \\
 	\end{block}
 }
 
+
+\subsection{Java}
 \frame {
 \frametitle {Und wie mache ich das nun in Java} 
 	\begin{itemize}
@@ -195,40 +191,22 @@ Erklären Sie, was eine Verklemmung ist und welche Auswirkung sie hat \\
 }
 
 
-\begin{frame}[fragile]
-\frametitle {Synchronisierung} 
-	\begin{block} {kritische Sektionen}
-
-	\begin{lstlisting} {}
-	private int var = 1;
-	public void incorrect() {
-	  if  (var > 0) {
-  	    var--;
-	  }
-	}
-	\end{lstlisting}
-	
-	Weshalb kann das schiefgehen? \\
-	\visible<2-> {
-	Falls mehrere Threads die Methode gleichzeitig aufrufen, kann einer davon die Bedingung prüfen und dann ``stehen bleiben'', während ein anderer Thread $var$ dekrementiert. \\
-	}
-	Lösung: \visible<3-> {den kritischen Abschnitt schützen, z.B. mit $synchronized$}
-	\end{block} 
-\end{frame}
 
 
 
 \section{Kontrollflussorientiertes Testen}
 \frame {
 \frametitle{Kontrollflussorientiertes Testen}
-\begin{itemize}
-\item Anweisungsüberdeckung 
-\item Zweigüberdeckung
-\item Pfadüberdeckung 
-\item Bedingungsüberdeckung
-\end{itemize}
-$\Rightarrow$ Werden jedoch über Kontrollflussgraphen definiert \\
-$\Rightarrow$ zunächst strukturerhaltende Transformation in Zwischensprache
+	\begin{block} {Testverfahren}	
+	\begin{itemize}
+		\item Anweisungsüberdeckung 
+		\item Zweigüberdeckung
+		\item Pfadüberdeckung 
+		\item Bedingungsüberdeckung
+	\end{itemize}
+	\end{block}
+	$\Rightarrow$ Werden über Kontrollflussgraphen definiert \\
+	$\Rightarrow$ zunächst strukturerhaltende Transformation in Zwischensprache
 }
 
 \frame {
@@ -256,38 +234,31 @@ $\Rightarrow$ zunächst strukturerhaltende Transformation in Zwischensprache
 
 \frame {
 \frametitle{Beispiel KFG}
-\begin{center}
-\includegraphics[scale=0.6]{pics/05/KFG.png}
-\end{center}
-
+	\begin{center}
+		\includegraphics[scale=0.6]{pics/05/KFG.png}
+	\end{center}
 }
 
 \frame {
 \frametitle{Teststrategien}
-\begin{itemize}
-\item Anweisungsüberdeckung : Ausführung aller Grundblöcke eines Programms
-\item Zweigüberdeckung: Traversieren aller Zweige im KFG
-\item Pfadüberdeckung : Ausführung aller unterschiedlicher Pfade im Programm
-
-\begin{center}
-\includegraphics[scale=0.6]{pics/05/diagramm.png}
-\end{center}
-
-Anweisungs-, Zweigs-, Pfadüberdeckung?
+	\begin{itemize}
+		\item Anweisungsüberdeckung : Ausführung aller Grundblöcke eines Programms
+		\item Zweigüberdeckung: Traversieren aller Zweige im KFG
+		\item Pfadüberdeckung : Ausführung aller unterschiedlicher Pfade im Programm
+	\begin{center}
+		\includegraphics[scale=0.6]{pics/05/diagramm.png}
+	\end{center}
+	Anweisungs-, Zweigs-, Pfadüberdeckung?
 \end{itemize}
 
 }
 
 \frame {
 \frametitle{Aufgabe}
-
-
-Gegeben sei der folgende Algorithmus, der Werte aus dem RGB-Farbraum in Werte des HSV-Farbraums umrechnet.
-\begin{center}
-\includegraphics[scale=0.45]{pics/05/code.png}
-\end{center}
-
-
+	Gegeben sei der folgende Algorithmus, der Werte aus dem RGB-Farbraum in Werte des HSV-Farbraums 			umrechnet.
+	\begin{center}
+	\includegraphics[scale=0.45]{pics/05/code.png}
+	\end{center}
 }
 
 \frame {
@@ -302,32 +273,68 @@ a) Übersetzen sie den Algorithmus in die in der Vorlesung besprochene Zwischens
 
 \frame {
 \frametitle {Musterlösung Teil a)}
-\begin{center}
-\includegraphics[scale=0.45]{pics/05/testM.png}
-\end{center}
+	\begin{center}
+		\includegraphics[scale=0.45]{pics/05/testM.png}
+	\end{center}
 }
+
 \frame {
-\frametitle{Aufgabe Teil b )+ c))}
-Für gültige Eingabewerte gilt: $r, g, b \in  [0, 1]$; für gültige Ausgaben: $s, v \in [0, 1]$ und $h \in [0, 360]$.
+\frametitle{Aufgabe Teil b)}
+	Für gültige Eingabewerte gilt: $r, g, b \in  [0, 1]$; für gültige Ausgaben: $s, v \in [0, 1]$ und $h \in [0, 360]$.
 
-b) Geben Sie eine minimale Testfallmenge an, welche die Anweisungsüberdeckung erfüllt und eine, welche die Zweigüberdeckung erfüllt. 
-Geben Sie für jeden Testfall den durchlaufenen Pfad im Kontrollflussgraphen an. \\
-Anweisungsüberdeckung:
-\visible<2-> {
- $\{1.0, 0.0, 0.5\} \rightarrow 1, 2, 3, 7, 8, 9$ $ \{0.0, 1.0, 0.0\}\rightarrow 1, 2, 4, 5, 7, 9 $ $\{0.0, 0.0, 1.0\} \rightarrow 1, 2, 4, 6, 7, 9 $
- } \\
+	b) Geben Sie eine minimale Testfallmenge an, welche die Anweisungsüberdeckung erfüllt und eine, welche die 		Zweigüberdeckung erfüllt. 
+	Geben Sie für jeden Testfall den durchlaufenen Pfad im Kontrollflussgraphen an. \\
+	Anweisungsüberdeckung:
+		\visible<2-> {
+		\begin{itemize}
+			\item 	$\{1.0, 0.0, 0.5\} \rightarrow 1, 2, 3, 7, 8, 9$ 
+			\item 	$\{0.0, 1.0, 0.0\} \rightarrow 1, 2, 4, 5, 7, 9$
+ 			\item 	$\{0.0, 0.0, 1.0\} \rightarrow 1, 2, 4, 6, 7, 9$
+		\end{itemize}
+		 } \\
 
-Zweigüberdeckung:
- \visible<3-> {
-siehe oben + $\{0.0, 0.0, 0.0\} \rightarrow 1, 9$ \\
+		Zweigüberdeckung:
+ 		\visible<3-> {
+		\begin{itemize}
+			\item siehe oben + $\{0.0, 0.0, 0.0\} \rightarrow 1, 9$ \\
+		\end{itemize}
+		}
 }
-c) Welches Problem gibt es bei der Pfadüberdeckung für diesen Algorithmus?
-\visible<4-> {
-Pfadüberdeckung: einige Pfade sind bei korrekten Eingaben nicht ausführbar. Wenn max $\neq$r ist, kann $h<0$ nicht wahr werden
+
+\frame {
+\frametitle{Aufgabe Teil c)}
+	Für gültige Eingabewerte gilt: $r, g, b \in  [0, 1]$; für gültige Ausgaben: $s, v \in [0, 1]$ und $h \in [0, 360]$.
+	c) Welches Problem gibt es bei der Pfadüberdeckung für diesen Algorithmus?
+
+	\visible<2-> {
+		Pfadüberdeckung: einige Pfade sind bei korrekten Eingaben nicht ausführbar. Wenn max $\neq$r ist, 			kann $h<0$ nicht wahr werden
+	}
+
 }
 
+\begin{frame}[fragile]
+\frametitle {Klausuraufgabe} 
+	\begin{block} {Aufgabe (1P)}
 
-}
+	\begin{lstlisting} {}
+	public static double blub(double[] d) {
+		if  (d != null && d.length > 0) {
+		...
+		}
+		...
+	}
+	\end{lstlisting}
+	Begründen Sie: Was wäre die Folge, wenn man das \&\& durch ein \& ersetzt?
+
+	\begin{itemize}	
+	\visible<2-> {
+	\item Keine Kurzauswertung (0,5 P) 
+	\item $\Rightarrow$ Bei null als Eingabe gäbe es eine NullPointerExeption bei d.length (0,5 P).
+	}
+	\end{itemize}
+	\end{block} 
+\end{frame}
+
 
 \section{Ende}
 \subsection{Tipps zum nächsten Übungsblatt}
