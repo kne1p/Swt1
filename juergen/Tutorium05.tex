@@ -256,6 +256,33 @@ Pfadüberdeckung: einige Pfade sind bei korrekten Eingaben nicht ausführbar. We
 
 
 }
+
+
+
+\section{Synchronisierung}
+\begin{frame}[fragile]
+\frametitle {Synchronisierung} 
+	\begin{block} {kritische Sektionen}
+
+	\begin{lstlisting} {}
+	private int var = 1;
+	public void incorrect() {
+	  if  (var > 0) {
+  	    var--;
+	  }
+	}
+	\end{lstlisting}
+	
+	Weshalb kann das schiefgehen? \\
+	\visible<2-> {
+	Falls mehrere Threads die Methode gleichzeitig aufrufen, kann einer davon die Bedingung prüfen und dann ``stehen bleiben'', während ein anderer Thread $var$ dekrementiert. \\
+	}
+	Lösung: \visible<3-> {den kritischen Abschnitt schützen, z.B. mit $synchronized$}
+	\end{block} 
+\end{frame}
+
+
+
 \section{Ende}
 \subsection{Tipps zum nächsten Übungsblatt}
 
@@ -279,7 +306,8 @@ Pfadüberdeckung: einige Pfade sind bei korrekten Eingaben nicht ausführbar. We
 	\item b) sieht auf den ersten Blick harmlos aus - um sicher zu gehen programmiert ein Testprogramm und testet, ob euer Fix tatsächlich das Problem behebt \pause
 	\item stellt dazu auch sicher, dass die ursprüngliche Barriere tatsächlich falsch funktioniert in eurem Test-Programm \pause
 	\item ein Test ist nur dann sinnvoll, wenn er den Unterschied zwischen richtigem und falschem Code auch zeigt - \pause
-	\item sonst kann es sein, dass euer Test das eigentliche Fehlverhalten nicht sichtbar macht
+	\item sonst kann es sein, dass euer Test das eigentliche Fehlverhalten nicht sichtbar macht \pause
+	\item Achtung: wait() kann auch ``grundlos'' enden, daher sollte wait() immer in einer Schleife stehen
 	\end{itemize}
 	\end{block}
 }
@@ -293,6 +321,7 @@ Pfadüberdeckung: einige Pfade sind bei korrekten Eingaben nicht ausführbar. We
 	\item ihr braucht zum Testen einen Rechner mit mindestens zwei Kernen - \\
 		falls ihr keinen habt, gibt es in der Atis genug davon (Core2Duo, Core i5, Athlon X2)
 	\item zuverlässige Laufzeitmessungen kann man oft brauchen, und es gibt dabei mehr als genug Fehlerquellen ;-) \pause
+	\item Zeitmessungen sind immer ungenau - die Bearbeitungszeit sollte daher nicht kürzer als eine Sekunde sein \pause
 	\item das Programm soll sowohl: \\
 		mit Kommandozeilenargumenten mit Hilfe von Configuration.java (wie bei ÜB2), \\ \pause
 		also auch ohne Argumente mit einem GUI (wie bei ÜB3) gestartet werden können
@@ -300,6 +329,53 @@ Pfadüberdeckung: einige Pfade sind bei korrekten Eingaben nicht ausführbar. We
 	\end{block}
 }
 
+\frame{
+\frametitle{Tipps zum nächsten Übungsblatt}
+	\begin{block}{Parallelisierungsarten}
+	\begin{itemize}
+	\item es gibt Programme, die ``embarassingly Parallel'' sind - indem man das Programm z.B. n-Mal mit n verschiedenen Dateien als Argument startet \pause
+	\item hier soll allerdings die Bearbeitung nur $eines$ Bildes beschleunigt werden \pause
+	\item sehr oft gibt es auch Datenparallelität - Berechnungen werden auf großen Datenstrukturen ausgeführt, ohne, dass es Abhängigkeiten zwischen den einzelnen Datenpunkten gibt - z.B. Matrixmultiplikation
+	\end{itemize}
+	\end{block}
+}
+
+\frame{
+\frametitle{Tipps zum nächsten Übungsblatt}
+	\begin{block}{Parallelisierungsarten}
+	\begin{itemize}
+	\item allgemein spricht man beim Aufteilen von Teilaufgaben von Aufgaben- bzw. Taskparallelität \pause
+	\item Beispiel: es kann gleichzeitig die Summe von Vektor A und der Durschnitt von Vektor B berechnet werden \pause
+	\item wenn es eine Menge aufeinanderfolgende Arbeitsschritte gibt, die jeweils unterschiedliche Ressourcen erfordern und viele Elemente diese Schritte durchlaufen sollen, bietet sich eine Pipeline an \pause
+	\item zu jeder Pipelinestufe gehört (min.) ein Thread, und sobald alle Stufen fertig sind, wandern die Elemente zur jeweils nächsten Stufe
+	\end{itemize}
+	\end{block}
+}
+
+\frame{
+\frametitle{Tipps zum nächsten Übungsblatt}
+	\begin{block}{Aufgabe 3 - Parallelisierung}
+	\begin{itemize}
+	\item es können hier nicht alle Punkte gleichzeitig bearbeitet werden  \pause
+	\item wenn ihr die Arbeitsweise des sequentiellen Algorithmus betrachtet, sollten sich Datenelemente zeigen, die gleichzeitig von verschiedenen Threads bearbeitet werden können \pause
+	\item damit die einzelnen Threads genug zu tun haben, lohnt es sich evtl. Elemente in größere Blöcke zu Bündeln, wobei jeder Block von seinem eigenen Thread bearbeitet wird \pause
+	\item es kann durchaus sein, dass zu Beginn und Ende der Bearbeitung nicht alle n Threads Arbeit haben \pause
+	\item da ihr große Bilder verwendet, wird das nicht zu sehr ins Gewicht fallen 
+	\end{itemize}
+	\end{block}
+}
+\frame{
+\frametitle{Tipps zum nächsten Übungsblatt}
+	\begin{block}{Aufgabe 3 - Parallelisierung}
+	\begin{itemize}
+
+	\item als Beispiel für die Verteilung von Arbeit, könnt ihr euch in JMJRST die Klassen Producer und Consumer anschauen \pause
+	\item alternativ könnten die Klassen Executors, ExecutorCompletionService, Callable und Future aus dem Paket java.util.concurrent für euch interessant sein \pause
+	\item diese Klassen bieten zusätzlichen Komfort, erfordern aber auch etwas Einarbeitung \pause
+	\item ein Anwendungsbeispiel dafür findet ihr in Aufgabe 5.1 vom letzten Jahr
+	\end{itemize}
+	\end{block}
+}
 
 \frame{
 \frametitle{Bis zum nächsten Mal}
