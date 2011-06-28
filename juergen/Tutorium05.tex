@@ -87,31 +87,31 @@
 \frame {
 \frametitle {Klausuraufgaben zum Aufwärmen} 
 	\begin{block} {Aufgabe 1 (1P)}
-Was ist der Nachteil von Zyklen in der Benutzt-Relation zwischen Modulen? \\
-	\visible<2-> {
-	Die einzelnen Module können nicht nacheinander implementiert
-und getestet werden, weil ihr Funktionieren von einer korrekten
-Implementierung aller Module des Zyklus abhängt. Oder:
-„Nothing works until everything works.“
-	}
+	Was ist der Nachteil von Zyklen in der Benutzt-Relation zwischen Modulen?\\
+	\begin{itemize}
+		\visible<2-> {
+		\item Die einzelnen Module können nicht nacheinander implementiert
+			und getestet werden, weil ihr Funktionieren von einer korrekten
+			Implementierung aller Module des Zyklus abhängt.
+		\item Oder: „Nothing works until everything works.“
+		}
+	\end{itemize}
 	\end{block}
 }
 
 \frame {
 \frametitle {Klausuraufgaben zum Aufwärmen} 
 	\begin{block} {Aufgabe 2 (2P)}
-Nennen Sie jeweils zwei in der Vorlesung besprochene Entwurfsmuster der Kategorien Entkopplungsmuster und Variantenmuster und ordnen Sie die genannten Entwurfsmuster der entsprechenden Kategorie zu. \\
-
-	
-	\begin{itemize}
-		\item Entkopplungsmuster: 
-		\visible<2-> {Adapter, Beobachter, Brücke, Iterator, Stellvertreter, Vermittler}
-		\item Variantenmuster:
-		\visible<3-> {Abstrakte Fabrik, Besucher, Erbauer, Fabrikmethode, Kompositum, Schablonenmethode, Strategie, Dekorierer}
-	\end{itemize}
-	
+		Nennen Sie jeweils zwei in der Vorlesung besprochene Entwurfsmuster der Kategorien 						Entkopplungsmuster und Variantenmuster und ordnen Sie die genannten Entwurfsmuster der 					entsprechenden Kategorie zu. \\
+		\begin{itemize}
+			\item Entkopplungsmuster: 
+			\visible<2-> {Adapter, Beobachter, Brücke, Iterator, Stellvertreter, Vermittler}
+			\item Variantenmuster:
+			\visible<3-> {Abstrakte Fabrik, Besucher, Erbauer, Fabrikmethode, Kompositum, 						Schablonenmethode, Strategie, Dekorierer}
+		\end{itemize}
 	\end{block}
 }
+
 
 \begin{frame}[fragile]
 \frametitle {Klausuraufgaben zum Aufwärmen} 
@@ -146,6 +146,78 @@ Erklären Sie, was eine Verklemmung ist und welche Auswirkung sie hat \\
 	}
 	\end{block}
 }
+
+
+\section{Parallelismus}
+
+\frame {
+\frametitle {Definitionen} 
+	\visible<2-> {
+	\begin{block} {Kritscher Abschnitt (Critical Section)}
+		Ein Bereich, in dem ein Zugriff auf einen gemeinsam
+		genutzten Zustand stattfindet, ist ein kritischer Abschnitt
+	\end{block}
+	}
+	
+	\visible<3-> {
+	\begin{block} {Wettlaufsituation (Race Condition)}
+		Eine Konstellation, in der das Ergebnis einer Operation vom zeitlichen Verhalten bestimmter 					Einzeloperationen abhängt.
+	\end{block}
+	}
+
+	\visible<4-> {
+	\begin{block} {Verklemmung (Deadlock)}
+		Eine Blockade, die durch eine zyklische Abhängigkeit von Fäden auf Ressourcen hervorgerufen wird			\end{block}
+	}
+}
+
+
+\frame {
+\frametitle {Habt ihr auch alle aufgepasst?} 
+	\begin{block} {Aufgabe 1 (1P)}	
+		Erklären Sie, was eine Verklemmung ist und welche Auswirkung sie hat \\
+		\visible<2-> {
+		\begin{itemize}
+			\item Eine Blockade, die durch eine zyklische Abhängigkeit von Fäden auf Ressourcen 							hervorgerufen wird
+			\item Eine Verklemmung führt dazu, dass alle beteiligten Fäden ewig im Wartezustand verharren
+		\end{itemize}
+		}
+	\end{block}
+}
+
+\frame {
+\frametitle {Und wie mache ich das nun in Java} 
+	\begin{itemize}
+		\item Erzeugung: Runnable vs Thread
+		\item Kritische Abschnitte (Definition, Wie vermeiden?)
+		\item Warten und Benachrichtigen
+	\end{itemize}
+}
+
+
+\begin{frame}[fragile]
+\frametitle {Synchronisierung} 
+	\begin{block} {kritische Sektionen}
+
+	\begin{lstlisting} {}
+	private int var = 1;
+	public void incorrect() {
+	  if  (var > 0) {
+  	    var--;
+	  }
+	}
+	\end{lstlisting}
+	
+	Weshalb kann das schiefgehen? \\
+	\visible<2-> {
+	Falls mehrere Threads die Methode gleichzeitig aufrufen, kann einer davon die Bedingung prüfen und dann ``stehen bleiben'', während ein anderer Thread $var$ dekrementiert. \\
+	}
+	Lösung: \visible<3-> {den kritischen Abschnitt schützen, z.B. mit $synchronized$}
+	\end{block} 
+\end{frame}
+
+
+
 \section{Kontrollflussorientiertes Testen}
 \frame {
 \frametitle{Kontrollflussorientiertes Testen}
@@ -256,32 +328,6 @@ Pfadüberdeckung: einige Pfade sind bei korrekten Eingaben nicht ausführbar. We
 
 
 }
-
-
-
-\section{Synchronisierung}
-\begin{frame}[fragile]
-\frametitle {Synchronisierung} 
-	\begin{block} {kritische Sektionen}
-
-	\begin{lstlisting} {}
-	private int var = 1;
-	public void incorrect() {
-	  if  (var > 0) {
-  	    var--;
-	  }
-	}
-	\end{lstlisting}
-	
-	Weshalb kann das schiefgehen? \\
-	\visible<2-> {
-	Falls mehrere Threads die Methode gleichzeitig aufrufen, kann einer davon die Bedingung prüfen und dann ``stehen bleiben'', während ein anderer Thread $var$ dekrementiert. \\
-	}
-	Lösung: \visible<3-> {den kritischen Abschnitt schützen, z.B. mit $synchronized$}
-	\end{block} 
-\end{frame}
-
-
 
 \section{Ende}
 \subsection{Tipps zum nächsten Übungsblatt}
