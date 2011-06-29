@@ -252,34 +252,39 @@ a) Übersetzen sie den Algorithmus in die in der Vorlesung besprochene Zwischens
 
 \frame {
 \frametitle{Aufgabe Teil b)}
-	Für gültige Eingabewerte gilt: $r, g, b \in  [0, 1]$; für gültige Ausgaben: $s, v \in [0, 1]$ und $h \in [0, 360]$.
-
-	b) Geben Sie eine minimale Testfallmenge an, welche die Anweisungsüberdeckung erfüllt und eine, welche die 		Zweigüberdeckung erfüllt. 
-	Geben Sie für jeden Testfall den durchlaufenen Pfad im Kontrollflussgraphen an. \\
+	Für gültige Eingabewerte gilt: \\
+	$r, g, b \in  [0, 1]$; für gültige Ausgaben: $s, v \in [0, 1]$ und $h \in [0, 360]$.
+\vspace{1em}
+	b) Geben Sie eine minimale Testfallmenge und und den jeweils durchlaufenen Pfad im Kontrollflussgraphen an. \\
+\vspace{1em}
 	Anweisungsüberdeckung:
 		\visible<2-> {
 		\begin{itemize}
 			\item 	$\{1.0, 0.0, 0.5\} \rightarrow 1, 2, 3, 7, 8, 9$ 
 			\item 	$\{0.0, 1.0, 0.0\} \rightarrow 1, 2, 4, 5, 7, 9$
- 			\item 	$\{0.0, 0.0, 1.0\} \rightarrow 1, 2, 4, 6, 7, 9$
+ 			\item 	$\{0.0, 0.0, 1.0\} \rightarrow 1, 2, 4, 6, 7, 9$ %\\
 		\end{itemize}
-		 } \\
+		 } 
 
 		Zweigüberdeckung:
  		\visible<3-> {
 		\begin{itemize}
-			\item siehe oben + $\{0.0, 0.0, 0.0\} \rightarrow 1, 9$ \\
+			\item $\{$obige Testfälle$\} \cup \{0.0, 0.0, 0.0\} \rightarrow 1, 9$ %\\
 		\end{itemize}
 		}
 }
 
 \frame {
 \frametitle{Aufgabe Teil c)}
-	Für gültige Eingabewerte gilt: $r, g, b \in  [0, 1]$; für gültige Ausgaben: $s, v \in [0, 1]$ und $h \in [0, 360]$.
-	c) Welches Problem gibt es bei der Pfadüberdeckung für diesen Algorithmus?
+	Für gültige Eingabewerte gilt: \\
+	 $r, g, b \in  [0, 1]$; für gültige Ausgaben: $s, v \in [0, 1]$ und $h \in [0, 360]$.
+\vspace{1em}
+	c) Welches Problem gibt es bei der Pfadüberdeckung für diesen Algorithmus? \\
+\vspace{1em}
 
 	\visible<2-> {
-		Pfadüberdeckung: einige Pfade sind bei korrekten Eingaben nicht ausführbar. Wenn max $\neq$r ist, 			kann $h<0$ nicht wahr werden
+		Pfadüberdeckung: einige Pfade sind bei korrekten Eingaben nicht ausführbar. Wenn max $\neq$r ist, 
+			kann $h<0$ nicht wahr werden
 	}
 
 }
