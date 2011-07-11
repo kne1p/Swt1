@@ -101,14 +101,17 @@
 
 \frame {
 \frametitle {Klausuraufgaben zum Aufwärmen} 
-	\begin{block} {Aufgabe 1 (1P)}
-	Was ist der Nachteil von Zyklen in der Benutzt-Relation zwischen Modulen?\\
+	\begin{block} {Aufgabe 1 (2,5P)}
+	Nennen Sie 5 aus der Vorlesung bekannte Prozessmodelle zur Softwareentwicklung.\\
 	\begin{itemize}
 		\visible<2-> {
-		\item Die einzelnen Module können nicht nacheinander implementiert
-			und getestet werden, weil ihr Funktionieren von einer korrekten
-			Implementierung aller Module des Zyklus abhängt.
-		\item Oder: „Nothing works until everything works.“
+		\item Programmieren durch Probieren
+		\item Wasserfallmodell
+		\item V-Modell
+		\item Prototypenmodell
+		\item Iteratives Modell
+		\item Synchronisiere und Stabilisiere
+		\item Agile Methoden (spez. Extreme Programming)
 		}
 	\end{itemize}
 	\end{block}
@@ -117,12 +120,28 @@
 \frame {
 \frametitle {Klausuraufgaben zum Aufwärmen} 
 	\begin{block} {Aufgabe 2 (2P)}
-		Nennen Sie jeweils zwei in der Vorlesung besprochene Entwurfsmuster der Kategorien 						Entkopplungsmuster und Variantenmuster und ordnen Sie die genannten Entwurfsmuster der 					entsprechenden Kategorie zu. \\
+		Nennen Sie 2 aus der Vorlesung bekannte Basismethoden der Aufwandsschätzung und erklären Sie eine davon kurz. \\
 		\begin{itemize}
-			\item Entkopplungsmuster: 
-			\visible<2-> {Adapter, Beobachter, Brücke, Iterator, Stellvertreter, Vermittler}
-			\item Variantenmuster:
-			\visible<3-> {Abstrakte Fabrik, Besucher, Erbauer, Fabrikmethode, Kompositum, 						Schablonenmethode, Strategie, Dekorierer}
+		\visible<2-> {
+			\item Analogiemethode
+			\item Relationsmethode
+			\item Multiplikatormethode
+			\item Phasenaufteilung
+			}
+		\end{itemize}
+	\end{block}
+}
+
+\frame {
+\frametitle {Klausuraufgaben zum Aufwärmen} 
+	\begin{block} {Aufgabe 2 (3P)}
+		Nennen Sie die 3 aus der Vorlesung bekannten Arten von Testhelfern und erklären Sie diese jeweils in einem Satz. \\
+		\begin{itemize}
+		\visible<2-> {
+			\item Stummel (stub)  \visible<3-> {Rudimentär implementierte Methode als Teil der Software. Dient als Platzhalter für 	noch nicht umgesetzte Funktionalität.}
+			\item Attrappe (dummy):  \visible<4->{Simuliert die Implementierung zu Testzwecken}
+			\item Nachahmung (mock):  \visible<5->{Attrappe mit zusätzlicher Funktionalität, wie bspw. das Einstellen der Reaktion der Nachahmung auf bestimmte Eingaben oder das Überprüfen des Verhaltens des „Klienten“.}
+			}
 		\end{itemize}
 	\end{block}
 }
