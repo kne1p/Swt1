@@ -1,6 +1,6 @@
 \input{header.tex}
 
-\title[Tutorium06]{Tutorium 06: Parallelismus und Testen}
+\title[Tutorium06]{Tutorium 06: Klausurvorbereitung}
 \subtitle{Softwaretechnik im SS 2011, Tutorium 4}
 \author{Jürgen Walter}
 \date{\today}
@@ -34,7 +34,7 @@
 }
 
 \frame{
-\frametitle{Rückblick ÜB6}
+\frametitle{Rückblick Blatt 6}
 
 	\begin{block}{Aufgabe 2 -Gebietszerlegung und Synchronisation}
 	\begin{itemize} \pause
@@ -47,7 +47,7 @@
 
 
 \frame{
-\frametitle{Rückblick ÜB6}
+\frametitle{Rückblick Blatt 6}
 	\begin{block}{Aufgabe 3 - Parallelisierung}
 	\begin{itemize}
 	\item Auch Parallelisierung kann in der Klausur vorkommen \pause
@@ -55,8 +55,6 @@
 	\end{itemize}
 	\end{block}
 }
-
-\section{Zum Aufwärmen}
 
 \frame {
 \frametitle{Wahr oder falsch?}
@@ -90,7 +88,8 @@
 \end{itemize}
 }
 
-\section{ Parallelisierung}
+\section{Klausurvorbereitung}
+\subsection{Parallelisierung}
 \frame {
 \frametitle {Matrix-Matrix-Multiplikation} 
 	\begin{block} {Varianten}
@@ -168,14 +167,15 @@ for(i=0; i < N; i++)
 		\item cache-freundlich \pause
 		\item weniger parallelisierbar als ijk - weshalb?
 		\visible<3-> {
-		\item es können nur noch die $N$ Iterationen der äußeren Schleife parallel ohne Synchronisation für C bearbeitet werden
+		\item es können nur noch die $N$ Iterationen der äußeren Schleife parallel ohne Synchronisation für C 			bearbeitet werden
 		}
 	\end{itemize}
-
 	\end{block}
 }
 
-\section{Klausuraufgaben}
+
+\subsection{Klausuraufgaben}
+\subsection{Singleton}
 \begin{frame}[fragile]
 \frametitle {Klausur 2010-1} 
 	\begin{block} {A3 b)}
@@ -216,8 +216,173 @@ public class Singleton {
 	\end{lstlisting}
 \end{frame}
 
+
+\subsection{Prozessmodelle}
 \frame {
-\frametitle {Klausur 2009-1 A2 a)} 
+\frametitle {Prozessmodelle} 
+	\begin{block} {Aufgabe 1 (2,5P)}
+	Nennen Sie 5 aus der Vorlesung bekannte Prozessmodelle zur Softwareentwicklung.\\
+	\begin{itemize}
+		\visible<2-> {
+		\item Programmieren durch Probieren
+		\item Wasserfallmodell
+		\item V-Modell
+		\item Prototypenmodell
+		\item Iteratives Modell
+		\item Synchronisiere und Stabilisiere
+		\item Agile Methoden (spez. Extreme Programming)
+		}
+	\end{itemize}
+	\end{block}
+}
+
+\frame {
+\frametitle {Prozessmodelle} 
+	\begin{block} {Programmieren durch Probieren (Trail and Error)}
+		pro
+		\begin{itemize}
+			\item einfach
+			\item schnell, ohne "nutzlose" Dokumentation
+		\end{itemize}
+		contra
+		\begin{itemize}
+			\item mangelnde Aufgabenerfüllung, da keine Anforderungsanalyse
+			\item kostspielige Wartung
+			\item Teamarbeit nicht vorgesehen
+		\end{itemize}
+	\end{block}
+}
+
+\frame {
+\frametitle {Prozessmodelle} 
+	\begin{block} {Wasserfallmodell}
+	\begin{itemize}
+		\item sequentiell durch alle Phasen durch
+	\end{itemize}
+
+	pro
+	\begin{itemize}
+		\item einfach
+	\end{itemize}
+
+	contra
+	\begin{itemize}
+		\item keine Phasenübergreifende Rückkopplung
+		\item schwer Parallelisierbar
+		\item zwingt Benutzer alles am Anfang zu verstehen
+	\end{itemize}
+
+	\end{block}
+}
+
+\frame {
+\frametitle {Prozessmodelle} 
+	\begin{block} {V-Modell XT}
+		\begin{itemize}
+			\item keine Reihenfolge bzw keine Phasengrenzen
+			\item definiert stattdessen Rollen
+		\end{itemize}
+		\begin{center}	
+			\includegraphics[height=70pt]{pics/06/VModellXT}
+		\end{center}
+	\end{block}
+}
+
+\frame {
+\frametitle {Prozessmodelle} 
+	\begin{block} {V-Modell}
+		\begin{itemize}
+			\item KEIN Prozessmodell, sondern Zuordnung von Artefakten
+		\end{itemize}
+		\begin{center}	
+			\includegraphics[height=150pt]{pics/06/VModell}
+		\end{center}
+	\end{block}
+}
+
+\frame {
+\frametitle {Prozessmodelle} 
+
+	\begin{block} {Prototypen-Modell}
+		WICHTIG
+		\begin{itemize}
+			\item Prototypen Wegwerfen
+		\end{itemize}
+		pro
+		\begin{itemize}
+			\item Test of Concept
+			\item stärkt Arbeitsmoral
+			\item stärkt Vertrauen zwischen Kunden und Entwickler
+		\end{itemize}
+	\end{block}
+
+	\begin{block} {Iteratives Modell}
+		\begin{itemize}
+			\item Erweiterung der Prototypenidee, ohne Wegwerfen
+			\item gleiche Vor und Nachteile wie bei Prototypen
+		\end{itemize}
+	\end{block}
+
+}
+
+\frame {
+\frametitle {Prozessmodelle} 
+	\begin{block} {Synchronisiere und Stabilisiere (Microsoft)}
+		Ansatz
+		\begin{itemize}
+			\item organisiere die vielen Entwickler in kleine Teams - Freiheit für eigene Ideen/Entwürfe
+			\item Aber: Synchronisiere regelmäßig (nächtlich)
+			\item Und Stabilisiere regelmäßig (Meilensteine, 3 Mon.)
+		\end{itemize}
+
+		3 Phasen
+		\begin{itemize}
+			\item Planungsphase
+			\item Entwicklungsphase
+			\item Stabilisierungsphase
+		\end{itemize}
+	\end{block}
+}
+		
+
+\frame {
+\frametitle {Prozessmodelle} 
+	\begin{block} {Synchronisiere und Stabilisiere (Microsoft) II}
+		pro
+		\begin{itemize}
+			\item kurze Produkzyklen
+			\item Priorisierung nach Funktionen
+			\item Natürliche Modularisierung nach Funktionen
+			\item Fortschritt auch ohne vollständige Spezifikation möglich
+			\item Viele Entwickler arbeiten in kleinen Teams und damit genau so
+			effektiv wie wenige
+			\item Rückmeldungen können frühzeitig einfließen
+		\end{itemize}
+	\end{block}
+}
+		
+
+
+\frame {
+\frametitle {Prozessmodelle} 
+	\begin{block} {Synchronisiere und Stabilisiere (Microsoft) III}
+		contra
+		\begin{itemize}
+			\item Ungeeignet für manche Art von Software – Architekturprobleme,
+			mangelhafte Fehlertoleranz, Echtzeitfähigkeit
+			\item Mündliche Arbeitsweise: ad-hoc-Prozesse in jedem Team, kein
+			Lernen über Teamgrenzen
+			\item Alle 18 Monate sind 50 Prozent des Codes überarbeitet worden
+
+		\end{itemize}
+	\end{block}
+}
+
+
+
+\subsection{Kontrollflussorientierte Testverfahren}
+\frame {
+\frametitle{Kontrollflussorientierte Testverfahren}%Klausur 2009-1 A2 a) 
 	\begin{center}
 	\includegraphics[width=\textwidth]{pics/06/kfg_a2a}
 	\end{center}
@@ -252,42 +417,7 @@ public class Singleton {
 }
 
 \frame {
-\frametitle {Matrix-Matrix-Multiplikation} 
-	\begin{center}
-	\includegraphics[width=0.6\textwidth]{pics/06/matrix_ikj}
-	\end{center}
-	\begin{block} {ikj-Algorithmus}
-	\begin{itemize}
-		\item cache-freundlich \pause
-		\item weniger parallelisierbar als ijk - weshalb?
-		\visible<3-> {
-		\item es können nur noch die $N$ Iterationen der äußeren Schleife parallel ohne Synchronisation für C bearbeitet werden
-		}
-	\end{itemize}
-
-	\end{block}
-}
-
-\frame {
-\frametitle {Klausuraufgaben zum Aufwärmen} 
-	\begin{block} {Aufgabe 1 (2,5P)}
-	Nennen Sie 5 aus der Vorlesung bekannte Prozessmodelle zur Softwareentwicklung.\\
-	\begin{itemize}
-		\visible<2-> {
-		\item Programmieren durch Probieren
-		\item Wasserfallmodell
-		\item V-Modell
-		\item Prototypenmodell
-		\item Iteratives Modell
-		\item Synchronisiere und Stabilisiere
-		\item Agile Methoden (spez. Extreme Programming)
-		}
-	\end{itemize}
-	\end{block}
-}
-
-\frame {
-\frametitle {Klausuraufgaben zum Aufwärmen} 
+\frametitle {Aufwandsabschätzung} 
 	\begin{block} {Aufgabe 2 (2P)}
 		Nennen Sie 2 aus der Vorlesung bekannte Basismethoden der Aufwandsschätzung und erklären Sie eine davon kurz. \\
 		\begin{itemize}
@@ -302,7 +432,7 @@ public class Singleton {
 }
 
 \frame {
-\frametitle {Klausuraufgaben zum Aufwärmen} 
+\frametitle {Testen} 
 	\begin{block} {Aufgabe 2 (3P)}
 		Nennen Sie die 3 aus der Vorlesung bekannten Arten von Testhelfern und erklären Sie diese jeweils in einem Satz. \\
 		\begin{itemize}
