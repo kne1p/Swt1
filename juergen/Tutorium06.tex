@@ -195,7 +195,6 @@ public class Singleton {
 	\end{lstlisting}
 \end{frame}
 
-\section{Klausuraufgaben}
 \begin{frame}[fragile]
 \frametitle {Klausur 2010-1 A3 b) Lösung} 
 	
@@ -216,6 +215,58 @@ public class Singleton {
 }
 	\end{lstlisting}
 \end{frame}
+
+\frame {
+\frametitle {Klausur 2009-1 A2 a)} 
+	\begin{center}
+	\includegraphics[width=\textwidth]{pics/06/kfg_a2a}
+	\end{center}
+}
+
+\frame {
+\frametitle {Klausur 2009-1 A2 a) Lösung} 
+	\begin{center}
+	\includegraphics[width=\textwidth]{pics/06/kfg_a2a_lsg}
+	\end{center}
+}
+
+\frame {
+\frametitle {Bedingungs-Überdeckungen} 
+	\begin{center}
+	\includegraphics[width=0.9\textwidth]{pics/06/kfg_hierarchie}
+	\end{center}
+}
+
+\frame {
+\frametitle {Klausur 2009-1 A2 b)} 
+	\begin{center}
+	\includegraphics[width=\textwidth]{pics/06/kfg_a2b}
+	\end{center}
+}
+
+\frame {
+\frametitle {Klausur 2009-1 A2 b) Lösung} 
+	\begin{center}
+	\includegraphics[width=\textwidth]{pics/06/kfg_a2b_lsg}
+	\end{center}
+}
+
+\frame {
+\frametitle {Matrix-Matrix-Multiplikation} 
+	\begin{center}
+	\includegraphics[width=0.6\textwidth]{pics/06/matrix_ikj}
+	\end{center}
+	\begin{block} {ikj-Algorithmus}
+	\begin{itemize}
+		\item cache-freundlich \pause
+		\item weniger parallelisierbar als ijk - weshalb?
+		\visible<3-> {
+		\item es können nur noch die $N$ Iterationen der äußeren Schleife parallel ohne Synchronisation für C bearbeitet werden
+		}
+	\end{itemize}
+
+	\end{block}
+}
 
 \frame {
 \frametitle {Klausuraufgaben zum Aufwärmen} 
