@@ -93,7 +93,7 @@
 \section{ Parallelisierung}
 \frame {
 \frametitle {Matrix-Matrix-Multiplikation} 
-	\begin{block} {Varianten)}
+	\begin{block} {Varianten}
 	Es gibt viele Möglichkeiten, um $C = A x B$ zu berechnen
 	\begin{itemize}
 		\item klassisch bzw. ijk-Algorithmus
@@ -174,6 +174,48 @@ for(i=0; i < N; i++)
 
 	\end{block}
 }
+
+\section{Klausuraufgaben}
+\begin{frame}[fragile]
+\frametitle {Klausur 2010-1} 
+	\begin{block} {A3 b)}
+	Ergänzen Sie den folgenden Quelltext der Klasse \texttt{Singleton}, so dass sie das Entwurfsmuster ``Einzelstück'' implementiert. Zudem soll Ihre Implementierung für die mehrfädige Ausführung geeignet sein. Verwenden Sie korrekte Java-Syntax. (3 P)
+	\end{block}
+	
+	\begin{lstlisting} {}
+/**
+ * Implementiert ein fuer mehrfaedige Programme 
+ * geeignetes Einzelstueck
+ */
+public class Singleton {
+
+
+
+}
+	\end{lstlisting}
+\end{frame}
+
+\section{Klausuraufgaben}
+\begin{frame}[fragile]
+\frametitle {Klausur 2010-1 A3 b) Lösung} 
+	
+	\begin{lstlisting} {}
+public class Singleton {
+  // Instanzvariable Einzelstuecks
+  private static Singleton instanz = null;
+  
+  // Default-Konstruktor privat deklarieren
+  private Singleton() {}
+  
+  // Statische Methode, die die Instanz zurueckgibt
+  public static synchronized Singleton getInstance() {
+    if (instanz == null) {
+      instanz = new Singleton();
+  }
+  return instanz;
+}
+	\end{lstlisting}
+\end{frame}
 
 \frame {
 \frametitle {Klausuraufgaben zum Aufwärmen} 
