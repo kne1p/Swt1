@@ -38,12 +38,9 @@
 
 	\begin{block}{Aufgabe 2 -Gebietszerlegung und Synchronisation}
 	\begin{itemize} \pause
-	\item a) sollte jeder hinbekommen - falls euch nichts einfällt wählt einfach ein paar Parameter und schaut was passiert \pause
-	\item b) sieht auf den ersten Blick harmlos aus - um sicher zu gehen programmiert ein Testprogramm und testet, ob euer Fix tatsächlich das Problem behebt \pause
-	\item stellt dazu auch sicher, dass die ursprüngliche Barriere tatsächlich falsch funktioniert in eurem Test-Programm \pause
-	\item ein Test ist nur dann sinnvoll, wenn er den Unterschied zwischen richtigem und falschem Code auch zeigt - \pause
-	\item sonst kann es sein, dass euer Test das eigentliche Fehlverhalten nicht sichtbar macht \pause
-	\item Achtung: wait() kann auch ``grundlos'' enden, daher sollte wait() immer in einer Schleife stehen
+	\item b) falls eine ähnliche Aufgabe in der Klausur vorkommt - versucht schnell eine Lösung zu finden \pause \\
+		wenn ihr nicht schnell eine findet, macht besser andere Aufgaben zuerst \pause
+	\item wichtig: wait() kann auch ``grundlos'' enden, daher sollte wait() immer in einer Schleife stehen
 	\end{itemize}
 	\end{block}
 }
@@ -53,14 +50,8 @@
 \frametitle{Rückblick ÜB6}
 	\begin{block}{Aufgabe 3 - Parallelisierung}
 	\begin{itemize}
-	\item für diese Aufgabe gibt es 9 ``Pflicht''- und 5 Bonuspunkte
-	\item ihr braucht zum Testen einen Rechner mit mindestens zwei Kernen - \\
-		falls ihr keinen habt, gibt es in der Atis genug davon (Core2Duo, Core i5, Athlon X2)
-	\item zuverlässige Laufzeitmessungen kann man oft brauchen, und es gibt dabei mehr als genug Fehlerquellen ;-) \pause
-	\item Zeitmessungen sind immer ungenau - die Bearbeitungszeit sollte daher nicht kürzer als eine Sekunde sein \pause
-	\item das Programm soll sowohl: \\
-		mit Kommandozeilenargumenten mit Hilfe von Configuration.java (wie bei ÜB2), \\ \pause
-		also auch ohne Argumente mit einem GUI (wie bei ÜB3) gestartet werden können
+	\item Auch Parallelisierung kann in der Klausur vorkommen \pause
+	\item merkt euch insbesondere die parallelen Entwurfsmuster und die wichtigsten Java Konstrukte
 	\end{itemize}
 	\end{block}
 }
@@ -147,51 +138,27 @@
 }
 
 
-\section{Klausur-Tipps}
-
-\frame {
-\frametitle{Aufgabe a)}
-
-a) Übersetzen sie den Algorithmus in die in der Vorlesung besprochene Zwischensprache und erstellen sie daraus den Kontrollflussgraphen
-\begin{center}
-\includegraphics[scale=0.45]{pics/05/code.png}
-\end{center}
-
-}
-
-\begin{frame}[fragile]
-\frametitle {Klausuraufgabe} 
-	\begin{block} {Aufgabe (1P)}
-
-	\begin{lstlisting} {}
-	public static double blub(double[] d) {
-		if  (d != null && d.length > 0) {
-		...
-		}
-		...
-	}
-	\end{lstlisting}
-	Begründen Sie: Was wäre die Folge, wenn man das \&\& durch ein \& ersetzt?
-
-	\begin{itemize}	
-	\visible<2-> {
-	\item Keine Kurzauswertung (0,5 P) 
-	\item $\Rightarrow$ Bei null als Eingabe gäbe es eine NullPointerExeption bei d.length (0,5 P).
-	}
-	\end{itemize}
-	\end{block} 
-\end{frame}
 
 
-\section{Ende}
+\section{inoffizielle Probeklausur}
 
 \frame{
-\frametitle{Viel Erfolg!}
+\frametitle{inoffizielle Probeklausur}
 
-	\begin{block}{Aufgabe 1 - Kontrollflussorientiertes Testen}
+	\begin{block}{Ablauf}
 	\begin{itemize}
-	\item kommt oft in der Klausur vor \pause
-	\item relativ leicht verdiente Punkte!
+	\item Zeit: 25.7. 18 Uhr \pause
+	\item Ort: Audimax
+	\item die Tutoren korrigieren die Probeklausuren \pause
+	\item Rückgabe in der gleichen Woche, vorraussichtlich Freitag \pause
+	\item die Probeklausur wird von Tutoren ausgerichtet, es gibt keinen Zusammenhang mit der offizellen Klausur!
+	\end{itemize}
+	\end{block}
+\pause
+	\begin{block}{Anmeldung}
+	\begin{itemize}
+	\item damit wir genügend Kopien drucken können, meldet euch bitte jetzt an \pause
+	\item damit die Probeklausur euch hilft, müsst ihr schon vorher mit der Klausurvorbereitung anfangen
 	\end{itemize}
 	\end{block}
 }
