@@ -90,6 +90,91 @@
 \end{itemize}
 }
 
+\section{ Parallelisierung}
+\frame {
+\frametitle {Matrix-Matrix-Multiplikation} 
+	\begin{block} {Varianten)}
+	Es gibt viele Möglichkeiten, um $C = A x B$ zu berechnen
+	\begin{itemize}
+		\item klassisch bzw. ijk-Algorithmus
+		\item ikj- oder kij-Reihenfolge
+		\item Systolisch
+		\item Cannon-Algorithmus
+	\end{itemize}
+	\end{block}
+}
+
+\frame {
+\frametitle {Matrix-Matrix-Multiplikation} 
+	\begin{block} {klassisch}
+	\begin{center}
+	\includegraphics[width=\textwidth]{pics/06/matrix_klassisch}
+	\end{center}
+	Problem: cache-unfreundlich
+	\end{block}
+}
+
+\begin{frame}[fragile]
+\frametitle {Matrix-Matrix-Multiplikation} 
+	\begin{block} {Quellcode zu ``ijk''}
+
+	\begin{lstlisting} {}
+public int[][] matrixMult (int[][] a, int[][] b) {
+  final int N = a.length;
+  int[][] c = new int[N][N];
+  
+  for(int i = 0; i < N; i++) {
+    for(int j = 0; j < N; j++) {
+      for(int k = 0; k < N; k++) {
+        c[i][j] += a[i][k] * b[k][j];
+      }
+    }
+  }
+  return c;
+}
+	\end{lstlisting}
+	\end{block} 
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle {Matrix-Matrix-Multiplikation} 
+	\begin{block} {Quellcode zu ``ikj''}
+durch Neuordnung der Schleifen wird ein Operand schleifeninvariant \pause
+	\begin{lstlisting} {}
+for(i=0; i < N; i++)
+  for(k=0; k < N; k++)
+    for(j=0; j < N; j++)
+      c[i][j] += a[i][k] * b[k][j];
+	\end{lstlisting}
+der invariante Teil muss nur einmal berechnet werden \pause
+	\begin{lstlisting} {}
+for(i=0; i < N; i++)
+  for(k=0; k < N; k++) {
+    r = a[i][k];
+    for(j=0; j < N; j++)
+      c[i][j] += r* b[k][j];
+  }
+	\end{lstlisting}
+	\end{block} 
+\end{frame}
+
+\frame {
+\frametitle {Matrix-Matrix-Multiplikation} 
+	\begin{center}
+	\includegraphics[width=0.6\textwidth]{pics/06/matrix_ikj}
+	\end{center}
+	\begin{block} {ikj-Algorithmus}
+	\begin{itemize}
+		\item cache-freundlich \pause
+		\item weniger parallelisierbar als ijk - weshalb?
+		\visible<3-> {
+		\item es können nur noch die $N$ Iterationen der äußeren Schleife parallel ohne Synchronisation für C bearbeitet werden
+		}
+	\end{itemize}
+
+	\end{block}
+}
+
 \frame {
 \frametitle {Klausuraufgaben zum Aufwärmen} 
 	\begin{block} {Aufgabe 1 (2,5P)}
@@ -136,9 +221,6 @@
 		\end{itemize}
 	\end{block}
 }
-
-
-
 
 \section{inoffizielle Probeklausur}
 
