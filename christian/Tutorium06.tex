@@ -1,0 +1,485 @@
+\input{header.tex}
+
+\title[Tutorium06]{Tutorium 06: Klausurvorbereitung}
+\subtitle{Softwaretechnik im SS 2011, Tutorium 17}
+\author{Christian Jülg}
+\date{\today}
+
+\institute{Chair for Software Design and Quality}
+
+\begin{document}
+
+%title page
+\begin{frame}
+\titlepage
+\end{frame}
+
+%table of contents
+\frame{
+\frametitle{Was machen wir heute?}
+	\tableofcontents
+}
+
+\section{Rückblick}
+
+\frame{
+\frametitle{Rückblick ÜB6}
+
+	\begin{block}{Aufgabe 1 - Kontrollflussorientiertes Testen}
+	\begin{itemize}
+	\item kommt oft in der Klausur vor \pause
+	\item relativ leicht verdiente Punkte!
+	\end{itemize}
+	\end{block}
+}
+
+\frame{
+\frametitle{Rückblick Blatt 6}
+
+	\begin{block}{Aufgabe 2 -Gebietszerlegung und Synchronisation}
+	\begin{itemize} \pause
+	\item b) falls eine ähnliche Aufgabe in der Klausur vorkommt - versucht schnell eine Lösung zu finden \pause \\
+		wenn ihr nicht schnell eine findet, macht besser andere Aufgaben zuerst \pause
+	\item wichtig: wait() kann auch ``grundlos'' enden, daher sollte wait() immer in einer Schleife stehen
+	\end{itemize}
+	\end{block}
+}
+
+
+\frame{
+\frametitle{Rückblick Blatt 6}
+	\begin{block}{Aufgabe 3 - Parallelisierung}
+	\begin{itemize}
+	\item Auch Parallelisierung kann in der Klausur vorkommen \pause
+	\item merkt euch insbesondere die parallelen Entwurfsmuster und die wichtigsten Java Konstrukte
+	\end{itemize}
+	\end{block}
+}
+
+\frame {
+\frametitle{Wahr oder falsch?}
+\begin{itemize}
+	\color<2->[rgb]{0,1,0}
+	\item Software unterliegt keinem Verschleiß.
+	\color[rgb]{0,0,0}
+	\pause
+	\color<3->[rgb]{0,1,0}
+	\item „Synchronisiere und Stabilisiere“ erzielt die Effektivität durch kurze Entwicklungsphasen.
+	\color[rgb]{0,0,0}
+	
+	\pause
+	\color<4->[rgb]{1,0,0}
+	\item Kontrollflussorientierte Tests gehören zu den statischen Testverfahren.
+	\color[rgb]{0,0,0}
+	\pause
+	\color<5->[rgb]{0,1,0}
+	\item Bei der testgetriebenen Entwicklung dienen die Tests unter anderem zur Schnittstellendefinition
+	\color[rgb]{0,0,0}
+	\pause
+	\color<6->[rgb]{1,0,0}
+	\item Im Prozessmodell „Prototyp“ wird der Prototyp iterativ entwickelt und nach der Testphase produktiv eingesetzt und gewartet
+	\color[rgb]{0,0,0}
+	\pause
+	\color<7->[rgb]{1,0,0}
+	\item Die Signatur einer Methode besteht aus dem Methodennamen und dem Rückgabetyp
+	\color[rgb]{0,0,0}
+
+
+\end{itemize}
+}
+
+\section{Klausurvorbereitung}
+\subsection{Parallelisierung}
+\frame {
+\frametitle {Matrix-Matrix-Multiplikation} 
+	\begin{block} {Varianten}
+	Es gibt viele Möglichkeiten, um $C = A x B$ zu berechnen
+	\begin{itemize}
+		\item klassisch bzw. ijk-Algorithmus
+		\item ikj- oder kij-Reihenfolge
+		\item Systolisch
+		\item Cannon-Algorithmus
+	\end{itemize}
+	\end{block}
+}
+
+\frame {
+\frametitle {Matrix-Matrix-Multiplikation} 
+	\begin{block} {klassisch}
+	\begin{center}
+	\includegraphics[width=\textwidth]{pics/06/matrix_klassisch}
+	\end{center}
+	Problem: cache-unfreundlich
+	\end{block}
+}
+
+\begin{frame}[fragile]
+\frametitle {Matrix-Matrix-Multiplikation} 
+	\begin{block} {Quellcode zu ``ijk''}
+
+	\begin{lstlisting} {}
+public int[][] matrixMult (int[][] a, int[][] b) {
+  final int N = a.length;
+  int[][] c = new int[N][N];
+  
+  for(int i = 0; i < N; i++) {
+    for(int j = 0; j < N; j++) {
+      for(int k = 0; k < N; k++) {
+        c[i][j] += a[i][k] * b[k][j];
+      }
+    }
+  }
+  return c;
+}
+	\end{lstlisting}
+	\end{block} 
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle {Matrix-Matrix-Multiplikation} 
+	\begin{block} {Quellcode zu ``ikj''}
+durch Neuordnung der Schleifen wird ein Operand schleifeninvariant \pause
+	\begin{lstlisting} {}
+for(i=0; i < N; i++)
+  for(k=0; k < N; k++)
+    for(j=0; j < N; j++)
+      c[i][j] += a[i][k] * b[k][j];
+	\end{lstlisting}
+der invariante Teil muss nur einmal berechnet werden \pause
+	\begin{lstlisting} {}
+for(i=0; i < N; i++)
+  for(k=0; k < N; k++) {
+    r = a[i][k];
+    for(j=0; j < N; j++)
+      c[i][j] += r* b[k][j];
+  }
+	\end{lstlisting}
+	\end{block} 
+\end{frame}
+
+\frame {
+\frametitle {Matrix-Matrix-Multiplikation} 
+	\begin{center}
+	\includegraphics[width=0.6\textwidth]{pics/06/matrix_ikj}
+	\end{center}
+	\begin{block} {ikj-Algorithmus}
+	\begin{itemize}
+		\item cache-freundlich \pause
+		\item weniger parallelisierbar als ijk - weshalb?
+		\visible<3-> {
+		\item es können nur noch die $N$ Iterationen der äußeren Schleife parallel ohne Synchronisation für C 			bearbeitet werden
+		}
+	\end{itemize}
+	\end{block}
+}
+
+
+\subsection{Singleton}
+\begin{frame}[fragile]
+\frametitle {Klausur 2010-1} 
+	\begin{block} {A3 b)}
+	Ergänzen Sie den folgenden Quelltext der Klasse \texttt{Singleton}, so dass sie das Entwurfsmuster ``Einzelstück'' implementiert. Zudem soll Ihre Implementierung für die mehrfädige Ausführung geeignet sein. Verwenden Sie korrekte Java-Syntax. (3 P)
+	\end{block}
+	
+	\begin{lstlisting} {}
+/**
+ * Implementiert ein fuer mehrfaedige Programme 
+ * geeignetes Einzelstueck
+ */
+public class Singleton {
+
+
+
+}
+	\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle {Klausur 2010-1 A3 b) Lösung} 
+	
+	\begin{lstlisting} {}
+public class Singleton {
+  // Instanzvariable Einzelstuecks
+  private static Singleton instanz = null;
+  
+  // Default-Konstruktor privat deklarieren
+  private Singleton() {}
+  
+  // Statische Methode, die die Instanz zurueckgibt
+  public static synchronized Singleton getInstance() {
+    if (instanz == null) {
+      instanz = new Singleton();
+  }
+  return instanz;
+}
+	\end{lstlisting}
+\end{frame}
+
+
+\subsection{Prozessmodelle}
+\frame {
+\frametitle {Prozessmodelle} 
+	\begin{block} {Aufgabe 1 (2,5P)}
+	Nennen Sie 5 aus der Vorlesung bekannte Prozessmodelle zur Softwareentwicklung.\\
+	\begin{itemize}
+		\visible<2-> {
+		\item Programmieren durch Probieren
+		\item Wasserfallmodell
+		\item V-Modell
+		\item Prototypenmodell
+		\item Iteratives Modell
+		\item Synchronisiere und Stabilisiere
+		\item Agile Methoden (spez. Extreme Programming)
+		}
+	\end{itemize}
+	\end{block}
+}
+
+\frame {
+\frametitle {Prozessmodelle} 
+	\begin{block} {Programmieren durch Probieren (Trial and Error)}
+		pro
+		\begin{itemize}
+			\item einfach
+			\item schnell, ohne "nutzlose" Dokumentation
+		\end{itemize}
+		contra
+		\begin{itemize}
+			\item mangelnde Aufgabenerfüllung, da keine Anforderungsanalyse
+			\item kostspielige Wartung
+			\item Teamarbeit nicht vorgesehen
+		\end{itemize}
+	\end{block}
+}
+
+\frame {
+\frametitle {Prozessmodelle} 
+	\begin{block} {Wasserfallmodell}
+	\begin{itemize}
+		\item sequentiell durch alle Phasen durch
+	\end{itemize}
+
+	pro
+	\begin{itemize}
+		\item einfach
+	\end{itemize}
+
+	contra
+	\begin{itemize}
+		\item keine Phasenübergreifende Rückkopplung
+		\item schwer Parallelisierbar
+		\item zwingt Benutzer alles am Anfang zu verstehen
+	\end{itemize}
+
+	\end{block}
+}
+
+\frame {
+\frametitle {Prozessmodelle} 
+	\begin{block} {V-Modell XT}
+		Allgemein
+		\begin{itemize}
+			\item keine Reihenfolge bzw keine Phasengrenzen
+			\item definiert stattdessen Rollen
+		\end{itemize}
+		Produktzustände
+		\begin{itemize}
+			\item in Bearbeitung
+			\item vorgelegt
+			\item fertig gestellt
+		\end{itemize}
+		\begin{center}	
+			\includegraphics[height=70pt]{pics/06/VModellXT}
+		\end{center}
+	\end{block}
+}
+
+\frame {
+\frametitle {Prozessmodelle} 
+	\begin{block} {V-Modell}
+		\begin{itemize}
+			\item Streng genommen KEIN Prozessmodell, sondern Zuordnung von Artefakten
+		\end{itemize}
+		\begin{center}	
+			\includegraphics[height=150pt]{pics/06/VModell}
+		\end{center}
+	\end{block}
+}
+
+\frame {
+\frametitle {Prozessmodelle} 
+	\begin{block} {Prototypen-Modell}
+		WICHTIG
+		\begin{itemize}
+			\item Prototypen Wegwerfen
+		\end{itemize}
+		pro
+		\begin{itemize}
+			\item Test of Concept
+			\item stärkt Arbeitsmoral
+			\item stärkt Vertrauen zwischen Kunden und Entwickler
+		\end{itemize}
+	\end{block}
+
+	\begin{block} {Iteratives Modell}
+		\begin{itemize}
+			\item Erweiterung der Prototypenidee, ohne Wegwerfen
+			\item gleiche Vor und Nachteile wie bei Prototypen
+			\item Definierte Planung und Analysephase (im Vergleich zu Trial and Error)
+		\end{itemize}
+	\end{block}
+
+}
+
+\frame {
+\frametitle {Prozessmodelle} 
+	\begin{block} {Synchronisiere und Stabilisiere (Microsoft)}
+		Ansatz
+		\begin{itemize}
+			\item organisiere die vielen Entwickler in kleine Teams - Freiheit für eigene Ideen/Entwürfe
+			\item Aber: Synchronisiere regelmäßig (nächtlich)
+			\item Und Stabilisiere regelmäßig (Meilensteine, 3 Mon.)
+		\end{itemize}
+
+		3 Phasen
+		\begin{itemize}
+			\item Planungsphase
+			\item Entwicklungsphase
+			\item Stabilisierungsphase
+		\end{itemize}
+	\end{block}
+}
+		
+
+\frame {
+\frametitle {Prozessmodelle} 
+	\begin{block} {Synchronisiere und Stabilisiere (Microsoft) II}
+		pro
+		\begin{itemize}
+			\item kurze Produkzyklen
+			\item Priorisierung nach Funktionen
+			\item Natürliche Modularisierung nach Funktionen
+			\item Fortschritt auch ohne vollständige Spezifikation möglich
+			\item Viele Entwickler arbeiten in kleinen Teams und damit genau so
+			effektiv wie wenige
+			\item Rückmeldungen können frühzeitig einfließen
+		\end{itemize}
+	\end{block}
+}
+		
+
+
+\frame {
+\frametitle {Prozessmodelle} 
+	\begin{block} {Synchronisiere und Stabilisiere (Microsoft) III}
+		contra
+		\begin{itemize}
+			\item Ungeeignet für manche Art von Software – Architekturprobleme,
+			mangelhafte Fehlertoleranz, Echtzeitfähigkeit
+			\item Mündliche Arbeitsweise: ad-hoc-Prozesse in jedem Team, kein
+			Lernen über Teamgrenzen
+			\item Alle 18 Monate sind 50 Prozent des Codes überarbeitet worden
+
+		\end{itemize}
+	\end{block}
+}
+
+
+
+\subsection{Kontrollflussorientierte Testverfahren}
+\frame {
+\frametitle{Kontrollflussorientierte Testverfahren}%Klausur 2009-1 A2 a) 
+	\begin{center}
+	\includegraphics[width=\textwidth]{pics/06/kfg_a2a}
+	\end{center}
+}
+
+\frame {
+\frametitle {Klausur 2009-1 A2 a) Lösung} 
+	\begin{center}
+	\includegraphics[width=\textwidth]{pics/06/kfg_a2a_lsg}
+	\end{center}
+}
+
+\frame {
+\frametitle {Bedingungs-Überdeckungen} 
+	\begin{center}
+	\includegraphics[width=0.9\textwidth]{pics/06/kfg_hierarchie}
+	\end{center}
+}
+
+\frame {
+\frametitle {Klausur 2009-1 A2 b)} 
+	\begin{center}
+	\includegraphics[width=\textwidth]{pics/06/kfg_a2b}
+	\end{center}
+}
+
+\frame {
+\frametitle {Klausur 2009-1 A2 b) Lösung} 
+	\begin{center}
+	\includegraphics[width=\textwidth]{pics/06/kfg_a2b_lsg}
+	\end{center}
+}
+
+\frame {
+\frametitle {Aufwandsabschätzung} 
+	\begin{block} {Aufgabe 2 (2P)}
+		Nennen Sie 2 aus der Vorlesung bekannte Basismethoden der Aufwandsschätzung und erklären Sie eine davon kurz. \\
+		\begin{itemize}
+		\visible<2-> {
+			\item Analogiemethode
+			\item Relationsmethode
+			\item Multiplikatormethode
+			\item Phasenaufteilung
+			}
+		\end{itemize}
+	\end{block}
+}
+
+\frame {
+\frametitle {Testen} 
+	\begin{block} {Aufgabe 2 (3P)}
+		Nennen Sie die 3 aus der Vorlesung bekannten Arten von Testhelfern und erklären Sie diese jeweils in einem Satz. \\
+		\begin{itemize}
+		\visible<2-> {
+			\item Stummel (stub)  \visible<3-> {Rudimentär implementierte Methode als Teil der Software. Dient als Platzhalter für 	noch nicht umgesetzte Funktionalität.}
+			\item Attrappe (dummy):  \visible<4->{Simuliert die Implementierung zu Testzwecken}
+			\item Nachahmung (mock):  \visible<5->{Attrappe mit zusätzlicher Funktionalität, wie bspw. das Einstellen der Reaktion der Nachahmung auf bestimmte Eingaben oder das Überprüfen des Verhaltens des „Klienten“.}
+			}
+		\end{itemize}
+	\end{block}
+}
+
+\section{inoffizielle Probeklausur}
+
+\frame{
+\frametitle{inoffizielle Probeklausur}
+
+	\begin{block}{Ablauf}
+	\begin{itemize}
+	\item Zeit: 25.7. 18 Uhr \pause
+	\item Ort: Audimax
+	\item die Tutoren korrigieren die Probeklausuren \pause
+	\item Rückgabe in der gleichen Woche, vorraussichtlich Donnerstag den 28.7. 16 Uhr, R-120 (wie immer) \pause
+	\item die Probeklausur wird von Tutoren ausgerichtet, es gibt keinen Zusammenhang mit der offizellen Klausur!
+	\end{itemize}
+	\end{block}
+\pause
+	\begin{block}{Anmeldung}
+	\begin{itemize}
+	\item damit wir genügend Kopien drucken können, meldet euch bitte jetzt an \pause
+	\item damit die Probeklausur euch hilft, müsst ihr schon vorher mit der Klausurvorbereitung anfangen
+	\end{itemize}
+	\end{block}
+}
+
+
+\frame{
+\frametitle{Bis zum nächsten Mal}
+	\begin{center}
+	\includegraphics[height=200pt]{pics/06/06_comic}
+	\end{center}
+}
+
+\end{document}
